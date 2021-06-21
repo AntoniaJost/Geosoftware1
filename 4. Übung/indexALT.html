@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <title>Leaflet Map</title>
+    <!-- Es folgt mit #export ein potentieller Export Button, um Rectangle zu exportieren und schnittstellen zu berechnen. Liegt leider einen Layer unter Map und ist deshalb unsichtbar und funktioniert zudem auch nicht :))) Top!-->
+    <style> 
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #export { 
+            position: absolute;
+            top:50px;
+            right:10px;
+            z-index:100;
+            background:white;
+            color:black;
+            padding:6px;
+            border-radius:4px;
+            font-family: 'Helvetica Neue';
+            cursor: pointer;
+            font-size:12px;
+            text-decoration:none;
+        } 
+        #export {
+            top:90px;
+        }
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+
+    </style>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+ 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+<!-- Turf-Datei -> ESSENTIELL!! -->
+
+    <script src="polys.js" defer></script>    
+    <!-- Test polygone, die aber auch nicht funktionieren-->
+    <script src="route.js" defer></script>
+    <script src="Route_Uebung4.geojson" defer></script>
+    
+    <script src="leaflet.js" defer></script>
+    
+
+
+</head>
+<body>
+    <div id ="map"></div> 
+    <a href='#' id='export'>Export Features</a>
+<!--Export-Button-->
+</body>
+
+</html>

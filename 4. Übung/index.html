@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Leaflet Map</title>
+    <style> 
+        body {
+            margin: 0;
+            padding: 0;
+        } 
+
+        #map {
+            max-width: 100%;
+            height: 85vh;
+        }
+            
+    </style>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="route.js" defer></script>
+    <script src="leafletVAR2.js" defer></script>
+    <script src="WeatherPopUp.js" defer></script>
+    <script src="openWeatherAPIKey.js" defer></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    
+
+    <header>
+
+        <nav id="myFirstNavbar" class="navbar navbar-expand-lg navbar-light" style="background-color: #50a3e6;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Übung 5</a>
+
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://www.uni-muenster.de/Geoinformatics/">Institut</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://de.wikipedia.org/wiki/Hreflang">FAQ</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#dropdownmenu" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li><a class="dropdown-item" href="mailto:antonia.jost@uni.muenster.de">Contact Antonia</a></li>
+                      <li><a class="dropdown-item" href="mailto:henning.sander@uni-muenster.de">Contact Henning</a></li>
+                      <li><a class="dropdown-item" href="javascript:alert('Surprise! :D ');">FUN FUN FUN</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search (in progress)" aria-label="Search" >
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+
+      </header>
+
+
+    <main class="map-display">
+        <div id ="map" style="width: 800px; margin-left: auto; margin-right: auto;" ></div>
+
+
+        <div class="container px-4 py-5" id="Input">
+            <h2 class="pb-2 border-bottom">Interesting Information</h2>
+        
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+              <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('Bild1.jpg');">
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Unbelievably stunning text.</h2>
+                    <ul class="d-flex list-unstyled mt-auto">
+                      <li class="me-auto">
+                        <img src="AJ.jpg" class="rounded-circle border border-white" width="32" height="32">
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('Bild2.jpg');">
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Information you never heard of before.</h2>
+                    <ul class="d-flex list-unstyled mt-auto">
+                      <li class="me-auto">
+                        <img src="AJ.jpg" class="rounded-circle border border-white" width="32" height="32">
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('Bild3.jpg');">
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Spectacular click-bait title!</h2>
+                    <ul class="d-flex list-unstyled mt-auto">
+                      <li class="me-auto">
+                        <img src="AJ.jpg" class="rounded-circle border border-white" width="32" height="32">
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+
+
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Imprint: Antonia Jost | Averkampstr. 1, 48151 Münster Germany |
+                a_jost05@uni-muenster.de </span>
+        </div>
+    </footer>
+      
+</body>
+
+</html>
