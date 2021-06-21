@@ -1,0 +1,72 @@
+block content
+  head 
+    title Leaflet Map
+  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
+  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js')
+  script(src='https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js' defer='')
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous')
+  script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+  header
+  nav#myFirstNavbar.navbar.navbar-expand-lg.navbar-light(style='background-color: #50a3e6;')
+    .container-fluid
+      a.navbar-brand(href='#') &Uuml;bung 7
+      #navbarNavDropdown.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href= 'http://localhost:5000') Home
+          li.nav-item 
+            a.nav-link(href= 'http://localhost:5000/add') Neue Route
+          li.nav-item
+            a.nav-link(href='https://www.uni-muenster.de/Geoinformatics/') Institut
+          li.nav-item
+            a.nav-link(href='https://de.wikipedia.org/wiki/Hreflang') FAQ
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#dropdownmenu' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | More
+            ul.dropdown-menu.dropdown-menu-dark(aria-labelledby='navbarDarkDropdownMenuLink')
+              li
+                a.dropdown-item(href='mailto:antonia.jost@uni.muenster.de') Contact Antonia
+              li
+                a.dropdown-item(href='mailto:henning.sander@uni-muenster.de') Contact Henning
+              li
+                a.dropdown-item(href="javascript:alert('Surprise! :D ');") FUN FUN FUN
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      form.d-flex
+        input#unsereDaten.form-control.me-2(type='search' placeholder='Search routes' aria-label='Search')
+        button.btn.btn-outline-primary(type='submit') Search
+
+  form#route(action='/add/newroute' method='post')
+    textarea(name='rgeojson' form='route' rows='15' cols='100' placeholder='Enter your personal route as GeoJson. Notice the information below!' autofocus='')
+    input(type='submit') 
+
+
+  form#id(action= '/add' method='delete')
+    | Zu löschende Route: 
+    input(type='text' name='collection')
+    input(type='submit')
+
+// Button trigger modal
+button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal')
+  | Important information!!
+// Modal
+#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title User Information
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | Please note that after the first open curly bracket &quot;name&quot;: &quot;Name of your Route&quot;, needs to be added manually.  
+
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+
+ 

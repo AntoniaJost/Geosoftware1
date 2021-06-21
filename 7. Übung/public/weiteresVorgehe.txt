@@ -1,0 +1,40 @@
+Im nächsten Schritt Eingabefeld Methode nutzen!
+Dafür dann nur ROute als Eingabe nutzen und dann die Geojson per Eintrag eintragen. 
+Eingabe erfolgt als String. 
+String dann in Json umwandeln. 
+Dann an die Datenbank anbinden --> Dafür auf jeden Fall noch Felix fragen!
+Templates ergänzen
+
+      .form-group.row
+        label.col-sm-1.col-form-label(for='routefeatures') Route Feature
+        .col-sm-4
+          input#features.form-control(type='text' name="rfeatures" placeholder='Enter feature type')
+      .form-group.row 
+        label.col-sm-1.col-form-label(for='routegeometry') Route Geometry 
+        .col-sm-4 
+          input#geometry.form-control(type='number' name='rgeometry' placeholder='Enter geometry type')
+
+
+
+  br
+  br
+  form#route(action='/add/newroute' method='post')
+    | Route als GeoJson: 
+    input(type='text' name='rgeojson')
+    input(type='submit')
+  textarea(name='rgeojson' form='route') Enter GeoJson here...
+
+   <form action="/add/newroute" method="post" id="route">
+  <textarea name="rgeojson" form="route" rows="15" cols="100" placeholder="Enter GeoJson here..." autofocus>
+  <input type="submit">
+  </form> 
+
+
+Funktionierender Teil der pug Datei
+    form(action='/add/newroute' method='post')
+    fieldset
+      .form-group.row
+        label.col-sm-1.col-form-label(for='route') Route als GeoJson
+        .col-sm-4
+          input#type.form-control(type='text' name="rgeojson" placeholder='Enter your personal route as GeoJson')
+      button.btn.btn-primary.mb-2(type='submit') Send

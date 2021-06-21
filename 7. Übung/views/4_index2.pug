@@ -1,0 +1,100 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  title Leaflet Map
+  style.
+    body {
+    margin: 0;
+    padding: 0;
+    }
+    #map {
+    max-width: 100%;
+    height: 80vh;
+    }
+    @media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .menu, .main, .right {
+    width: 100%;
+    }
+    }
+  // Jquery and jquery UI
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous')
+  script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js' integrity='sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css')
+  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js')
+  script(src='https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js' defer='')
+  script(src='route.js' defer='')
+  script(src='leaflet.js' defer='')
+  script(src='WeatherPopUp.js' defer='')
+  script(src='openWeatherAPIKey.js' defer='')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous')
+header
+  nav#myFirstNavbar.navbar.navbar-expand-lg.navbar-light(style='background-color: #50a3e6;')
+    .container-fluid
+      a.navbar-brand(href='#') &Uuml;bung 7
+      #navbarNavDropdown.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href= 'http://localhost:5000') Home
+          li.nav-item 
+            a.nav-link(href= 'http://localhost:5000/add') Neue Route
+          li.nav-item
+            a.nav-link(href='https://www.uni-muenster.de/Geoinformatics/') Institut
+          li.nav-item
+            a.nav-link(href='https://de.wikipedia.org/wiki/Hreflang') FAQ
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#dropdownmenu' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+              | More
+            ul.dropdown-menu.dropdown-menu-dark(aria-labelledby='navbarDarkDropdownMenuLink')
+              li
+                a.dropdown-item(href='mailto:antonia.jost@uni.muenster.de') Contact Antonia
+              li
+                a.dropdown-item(href='mailto:henning.sander@uni-muenster.de') Contact Henning
+              li
+                a.dropdown-item(href="javascript:alert('Surprise! :D ');") FUN FUN FUN
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      form.d-flex
+        input#unsereDaten.form-control.me-2(type='search' placeholder='Search routes' aria-label='Search')
+        button.btn.btn-outline-primary(type='submit') Search
+  #map(style='width: 800px; margin-left: auto; margin-right: auto;')
+  .container-fluid
+  p(style='text-align: center;')
+  #Input.container.px-4.py-5
+    h2.pb-2.border-bottom Interesting Information
+    .row.row-cols-1.row-cols-lg-3.align-items-stretch.g-4.py-5
+      .col
+        .card.card-cover.h-100.overflow-hidden.text-white.bg-dark.rounded-5.shadow-lg(style="background-image: url('Bild1.jpg');")
+          .d-flex.flex-column.h-100.p-5.pb-3.text-white.text-shadow-1
+            h2.pt-5.mt-5.mb-4.display-6.lh-1.fw-bold Unbelievably stunning text.
+            ul.d-flex.list-unstyled.mt-auto
+              li.me-auto
+                img.rounded-circle.border.border-white(src='Logo.jpg' width='32' height='32')
+      .col
+        .card.card-cover.h-100.overflow-hidden.text-white.bg-dark.rounded-5.shadow-lg(style="background-image: url('Bild2.jpg');")
+          .d-flex.flex-column.h-100.p-5.pb-3.text-white.text-shadow-1
+            h2.pt-5.mt-5.mb-4.display-6.lh-1.fw-bold Information you never heard of before.
+            ul.d-flex.list-unstyled.mt-auto
+              li.me-auto
+                img.rounded-circle.border.border-white(src='Logo.jpg' width='32' height='32')
+      .col
+        .card.card-cover.h-100.overflow-hidden.text-white.bg-dark.rounded-5.shadow-lg(style="background-image: url('Bild3.jpg');")
+          .d-flex.flex-column.h-100.p-5.pb-3.text-shadow-1
+            h2.pt-5.mt-5.mb-4.display-6.lh-1.fw-bold Spectacular click-bait title!
+            ul.d-flex.list-unstyled.mt-auto
+              li.me-auto
+                img.rounded-circle.border.border-white(src='Logo.jpg' width='32' height='32')
+  script. 
+    let geojson = !{JSON.stringify(data)}
+    console.log(geojson);
+
+
+footer.footer.mt-auto.py-3.bg-light
+  .container
+    span.text-muted
+      |Imprint: Henning Sander | Cheruskerring 35, 48147 M&uuml;nster | henning.sander@uni-muenster.de |
+      || Antonia Jost | Averkampstr. 1, 48151 M&uuml;nster | antonia.jost@uni-muenster.de
