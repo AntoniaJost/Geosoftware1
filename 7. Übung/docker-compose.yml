@@ -1,8 +1,9 @@
 version: "3"
 services:
-  app:
+  appservice:
+    container_name: uebung7docker
     build: .
-    #image: cheesedocks/aufgabe-08-cheese
+    #image: antonia123/uebung7
     ports:
       - "3000:3000" # forward webserver on standard-http port
     depends_on:
@@ -15,3 +16,8 @@ services:
     - ./data:/data/db
     # find out where to mount to in the image's Dockerfile;
     #           here: https://github.com/docker-library/mongo/blob/00a8519463e776e797c227681a595986d8f9dbe1/3.0/Dockerfile
+    
+  mongoexpressservice:
+    image: mongo-express 
+    ports: 
+        - "8081:8081"
