@@ -20,15 +20,8 @@ router.post('/newroute', function(req, res, next)
   console.log("A new route has been added")
   console.log(req.body)
   let route = JSON.parse(req.body.rgeojson)
- // console.log(route)
-  //route.geojson = JSON.parse(req.body.rgeojson)
-  //route.features = req.body.rfeatures
-  // Wie erstelle ich hier das Dateiformat einer GeoJson??
-  //route.geometry = req.body.rgeometry
-  //route.geometry.coordinates = req.body.rcoordinates
 
-
-
+  
   //Connect to the mongodb database afterwards, insert one new element 
   client.connect(function(err)
   {
