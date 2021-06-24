@@ -1,11 +1,11 @@
 version: "3"
 services:
   appservice:
-    container_name: uebung7docker
+    container_name: node
     build: .
     #image: antonia123/uebung7
     ports:
-      - "3000:3000" # forward webserver on standard-http port
+      - "4000:3000" # forward webserver on standard-http port
     depends_on:
       - mongodbservice
   mongodbservice:
