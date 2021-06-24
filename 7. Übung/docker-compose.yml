@@ -3,7 +3,7 @@ services:
   appservice:
     container_name: node
     build: .
-    #image: antonia123/uebung7
+    image: antonia123/uebung7
     ports:
       - "4000:3000" # forward webserver on standard-http port
     depends_on:

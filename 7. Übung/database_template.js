@@ -2,7 +2,7 @@
 const MongoClient = require('mongodb').MongoClient
 const assert = require('assert') //Prüft ob zwei Werte gleich sind
 
-const url = 'mongodb://localhost:27017' // connection URL
+const url = 'mongodb://mongodbservice:27017' // connection URL -> ÄNDERN
 
 const client = new MongoClient(url) // mongodb client
 
