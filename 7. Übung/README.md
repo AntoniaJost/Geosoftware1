@@ -1,6 +1,7 @@
 Abgabe zur Übung 7 : Docker und Dockerhub
 
 Link zum Image auf Dockerhub: docker pull antonia123/uebung7:latest
+
 Anweisungen zum Starten: docker-compose up im CLI
 
 Aufgabenstellung:
