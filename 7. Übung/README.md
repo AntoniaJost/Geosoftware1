@@ -1,7 +1,7 @@
 Abgabe zur Übung 7 : Docker und Dockerhub
 
-Link zum Image auf Dockerhub: 
-Anweisungen zum Starten: (mit docker-compose up im CLI)
+Link zum Image auf Dockerhub: docker pull antonia123/uebung7:latest
+Anweisungen zum Starten: docker-compose up im CLI
 
 Aufgabenstellung:
 Der node-Teil der Anwendung läuft in einem von uns erstellten container.
