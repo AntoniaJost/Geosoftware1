@@ -3,7 +3,7 @@ services:
   appservice:
     container_name: node
     build: .
-    image: antonia123/uebung7
+    #image: antonia123/uebung7
     ports:
       - "4000:3000" # forward webserver on standard-http port
     depends_on:
@@ -12,7 +12,7 @@ services:
     image: mongo # to be retrieved from dockerhub
     ports:
       - "27017:27017" # forward mongod port
-    volumes:
-    - ./data:/data/db
+    #volumes:
+    #- ./data:/data/db
     # find out where to mount to in the image's Dockerfile;
     #           here: https://github.com/docker-library/mongo/blob/00a8519463e776e797c227681a595986d8f9dbe1/3.0/Dockerfile

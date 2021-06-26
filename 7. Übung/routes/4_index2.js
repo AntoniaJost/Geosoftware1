@@ -3,7 +3,7 @@ var router = express.Router();
 const MongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 
-const url = 'mongodb://localhost:27017' //Connection to url 
+const url = 'mongodb://mongodbservice:27017' //Connection to url 
 const client = new MongoClient(url)     //mongodb cient 
 const dbName = 'Routes'                 //Database name
 const collectionName = 'newRoutes'      //Collection name

@@ -1,8 +1,8 @@
 Abgabe zur Übung 7 : Docker und Dockerhub
 
-Link zum Image auf Dockerhub: docker pull antonia123/uebung7:latest
+Link zum Image auf Dockerhub: docker pull antonia123/geosoft_abgaben:finalpush
 
-Anweisungen zum Starten: docker-compose up im CLI
+Anweisungen zum Starten: docker-compose up im CLI | Die Webpage wird über Port 4000 abgerufen.
 
 Aufgabenstellung:
 Der node-Teil der Anwendung läuft in einem von uns erstellten container.

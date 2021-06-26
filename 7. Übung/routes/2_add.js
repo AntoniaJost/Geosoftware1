@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 
 
-const url = 'mongodb://localhost:27017' // connection URL
+const url = 'mongodb://mongodbservice:27017' // connection URL
 const client = new MongoClient(url) // mongodb client
 const dbName = 'Routes' // database name --> muss noch geändert werden
 const collectionName = 'newRoutes' // collection name --> muss noch geändert werden 
