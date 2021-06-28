@@ -67,14 +67,9 @@
             <button v-on:click="toJS($event)" >Calculate route</button>
             <button v-on:click="oldGeoJsonPolygon(polygon)" >Old Polygon GeoJSON</button>
             <button v-on:click="oldGeoJsonRoute(route)" >Old Route GeoJson</button>
-            <p>{{ inputGeoJson }}</p>
         </form>
     </div>
-
-    <div id="vue-two-app">
-        <p>{{ helloStr }}</p>
-    </div>
-
+    
     <p>
         The length of the route [km] is: <br>
     <span id="ergebnis"></span>
