@@ -9,7 +9,9 @@
 </head>
 <body>
     <div id="app">
-        <h1></h1>
+        {{ message }} <br/>
+        <textarea v-model.lazy="message"></textarea><br/>
+        <button v-on:click:"submit">Absenden</button>
     </div>
     
 </body>
