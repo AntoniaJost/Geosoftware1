@@ -1,10 +1,16 @@
 let vOne = new Vue({
     el: '#vue-one-app',
-    data: { inputGeoJson: 'Hallo' },
+    data: { inputGeoJson: 'Hallo', 
+            data: '', 
+            data2: '', 
+            lengthRoute: '',
+            result: 0,
+            dataCoordinates: '' },
     methods: {
         calculateDistance: function(data2) {
-            let result = 0; 
-            let dataCoordinates; 
+
+            //let result = 0; 
+            //let dataCoordinates; 
             dataCoordinates = data2.features[0].geometry.coordinates; 
             for(i = 0; i < dataCoordinates.length-1; i++){
                 let j = i +1; 
@@ -18,7 +24,7 @@ let vOne = new Vue({
 
                         var R = 6371; 
                         var y1 = lat2 - lat1; 
-                        var dlat = degToRad(y1); 
+                        var dlat = y1.degToRad(y1); 
                         var y2 = lon2 - lon1; 
                         var dlon = vOne.degToRad(y2); 
                         var a1 = Math.sin(dlat/2) * Math.sin(dlat/2) + 
