@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Übung 8</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="app">
         <header>
             <nav id="myFirstNavbar" class="navbar navbar-expand-lg navbar-light" style="background-color: #50a3e6;">
                 <div class="container-fluid">
@@ -46,29 +49,36 @@
               </nav>
     
           </header>
-          <!-- > <main class="input-display"> //-->
-            <div>
-            <br/><p> Insert your GeoJSON LineString [lng, lat] here. </p><br/>
-            <textarea v-model.lazy="inputGeoJson", rows="15", cols="100", placeholder="Insert coordinates", autofocus></textarea><br/>
+          <main class="input-display">
+            <div id="app">
+            <br/>
+            <span> Insert your GeoJSON LineString [lng, lat] here.</span>
+            <br/>
+            <textarea v-model.lazy="inputGeoJson" placeholder="Insert your coordinates..." ></textarea>
+            <br/>
             <form>
-                <button v-on:click="submit">Absenden</button>
-                <button v-on:click="toJS($event)" >Calculate route</button>
-                <button v-on:click="oldGeoJsonPolygon(polygon)" >Old Polygon GeoJSON</button>
-                <button v-on:click="oldGeoJsonRoute(route)" >Old Route GeoJson</button>
+                <button v-on:click="toJS(this.inputGeoJson)" >Calculate route</button>
             </form>
-            </div>
-            <p>
+            <br/>
+              <div id ="myId" ref="myId"></div>
+                <button v-on:click="oldGeoJsonPolygon()">Old Polygon GeoJSON</button>
+              <br/>
+              <form>
+                <button v-on:click="oldGeoJsonRoute()">Old Route GeoJson</button>
+              </form>
+              <p>
                 The length of the route [km] is: <br>
-            <span id="ergebnis"></span>
-            </p>
-            <p>
+              <span id="newGeoJsonRoute"></span>
+              </p>
+              <p>
                 Old Polygon GeoJson: <br>
                 <span id="ergebnis2"></span>
-            </p>
-            <p>
+              </p>
+              <p>
                 Old Route GeoJson: <br>
                 <span id="ergebnis3"></span>
-            </p>
+              </p>
+            </div>
         
             <div class="container px-4 py-5" id="Input">
                 <h2 class="pb-2 border-bottom">Interesting Information</h2>
@@ -124,10 +134,5 @@
                 </span>
             </div>
         </footer>          
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="app.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>
