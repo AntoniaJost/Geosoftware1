@@ -52,32 +52,31 @@
           <main class="input-display">
             <div id="app">
             <br/>
-            <span> Insert your GeoJSON LineString [lng, lat] here.</span>
+            <span> <b>Insert your GeoJSON LineString [lng, lat] here.</b></span>
             <br/>
             <textarea v-model.lazy="inputGeoJson" placeholder="Insert your coordinates..." ></textarea>
             <br/>
-            <form>
-                <button v-on:click="toJS(this.inputGeoJson)" >Calculate route</button>
-            </form>
+            <div id ="myId3" ref="myId3"></div>
+                <button v-on:click="toJs(this.inputGeoJson)" >Calculate route</button>
             <br/>
+            <p>
+              <b>The length of the route [km] is: </b><br>
+            <span id="newGeoJsonRoute"></span>
+            </p>
+            <br/>
+            <p>
+              <b>Old Polygon GeoJson: </b><br>
+            </p>
               <div id ="myId" ref="myId"></div>
                 <button v-on:click="oldGeoJsonPolygon()">Old Polygon GeoJSON</button>
               <br/>
-              <form>
+              <br/>
+              <br/>
+              <p>
+                <b>Old Route GeoJson: </b><br>
+              </p>
+              <div id ="myId2" ref="myId2"></div>
                 <button v-on:click="oldGeoJsonRoute()">Old Route GeoJson</button>
-              </form>
-              <p>
-                The length of the route [km] is: <br>
-              <span id="newGeoJsonRoute"></span>
-              </p>
-              <p>
-                Old Polygon GeoJson: <br>
-                <span id="ergebnis2"></span>
-              </p>
-              <p>
-                Old Route GeoJson: <br>
-                <span id="ergebnis3"></span>
-              </p>
             </div>
         
             <div class="container px-4 py-5" id="Input">
