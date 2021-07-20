@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stadtführung Münster</title>
+    <style>
+
+    </style>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- STYLESHEET-->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- LEAFLET & LEAFLET DRAW -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+
+    <!-- JAVASCIPTS -->
+    <script src=""></script>
+  </head>
+  <body>
+    <header>
+      <!-- NAVIGATION BAR -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: mediumseagreen;">
+            <div class="container-fluid">
+              <a class="navbar-brand" >
+                <img src="Logo.jpg" alt="" width="30" height="24">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="1_tour.html" id="Touren" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Touren
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="1_1_tour_add.html">Hinzufügen</a></li>
+                      <li><a class="dropdown-item" href="1_2_tour_edit.html">Bearbeiten</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://de.wikipedia.org/wiki/Geschichte_der_Stadt_M%C3%BCnster">Geschichte</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="2_kontakt.html">Kontakt</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Tour oder Sehenswürdigkeit" aria-label="Search" style="background-color:rgb(255, 255, 255);">
+                  <button class="btn btn-outline-success" type="submit" style="background-color:black;">Suchen</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <!-- CONTACT DISPLAY -->
+    <!-- noch nicht responsive-->
+    <div class="contact">
+        <div class="container">
+        <div class="row" style="align-content: center; margin-top: 30px; margin-bottom: 30px; margin-left: auto;">
+            <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="Henning.JPG" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">Henning Sander</h5>
+                    <p class="card-text">Hi! Ich bin Henning ...</p>
+                    <a href="mailto:henning.sander@uni-muenster.de" class="btn btn-outline-success" style="background-color:black;">Kontaktiere mich!</a>
+                    </div>
+                </div>
+             </div>        
+            
+            <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="Antonia.JPG" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">Antonia Jost</h5>
+                    <p class="card-text">Hallo! Ich bin Antonia und studiere im 4. Semester Geographie mit dem Nebenfach Geoinformatik. Ich liebe es zu gärntern und draußen unterwegs zu sein.</p>
+                    <a href="mailto:antonia.jost@uni.muenster.de" class="btn btn-outline-success" style="background-color:black;">Kontaktiere mich!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- FOOTER -->  
+    <footer class="bg-light text-center text-lg-start">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">IMPRESSUM</h5>
+            <p>
+              Henning Sander <br>
+              B.Sc. Geoinformatik <br>
+              Cheruskerring 35, 48147 Münster <br>
+              Deutschland <br>
+              henning.sander@uni-muenster.de
+            </p>
+          </div>
+ 
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase"></h5><br>
+            <p>
+             Antonia Anna Jost <br>
+             B.Sc. Geographie <br>
+             Averkampstr. 1, 48151 Münster <br>
+             Deutschland <br>
+             antonia.jost@uni-muenster.de
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center p-3" style="background-color: mediumseagreen;">
+        © 2020 Copyright: Henning Sander & Antonia Jost
+       </div>
+
+    </footer>
+
+  </body>
+</html>

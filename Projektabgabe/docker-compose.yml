@@ -1,0 +1,15 @@
+version: "3"
+services:
+  appservice:
+    container_name: node
+    build: .
+    #image: antonia123/projektabgabe
+    ports:
+      - "4000:3000" # forward webserver on standard-http port
+    depends_on:
+      - mongodbservice
+  mongodbservice:
+    image: mongo # to be retrieved from dockerhub
+    ports:
+      - "27017:27017" # forward mongod port
+    
