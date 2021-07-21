@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stadtführung Münster</title>
-    <style>
+    <style> 
 
     </style>
+
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -22,8 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
 
     <!-- JAVASCIPTS -->
-    <script src="add_tour.js" defer></script>
-
+    <script src=""></script>
   </head>
   <body>
     <header>
@@ -44,6 +44,7 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="1_tour.html" id="Touren" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Touren
+                      <!-- href tours klappt nicht-->
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="1_1_tour_add.html">Hinzufügen</a></li>
@@ -67,101 +68,22 @@
           </nav>
     </header>
 
+
     <!-- HEADING -->
     <br>
-    <h3 class="text-center">Tour oder Sehenswürdigkeit hinzufügen</h3>
+    <h3 class="text-center">Erfolgreich abgesendet.</h3>
     <br>
 
-    <!-- FLEX CONTAINER -->
-    <div class="d-flex bd-highlight">
-
-    <!-- TEXTAREA ADD VIA MAP-->
-        <div id="textfeld">
-            <h5 class="text-left">LEAFLET UPLOAD</h5>
-            <p class="text-left">Eine Sehenswürdigkeit zu einer bestehenden Tour hinzufügen oder eine neue Tour erstellen 
-            </p>
-
-    <!-- FORM SELECT TO CHOOSE OPTION-->
-            <select class="form-select form-select-lg mb-3" aria-label="form-select1" 
-                    style="background-color: black; color: mediumseagreen; font-size: 16px;">
-                <option selected>Bitte wählen</option>
-                <option value="1">Sehenswürdigkeit zu Tour ergänzen</option>
-                <option value="2">Neue Tour erstellen</option>
-              </select>
-
-    <!-- MAP DISPLAY -->
-            <form action="1_2_tour_details.html" method="POST">
-                <div class="p2 flex-fill bd-highlight">
-                    <div id ="karte" ></div>
-                    <input class="btn btn-outline-success" type="submit" value="Absenden" style="background-color: black;">
-                </div>
-            </form>
+    <div id="textfeld">
+        <p class="text-center">Deine Daten wurden an die Datenbank übermittelt. Auf der Touren-Seite kannst du das Ergebnis betrachten.</p>
+        <div class="d-flex justify-content-center">
+        <a href="1_tour.html" class="btn btn-outline-success" style="background-color:black;">Zu den Touren</a>
         </div>
-<!-- die ausgeählte Option soll anschließend in dem Button stehen & Optionen über Karte liegen-->
+    </div>
 
-    <!-- TEXTAREA ADD VIA FORM-->
-        <div id="textfeld">
-            <h5 class="text-left">FORMULAR UPLOAD</h5>
-            <p class="text-left">Eine Sehenswürdigkeit zu einer bestehenden Tour hinzufügen oder eine neue Tour erstellen 
-            </p>
-
-    <!-- FORM SELECT TO CHOOSE OPTION-->
-            <select class="form-select form-select-lg mb-3" aria-label="form-select1" 
-                    style="background-color: black; color: mediumseagreen; font-size: 16px;">
-                <option selected>Bitte wählen</option>
-                <option value="1">Sehenswürdigkeit zu Tour ergänzen</option>
-                <option value="2">Neue Tour erstellen</option>
-              </select> 
-
-    <!-- UPLOAD FORM -->
-    <!-- evtl. auch Input Group von Bootstrap verwenden?-->
-            <form action="1_2_tour_details.html" method="POST">
-                <div class="mb-3">
-                  <label for="input1" class="form-label">Input1</label>
-                  <input type="email" class="form-control" id="input1" aria-describedby="note">
-                    <div id="note" class="form-text">Hier muss ich mir noch überlegen, wie das Formular genau aussehen soll.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="input2" class="form-label">Input2</label>
-                  <input type="password" class="form-control" id="input2">
-                </div>
-                <div class="mb-3">
-                    <label for="input3" class="form-label">Input3</label>
-                    <input type="password" class="form-control" id="input3">
-                  </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Checkbox</label>
-                </div>
-                <button type="submit" class="btn btn-outline-success" style="background-color: black;">Absenden</button>
-              </form>
-        </div>
-
-    <!-- TEXTAREA ADD VIA GEOJSON-->
-        <div id="textfeld">
-            <h5 class="text-left">GEOJSON UPLOAD</h5>
-            <p class="text-left">Hier kannst du deine neue Route ins Textfeld eingeben oder per Upload hochladen. Es wird
-                eine neue Tour erstellt. 
-            </p>
-    <!-- UPLOAD BUTTON & INPUT FIELD -->
-            <!-- Button irgendwie schöner machen & Box schmaler-->
-            <form action="1_2_tour_details.html" method="POST">
-                <div class="form-group">
-                  <input type="file" class="form-control-file" id="upload-button">
-                </div> <br>
-
-                <div class="form-group">
-                    <textarea class="form-control" id="upload-form" rows="5" placeholder="Hier Geojson eingeben"></textarea> <br>
-                    <input class="btn btn-outline-success" type="submit" value="Absenden" style="background-color: black;">
-                </div>
-              </form>
-        </div>  
-
-    </div> 
-
-
+   
     <!-- FOOTER -->  
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start fixed-bottom">
       <div class="container p-4">
         <div class="row">
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
