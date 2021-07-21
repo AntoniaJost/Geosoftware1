@@ -23,11 +23,12 @@
 
     <!-- JAVASCIPTS -->
     <script src="tour.js" defer></script>
+    <script src="oepnv.js" defer></script>
 
   </head>
   <body>
     <header>
-      <!-- NAVIGATION BAR -->
+    <!-- NAVIGATION BAR -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: mediumseagreen;">
             <div class="container-fluid">
               <a class="navbar-brand" >
@@ -67,10 +68,71 @@
           </nav>
     </header>
 
-    <!-- MAP DISPLAY -->
-    <main class="map-display"></main>
-      <div id ="map" ></div>
-    </main>
+    <!-- HEADING -->
+    <br>
+    <h3 class="text-center">Interaktive, digitale Stadtführungen in Münster</h3>
+    <br>
+
+    <!-- MAP DISPLAY (in einem Flex Container mit Text & Drowpdown)-->
+    <!-- irgendwie nicht in einer row und flex-wrap klappt nicht?? -->
+    <div class="d-flex flex-row flex-wrap">
+
+      <div class="col-md-8 flex-wrap">
+        <div id ="map"></div>
+      </div>
+
+    <!-- "CHOOSE TOUR" TEXT AREA-->
+      <div class="col-md-8 offset-md-8 flex-wrap">
+        <div id="textfeld">
+          <p class="text-left">Wähle eine Tour!</p>
+
+    <!-- DROWPDOWN BAR-->
+        <div class="dropdown">
+          <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:black;">
+            Tour wählen
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <!-- hier Links zu MongoDB mit Touren ergänzen-->
+            <li><a class="dropdown-item" href="#">Hier Touren anzeigen</a></li>
+            <li><a class="dropdown-item" href="#">durch MongoDB Abfrage</a></li>
+            <li><a class="dropdown-item" href="#">...</a></li>
+          </ul>
+        </div>
+
+       </div> 
+
+      <!-- ÖPNV TEXT AREA -->
+        <div id="textfeld">
+          <p class="text-left">Umweltbewusst unterwegs? Dann lass dir die nächst gelegene Bushaltestelle anzeigen.</p>
+
+      <!-- ÖPNV ANZEIGEN BUTTON -->
+          <input class="btn btn-outline-success" type="button" value="ÖPNV" onclick="oepnv()" style="background-color:black; margin: 10px;">
+        </div>
+
+      <!-- "ADD SOMETHING?" TEXT AREA-->
+        <div id="textfeld">
+          <p class="text-left">Deinen Lieblingsspot ergänzen?</p>
+
+      <!-- SECOND DROWPDOWN BAR-->
+          <a href="1_1_tour_add.html" class="btn btn-outline-success" style="background-color:black;">Ergänzen</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFORMATIONSTEXT -->
+    <div class="d-flex bd-highlight">
+      <div class="p-2 flex-grow-1 bd-highlight">
+        <h4 class="text-left" style="margin-left: 10px;">Informationen zur gewählten Tour</h4>
+        hier stehen ganz viele spannende Infos <br>
+        ...<br>
+        ...<br>
+        ... <br>
+        <!-- hier irgendie ermöglich, dass passender Text zur Route displayed wird-->
+      </div>
+
+    </div>
 
     <!-- FOOTER -->  
     <footer class="bg-light text-center text-lg-start">

@@ -60,8 +60,21 @@
 /*Map Layout - Seite 1_tour*/
 #map {
     height: 85vh;;
-    max-width: 60%;
-    padding: 0px;
+    max-width: 100%;
     margin: 10px;
-    align-items: left;
+}
+
+/*Textfeld Layout - Seite 1_tour*/
+#textfeld {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 100px;
+}
+
+/*Map2 Layout - Seite 1_1_tour_add*/
+#karte {
+    height: 85vh;;
+    max-width: 100%;
+    margin: 10px;
+    margin-top: 200px;
 }
