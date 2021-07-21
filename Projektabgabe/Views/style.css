@@ -1,3 +1,4 @@
+/* nur für Test*/
 .title {
     height: 20vh;
     display: flex;
@@ -5,6 +6,7 @@
     align-items: center;
 }
 
+/* Layout für Startseite*/
 .images {
     display: flex;
     justify-content: space-around;
@@ -55,3 +57,11 @@
     opacity: 0.5;
 }
 
+/*Map Layout - Seite 1_tour*/
+#map {
+    height: 85vh;;
+    max-width: 60%;
+    padding: 0px;
+    margin: 10px;
+    align-items: left;
+}
