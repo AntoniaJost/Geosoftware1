@@ -1,0 +1,34 @@
+
+*** Als Flex COntainer ***
+
+
+   <!-- CONTACT DISPLAY -->
+    <!-- noch nicht responsive-->
+    <div class="contact">
+        <div class="d-flex justify-content-evenly">
+  
+            <div class="p-2 bd-highlight">
+                <div class="card" style="width: 18rem; margin-top: 30px; margin-bottom: 30px;">
+                    <img src="Henning.JPG" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">Henning Sander</h5>
+                    <p class="card-text">Hi! Ich bin Henning ...</p>
+                    <a href="mailto:henning.sander@uni-muenster.de" class="btn btn-outline-success" style="background-color:black;">Kontaktiere mich!</a>
+                    </div>
+                </div>
+             </div>        
+            
+            <div class="p-2 bd-highlight">
+                <div class="card" style="width: 18rem; margin-top: 30px; margin-bottom: 30px;">
+                    <img src="Antonia.JPG" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title">Antonia Jost</h5>
+                    <p class="card-text">Hallo! Ich bin Antonia und studiere im 4. Semester Geographie mit dem Nebenfach Geoinformatik. Ich liebe es zu gärtnern und draußen unterwegs zu sein.</p>
+                    <a href="mailto:antonia.jost@uni.muenster.de" class="btn btn-outline-success" style="background-color:black;">Kontaktiere mich!</a>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+</div>

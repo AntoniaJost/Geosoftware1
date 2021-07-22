@@ -1,0 +1,9 @@
+Fragen und Probleme:
+- Startbild lädt nicht (wegen Bootstrap? vgl. test-index)
+- href #1_tour.html klappt nicht
+- Layout bei allen gleich (Navbar & Footer) -> extends o.ä.?
+- bei 1_tour: Flex Container nicht in einer Reihe & flex-warp klappt nicht
+- Auswahl der Select-Button abrufen?
+- Wie genau soll bei 1_1_tour_add Upload Formular aussehen?
+- bei 1_1_tour_add geojson box genauso breit wie Rest bekommen
+- Responsive klappt noch nicht so ganz: entweder nicht responsive oder Karte/ alles verschwindet einfach
