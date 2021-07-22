@@ -1,14 +1,16 @@
 version: "3"
 services:
   appservice:
-    container_name: node
-    build: .
-    #image: antonia123/projektabgabe
+    container_name: geo-node
+    restart: always
+    build: . #image: antonia123/projektabgabe
     ports:
       - "4000:3000" # forward webserver on standard-http port
     depends_on:
       - mongodbservice
   mongodbservice:
+    container_name: geo-mongo
+    restart: always
     image: mongo # to be retrieved from dockerhub
     ports:
       - "27017:27017" # forward mongod port
