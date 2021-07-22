@@ -4,9 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//adding custom routers
-var addRouter = require('./routes/2_add.js');
-var indexRouter = require('./routes/4_index2.js')
+// adding routers
+var indexRouter = require('./routes/0_index.js')
+var addTourRouter = require('./routes/2_add.js');
+
 
 
 var app = express();
