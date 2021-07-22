@@ -5,10 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // adding routers
-var indexRouter = require('./routes/0_index.js')
-var addTourRouter = require('./routes/2_add.js');
-
-
+var indexRouter = require('./routes/0_index.js');
+var tourRouter = require('./routes/1_tour');
+var addTourRouter = require('./routes/1_1_tour_add.js');
+var successRouter = require('./routes/1_2_2_success.js');
+var deleteRouter = require('./routes/1_2_3_delete.js');
+var detailsRouter = require('./routes/1_2_tour_details.js');
+var editRouter = require('./routes/1_3_tour_edit.js');
+var kontaktRouter = require('./routes/2_kontakt.js');
+var searchRouter = require('./routes/3_search');
 
 var app = express();
 
@@ -22,13 +27,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', indexRouter);
-//app.use('/users', usersRouter);
-
 //adding custom routes
-app.use('/add', addRouter);  
 app.use('/', indexRouter);
-
+app.use('/tour', tourRouter);
+app.use('/tour/add', addTourRouter);  
+app.use('/tour/add/details', detailsRouter);
+app.use('/tour/add/details/success', successRouter);
+app.use('/tour/edit', editRouter);
+app.use('/tour/edit/delete', deleteRouter);
+app.use('/contact', kontaktRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
