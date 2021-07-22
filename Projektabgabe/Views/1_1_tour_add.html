@@ -90,11 +90,11 @@
               </select>
 
     <!-- MAP DISPLAY -->
-            <form action="1_2_tour_details.html" method="POST">
+            <form id="input-map" name="input-map" action="1_2_tour_details.html" method="POST">
                 <div class="p2 flex-fill bd-highlight">
                     <div id ="karte" ></div>
-                    <input class="btn btn-outline-success" type="submit" value="Absenden" style="background-color: black;">
-                </div>
+                    <a class="btn btn-outline-success" style="background-color: black;" onclick="document.getElementById('input-map').submit();">Absenden</a>
+                  </div>
             </form>
         </div>
 
@@ -114,7 +114,7 @@
 
     <!-- UPLOAD FORM -->
     <!-- evtl. auch Input Group von Bootstrap verwenden?-->
-            <form action="1_2_tour_details.html" method="POST">
+            <form id="input-form" name="input-form" action="1_2_tour_details.html" method="POST">
                 <div class="mb-3">
                   <label for="input1" class="form-label">Input1</label>
                   <input type="email" class="form-control" id="input1" aria-describedby="note">
@@ -132,7 +132,7 @@
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Checkbox</label>
                 </div>
-                <button type="submit" class="btn btn-outline-success" style="background-color: black;">Absenden</button>
+                <a class="btn btn-outline-success" style="background-color: black;" onclick="document.getElementById('input-form').submit();">Absenden</a>
               </form>
         </div>
 
@@ -144,15 +144,15 @@
             </p>
     <!-- UPLOAD BUTTON & INPUT FIELD -->
             <!-- Button irgendwie schöner machen & Box schmaler-->
-            <form action="1_2_tour_details.html" method="POST">
+            <form id="input-geojson" name="input-geojson" action="1_2_tour_details.html" method="POST">
                 <div class="form-group">
                   <input type="file" class="form-control-file" id="upload-button">
                 </div> <br>
 
                 <div class="form-group">
                     <textarea class="form-control" id="upload-form" rows="5" placeholder="Hier Geojson eingeben"></textarea> <br>
-                    <input class="btn btn-outline-success" type="submit" value="Absenden" style="background-color: black;">
-                </div>
+                    <a class="btn btn-outline-success" style="background-color: black;" onclick="document.getElementById('input-geojson').submit();">Absenden</a>
+                  </div>
               </form>
         </div>  
 

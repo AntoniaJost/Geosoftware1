@@ -81,7 +81,9 @@
     </div>
    
     <!-- TOUR & SIGHT DISPLAY (LIST) -->
+    <!-- methode DELETE evtl.??-->
     <div class="container">
+    <form id="edit" name="edit" action="edit.js" method="POST">
         <div class="row">
             <div class="col">
                 <div id="textfeld">
@@ -91,16 +93,17 @@
                  <!-- Alle Elemente der Datenbank abbilden!!-->
                  <div role="tabpanel">
                     <div class="list-group" id="myList" role="tablist">
-                      <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#home" role="tab">Tour 1</a>
+                      <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#home" role="tab">Abruf von MongoDB ergänzen</a>
                       <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#profile" role="tab">Tour 2</a>
                       <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#messages" role="tab">Tour 3</a>
                       <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#settings" role="tab">Tour 4</a>
                     </div> <br>
                  </div> 
 
-                 <!-- TOOL BUTTONS-->
-                 <input class="btn btn-outline-success" type="submit" value="Bearbeiten" style="background-color: black;" action="1_2_tour_details.html" method="POST">
-                 <input class="btn btn-outline-success" type="submit" value="Löschen" style="background-color: black;">
+                 <!-- TOOL BUTTONS -->
+                 <!-- irgendwas mit Submit ergänzen, um selected zu verwenden-->
+                 <a class="btn btn-outline-success" style="background-color:black;" href="1_2_tour_details.html" role="button">Bearbeiten</a> 
+                 <a class="btn btn-outline-success" style="background-color:black;" href="1_2_3_delete.html" role="button">Löschen</a> 
 
                 </div>
             </div>
@@ -119,12 +122,13 @@
                  </div> 
 
                 <!-- TOOL BUTTONS-->
-                 <input class="btn btn-outline-success" type="submit" value="Bearbeiten" style="background-color: black;">
-                 <input class="btn btn-outline-success" type="submit" value="Löschen" style="background-color: black;">
+                <a class="btn btn-outline-success" style="background-color:black;" href="1_2_tour_details.html" role="button">Bearbeiten</a> 
+                <a class="btn btn-outline-success" style="background-color:black;" href="1_2_3_delete.html" role="button">Löschen</a> 
 
                 </div>
             </div>
         </div>
+    </form>
     </div>
 
     <!-- FOOTER -->  
