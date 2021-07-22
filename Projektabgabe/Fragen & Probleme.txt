@@ -7,3 +7,4 @@ Fragen und Probleme:
 - Wie genau soll bei 1_1_tour_add Upload Formular aussehen?
 - bei 1_1_tour_add geojson box genauso breit wie Rest bekommen
 - Responsive klappt noch nicht so ganz: entweder nicht responsive oder Karte/ alles verschwindet einfach
+- braucht man app.js, server.js UND index.js? (reichen app und server?)

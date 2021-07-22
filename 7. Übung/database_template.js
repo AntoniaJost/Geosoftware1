@@ -63,7 +63,7 @@ client.connect(function(err)
     }
   ]
 
-  // insert new documents in my collection
+  // Insert new documents in my collection
   insertDocuments(db, collection, data, function()
   {
     console.log("Insertion operation done")

@@ -1,3 +1,5 @@
+//APP.JS IST DER MAIN ENTRY POINT ZU EINER APP
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
