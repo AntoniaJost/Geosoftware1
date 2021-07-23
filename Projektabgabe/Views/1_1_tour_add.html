@@ -46,6 +46,7 @@
                       Touren
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="1_tour.html">Touren</a></li>
                       <li><a class="dropdown-item" href="1_1_tour_add.html">Hinzufügen</a></li>
                       <li><a class="dropdown-item" href="1_3_tour_edit.html">Bearbeiten</a></li>
                     </ul>
@@ -73,8 +74,9 @@
     <br>
 
     <!-- FLEX CONTAINER -->
-    <div class="d-flex bd-highlight">
+    <div class="row">
 
+    <div class="col-lg">
     <!-- TEXTAREA ADD VIA MAP-->
         <div id="textfeld">
             <h5 class="text-left">LEAFLET UPLOAD</h5>
@@ -82,11 +84,11 @@
             </p>
 
     <!-- FORM SELECT TO CHOOSE OPTION-->
-            <select class="form-select form-select-lg mb-3" aria-label="form-select1" 
+            <select id="choose1" class="form-select form-select-lg mb-3" aria-label="form-select1" 
                     style="background-color: black; color: mediumseagreen; font-size: 16px;">
                 <option selected>Bitte wählen</option>
-                <option value="1">Sehenswürdigkeit zu Tour ergänzen</option>
-                <option value="2">Neue Tour erstellen</option>
+                <option value="Sehenswürdigkeit zu Tour ergänzen">Sehenswürdigkeit zu Tour ergänzen</option>
+                <option value="Neue Tour erstellen">Neue Tour erstellen</option>
               </select>
 
     <!-- MAP DISPLAY -->
@@ -98,6 +100,9 @@
             </form>
         </div>
 
+    </div>
+
+    <div class="col-sm">
     <!-- TEXTAREA ADD VIA FORM-->
         <div id="textfeld">
             <h5 class="text-left">FORMULAR UPLOAD</h5>
@@ -105,11 +110,11 @@
             </p>
 
     <!-- FORM SELECT TO CHOOSE OPTION-->
-            <select class="form-select form-select-lg mb-3" aria-label="form-select1" 
+            <select id="choose2" class="form-select form-select-lg mb-3" aria-label="form-select1" 
                     style="background-color: black; color: mediumseagreen; font-size: 16px;">
                 <option selected>Bitte wählen</option>
-                <option value="1">Sehenswürdigkeit zu Tour ergänzen</option>
-                <option value="2">Neue Tour erstellen</option>
+                <option value="Sehenswürdigkeit zu Tour ergänzen">Sehenswürdigkeit zu Tour ergänzen</option>
+                <option value="Neue Tour erstellen">Neue Tour erstellen</option>
               </select> 
 
     <!-- UPLOAD FORM -->
@@ -136,6 +141,9 @@
               </form>
         </div>
 
+    </div>
+    
+    <div class="col-sm">
     <!-- TEXTAREA ADD VIA GEOJSON-->
         <div id="textfeld">
             <h5 class="text-left">GEOJSON UPLOAD</h5>
@@ -158,6 +166,7 @@
 
     </div> 
 
+    </div>
 
     <!-- FOOTER -->  
     <footer class="bg-light text-center text-lg-start">

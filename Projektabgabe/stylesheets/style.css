@@ -36,7 +36,7 @@
     opacity: 1;
 }
 
-.fade::after {
+.fade1::after {
     content: "Willkommen in Münster!";
     color: white;
     background: black;
@@ -53,7 +53,7 @@
     transition: opacitiy 0.5s ease;
 }
 
-.fade:hover::after {
+.fade1:hover::after {
     opacity: 0.5;
 }
 
@@ -69,6 +69,10 @@
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 100px;
+}
+
+#test{
+    max-width: 500px;
 }
 
 /*Map2 Layout - Seite 1_1_tour_add*/

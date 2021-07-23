@@ -47,6 +47,7 @@
                       Touren
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="1_tour.html">Touren</a></li>
                       <li><a class="dropdown-item" href="1_1_tour_add.html">Hinzufügen</a></li>
                       <li><a class="dropdown-item" href="1_3_tour_edit.html">Bearbeiten</a></li>
                     </ul>
@@ -75,14 +76,14 @@
 
     <!-- MAP DISPLAY (in einem Flex Container mit Text & Drowpdown)-->
     <!-- irgendwie nicht in einer row und flex-wrap klappt nicht?? -->
-    <div class="d-flex flex-row flex-wrap">
+    <div class="row">
 
-      <div class="col-md-8 flex-wrap">
+      <div class="col-md">
         <div id ="map"></div>
       </div>
 
     <!-- "CHOOSE TOUR" TEXT AREA-->
-      <div class="col-md-8 offset-md-8 flex-wrap">
+      <div class="col-md" id="test">
         <div id="textfeld">
           <p class="text-left">Wähle eine Tour!</p>
 
@@ -103,17 +104,18 @@
 
       <!-- ÖPNV TEXT AREA -->
         <div id="textfeld">
-          <p class="text-left">Umweltbewusst unterwegs? Dann lass dir die nächstgelegene Bushaltestelle anzeigen.</p>
+          <p class="text-left">Umweltbewusst unterwegs?</p>
 
       <!-- ÖPNV ANZEIGEN BUTTON -->
-          <input class="btn btn-outline-success" type="button" value="ÖPNV" onclick="oepnv()" style="background-color:black; margin: 10px;">
+      <!-- irgendwie ist der Button ein paar cm weiter rechts?!-->
+          <input class="btn btn-outline-success" type="button" value="ÖPNV anzeigen" onclick="oepnv()" style="background-color:black; margin: 10px;">
         </div>
 
       <!-- "ADD SOMETHING?" TEXT AREA-->
         <div id="textfeld">
           <p class="text-left">Deinen Lieblingsspot ergänzen?</p>
 
-      <!-- SECOND DROWPDOWN BAR-->
+      <!-- SECOND BUTTON-->
           <a href="1_1_tour_add.html" class="btn btn-outline-success" style="background-color:black;">Ergänzen</a>
         </div>
 
@@ -122,8 +124,8 @@
     </div>
 
     <!-- INFORMATIONSTEXT -->
-    <div class="d-flex bd-highlight">
-      <div class="p-2 flex-grow-1 bd-highlight">
+    <div class="row">
+      <div class="col-md-auto">
         <h4 class="text-left" style="margin-left: 10px;">Informationen zur gewählten Tour</h4>
         hier stehen ganz viele spannende Infos <br>
         ...<br>
@@ -131,7 +133,6 @@
         ... <br>
         <!-- hier irgendie ermöglich, dass passender Text zur Route displayed wird-->
       </div>
-
     </div>
 
     <!-- FOOTER -->  
