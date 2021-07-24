@@ -57,6 +57,26 @@
     opacity: 0.5;
 }
 
+/* Aligning content along the page with header fixed at top & footer fixed at bottom*/
+body {
+    display:flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#header-wrapper {
+    align-content: flex-start;
+}
+
+#content-wrapper {
+    align-content: center;
+    flex:1;
+}
+
+#footer-wrapper {
+    align-content: flex-end;
+}
+
 /*Map Layout - Seite 1_tour*/
 #map {
     height: 85vh;;
@@ -71,7 +91,8 @@
     margin-bottom: 100px;
 }
 
-#test{
+/*Limiting space of right column*/
+#column{
     max-width: 500px;
 }
 
