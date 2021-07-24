@@ -25,10 +25,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-//app.use(logger('dev'));
+//app.use(logger('dev')); sorgt für Fehler, weil Logger nicht vorhanden
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-//app.use(cookieParser());
+//app.use(cookieParser()); sorgt ebenfalls für Fehler, weil cookieParser nicht vorhanden (oben vorher schon entfernt)
 app.use(express.static(path.join(__dirname, 'public')));
 
 //adding custom routes
