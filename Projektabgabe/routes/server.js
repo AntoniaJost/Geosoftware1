@@ -17,6 +17,8 @@ const collectionName = 'NewRoutes' // collection name
 // GET Homepage
 router.get('/', function(req, res, next) {
 
+    res.render('index', { title: 'Express' });
+
 // Use connect method to connect to the server
   client.connect(function(err) 
   {

@@ -5,7 +5,7 @@ var express = require('express');
 var path = require('path');
 
 // adding routers
-var indexRouter = require('./public/0_index.js');
+var indexRouter = require('./public/javascripts/0_index.js');
 var tourRouter = require('./public/1_tour.js');
 var addTourRouter = require('./public/1_1_tour_add.js');
 var successRouter = require('./public/1_2_2_success.js');

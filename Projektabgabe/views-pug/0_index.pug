@@ -1,0 +1,19 @@
+extends layout
+block content 
+
+// IMAGE DISPLAY
+// wird irgendwie nicht angezeigt, in test-index aber schon?!
+.images
+  .image-container.fade1
+    img(src='../stylesheets/muenster-schloss.jpg' alt='')
+    p(style='margin:10px;')
+      | &copy;
+      a.link-sucess(href='https://www.muensterland.com/tourismus/themen/erlebnis-region-muensterland/burgen-und-schloesser-im-muensterland/schloss-muenster/')
+        | M&uuml;nsterland e.V.
+br
+br
+// START BUTTON
+.d-grid.gap-2.col-6.mx-auto
+  a.btn.btn-outline-success(style='background-color:black;' href='./1_tour.pug' role='button') Los geht&apos;s!
+br
+br
