@@ -5,7 +5,11 @@ var express = require('express');
 var path = require('path');
 
 // adding routers
-var indexRouter = require('./public/javascripts/0_index.js');
+var serverRouter = require('./routes/server');
+var usersRouter = require('./routes/users');
+
+
+/* noch nicht ganz klar über Verwendung...
 var tourRouter = require('./public/1_tour.js');
 var addTourRouter = require('./public/1_1_tour_add.js');
 var successRouter = require('./public/1_2_2_success.js');
@@ -13,7 +17,7 @@ var deleteRouter = require('./public/1_2_3_delete.js');
 var detailsRouter = require('./public/1_2_tour_details.js');
 var editRouter = require('./public/1_3_tour_edit.js');
 var kontaktRouter = require('./public/2_kontakt.js');
-var searchRouter = require('./public/3_search');
+var searchRouter = require('./public/3_search'); */
 
 var app = express();
 
@@ -21,14 +25,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //adding custom routes
-app.use('/', indexRouter);
+app.use('/', serverRouter);
+app.use('/users', usersRouter);
+
+/* s.o.
 app.use('/tour', tourRouter);
 app.use('/tour/add', addTourRouter);  
 app.use('/tour/add/details', detailsRouter);
@@ -36,7 +43,7 @@ app.use('/tour/add/details/success', successRouter);
 app.use('/tour/edit', editRouter);
 app.use('/tour/edit/delete', deleteRouter);
 app.use('/contact', kontaktRouter);
-app.use('/search', searchRouter);
+app.use('/search', searchRouter); */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
