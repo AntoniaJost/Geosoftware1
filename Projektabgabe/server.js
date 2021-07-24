@@ -89,7 +89,7 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router; //evtl. vor client.close()?
-   x
+   
 app.listen(port, () => 
 {
   console.log(`App listening at http://localhost:${port}`)

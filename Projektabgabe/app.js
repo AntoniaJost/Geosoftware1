@@ -5,12 +5,12 @@ var express = require('express');
 var path = require('path');
 
 // adding routers
-var indexRouter = require('./public/0_index.js.js');
-var tourRouter = require('./public/1_tour');
-var addTourRouter = require('./public/1_1_tour_add.js.js');
+var indexRouter = require('./public/0_index.js');
+var tourRouter = require('./public/1_tour.js');
+var addTourRouter = require('./public/1_1_tour_add.js');
 var successRouter = require('./public/1_2_2_success.js');
-var deleteRouter = require('./public/1_2_3_delete.js.js');
-var detailsRouter = require('./public/1_2_tour_details.js.js');
+var deleteRouter = require('./public/1_2_3_delete.js');
+var detailsRouter = require('./public/1_2_tour_details.js');
 var editRouter = require('./public/1_3_tour_edit.js');
 var kontaktRouter = require('./public/2_kontakt.js');
 var searchRouter = require('./public/3_search');
