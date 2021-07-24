@@ -6,7 +6,7 @@ const MongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 
 const app = express() // create express app
-const port = 3000
+const port = 5000
 
 //const url = 'mongodb://localhost:27017' // connection URL
 const url = 'mongodb://mongodbservice:27017' // connection URL
@@ -16,8 +16,6 @@ const collectionName = 'NewRoutes' // collection name
 
 // GET Homepage
 router.get('/', function(req, res, next) {
-
-    res.render('server', { title: 'Express' }); //notwendig??? falls nicht klappt: 'index' zu server geändert
 
 // Use connect method to connect to the server
   client.connect(function(err) 
@@ -68,7 +66,7 @@ router.get('/', function(req, res, next) {
     {
         assert.equal(err, null); 
         console.log('Found the following routes...'); 
-        res.render('server.js', { title: 'Index' , data: docs});
+        res.render('server', { title: 'Index' , data: docs});
     
     })
 

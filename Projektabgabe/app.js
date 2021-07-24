@@ -7,6 +7,7 @@ var path = require('path');
 // adding routers
 var serverRouter = require('./routes/server');
 var usersRouter = require('./routes/users');
+var homeRouter = require('./routes/0_index');
 
 
 /* noch nicht ganz klar über Verwendung...
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //adding custom routes
 app.use('/', serverRouter);
+app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 
 /* s.o.
