@@ -14,6 +14,7 @@
  
  var port = normalizePort(process.env.PORT || '3000');
  app.set('port', port);
+
  
  /**
   * Create HTTP server.
@@ -25,7 +26,10 @@
   * Listen on provided port, on all network interfaces.
   */
  
- server.listen(port);
+ server.listen(port, () => 
+ {
+  console.log(`App listening at http://localhost:${port}`)
+ })
  server.on('error', onError);
  server.on('listening', onListening);
  

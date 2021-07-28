@@ -25,22 +25,22 @@ header
   nav.navbar.navbar-expand-lg.navbar-light(style='background-color: mediumseagreen;')
     .container-fluid
       a.navbar-brand
-        img(src='../public/stylesheets/Logo.jpg' alt='' width='50' height='30')
+        img(src='Logo.jpg' width='50' height='50')
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.me-auto.mb-2.mb-lg-0
           li.nav-item
-            a.nav-link.active(aria-current='page' href='0_index.pug') Home
+            a.nav-link.active(aria-current='page' href='http://localhost:3000/home') Home
           li.nav-item.dropdown
             a#Touren.nav-link.dropdown-toggle(role='button' data-bs-toggle='dropdown' aria-expanded='false')
               | Touren
               // href tours klappt nicht
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
               li
-                a.dropdown-item(href='1_tour.pug') Touren
+                a.dropdown-item(href='http://localhost:3000/touren') Touren
               li
-                a.dropdown-item(href='1_1_tour_add.pug') Hinzuf&uuml;gen
+                a.dropdown-item(href='http://localhost:3000/touren/add') Hinzuf&uuml;gen
               li
                 a.dropdown-item(href='1_3_tour_edit.pug') Bearbeiten
           li.nav-item

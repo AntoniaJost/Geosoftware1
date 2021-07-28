@@ -5,7 +5,7 @@ services:
     restart: always
     build: . #image: antonia123/projektabgabe
     ports:
-      - "4000:5000" # forward webserver on standard-http port
+      - "3000:5000" # forward webserver on standard-http port
     depends_on:
       - mongodbservice
   mongodbservice:

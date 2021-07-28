@@ -1,74 +1,73 @@
 extends layout 
 block content 
-
-// HEADING
-br
-h3.text-center Tour oder Sehensw&uuml;rdigkeit hinzuf&uuml;gen
-br
-// FLEX CONTAINER
-.row
-  .col-lg
-    // TEXTAREA ADD VIA MAP
-    #textfeld
-      h5.text-left LEAFLET UPLOAD
-      p.text-left
-        | Eine Sehensw&uuml;rdigkeit zu einer bestehenden Tour hinzuf&uuml;gen oder eine neue Tour erstellen
-      // FORM SELECT TO CHOOSE OPTION
-      select#choose1.form-select.form-select-lg.mb-3(aria-label='form-select1' style='background-color: black; color: mediumseagreen; font-size: 16px;')
-        option(selected='') Bitte w&auml;hlen
-        option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
-        option(value='Neue Tour erstellen') Neue Tour erstellen
-      // MAP DISPLAY
-      form#input-map(name='input-map' action='1_2_tour_details.pug' method='POST')
-        .p2.flex-fill.bd-highlight
-          #karte
-          a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-map').submit();") Absenden
-  .col-sm
-    // TEXTAREA ADD VIA FORM
-    #textfeld
-      h5.text-left FORMULAR UPLOAD
-      p.text-left
-        | Eine Sehensw&uuml;rdigkeit zu einer bestehenden Tour hinzuf&uuml;gen oder eine neue Tour erstellen
-      // FORM SELECT TO CHOOSE OPTION
-      select#choose2.form-select.form-select-lg.mb-3(aria-label='form-select1' style='background-color: black; color: mediumseagreen; font-size: 16px;')
-        option(selected='') Bitte w&auml;hlen
-        option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
-        option(value='Neue Tour erstellen') Neue Tour erstellen
-      // UPLOAD FORM
-      // evtl. auch Input Group von Bootstrap verwenden?
-      form#input-form(name='input-form' action='1_2_tour_details.pug' method='POST')
-        .mb-3
-          label.form-label(for='input1') Input1
-          input#input1.form-control(type='email' aria-describedby='note')
-          #note.form-text Hier muss ich mir noch &uuml;berlegen, wie das Formular genau aussehen soll.
-        .mb-3
-          label.form-label(for='input2') Input2
-          input#input2.form-control(type='password')
-        .mb-3
-          label.form-label(for='input3') Input3
-          input#input3.form-control(type='password')
-        .mb-3.form-check
-          input#exampleCheck1.form-check-input(type='checkbox')
-          label.form-check-label(for='exampleCheck1') Checkbox
-        a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-form').submit();") Absenden
-  .col-sm
-    // TEXTAREA ADD VIA GEOJSON
-    #textfeld
-      h5.text-left GEOJSON UPLOAD
-      p.text-left
-        | Hier kannst du deine neue Route ins Textfeld eingeben oder per Upload hochladen. Es wird
-        | eine neue Tour erstellt.
-      // UPLOAD BUTTON & INPUT FIELD
-      // Button irgendwie schöner machen & Box schmaler
-      form#input-geojson(name='input-geojson' action='1_2_tour_details.pug' method='POST')
-        .form-group
-          input#upload-button.form-control-file(type='file')
-        br
-        .form-group
-          textarea#upload-form.form-control(rows='5' placeholder='Hier Geojson eingeben')
+  // HEADING
+  br
+  h3.text-center Tour oder Sehensw&uuml;rdigkeit hinzuf&uuml;gen
+  br
+  // FLEX CONTAINER
+  .row
+    .col-lg
+      // TEXTAREA ADD VIA MAP
+      #textfeld
+        h5.text-left LEAFLET UPLOAD
+        p.text-left
+          | Eine Sehensw&uuml;rdigkeit zu einer bestehenden Tour hinzuf&uuml;gen oder eine neue Tour erstellen
+        // FORM SELECT TO CHOOSE OPTION
+        select#choose1.form-select.form-select-lg.mb-3(aria-label='form-select1' style='background-color: black; color: mediumseagreen; font-size: 16px;')
+          option(selected='') Bitte w&auml;hlen
+          option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
+          option(value='Neue Tour erstellen') Neue Tour erstellen
+        // MAP DISPLAY
+        form#input-map(name='input-map' action='1_2_tour_details.pug' method='POST')
+          .p2.flex-fill.bd-highlight
+            #karte
+            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-map').submit();") Absenden
+    .col-sm
+      // TEXTAREA ADD VIA FORM
+      #textfeld
+        h5.text-left FORMULAR UPLOAD
+        p.text-left
+          | Eine Sehensw&uuml;rdigkeit zu einer bestehenden Tour hinzuf&uuml;gen oder eine neue Tour erstellen
+        // FORM SELECT TO CHOOSE OPTION
+        select#choose2.form-select.form-select-lg.mb-3(aria-label='form-select1' style='background-color: black; color: mediumseagreen; font-size: 16px;')
+          option(selected='') Bitte w&auml;hlen
+          option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
+          option(value='Neue Tour erstellen') Neue Tour erstellen
+        // UPLOAD FORM
+        // evtl. auch Input Group von Bootstrap verwenden?
+        form#input-form(name='input-form' action='1_2_tour_details.pug' method='POST')
+          .mb-3
+            label.form-label(for='input1') Input1
+            input#input1.form-control(type='email' aria-describedby='note')
+            #note.form-text Hier muss ich mir noch &uuml;berlegen, wie das Formular genau aussehen soll.
+          .mb-3
+            label.form-label(for='input2') Input2
+            input#input2.form-control(type='password')
+          .mb-3
+            label.form-label(for='input3') Input3
+            input#input3.form-control(type='password')
+          .mb-3.form-check
+            input#exampleCheck1.form-check-input(type='checkbox')
+            label.form-check-label(for='exampleCheck1') Checkbox
+          a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-form').submit();") Absenden
+    .col-sm
+      // TEXTAREA ADD VIA GEOJSON
+      #textfeld
+        h5.text-left GEOJSON UPLOAD
+        p.text-left
+          | Hier kannst du deine neue Route ins Textfeld eingeben oder per Upload hochladen. Es wird
+          | eine neue Tour erstellt.
+        // UPLOAD BUTTON & INPUT FIELD
+        // Button irgendwie schöner machen & Box schmaler
+        form#input-geojson(name='input-geojson' action='1_2_tour_details.pug' method='POST')
+          .form-group
+            input#upload-button.form-control-file(type='file')
           br
-          a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-geojson').submit();") Absenden
+          .form-group
+            textarea#upload-form.form-control(rows='5' placeholder='Hier Geojson eingeben')
+            br
+            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-geojson').submit();") Absenden
 
- block scripts
-    // JAVASCIPTS
-    script(src='../public/1_1_tour_add.js', defer)
+  block scripts
+      // JAVASCIPTS
+      script(src='../public/1_1_tour_add.js', defer)

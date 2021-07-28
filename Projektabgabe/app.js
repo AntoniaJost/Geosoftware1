@@ -1,13 +1,16 @@
 //APP.JS IST DER MAIN ENTRY POINT ZU EINER APP
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+
 
 // adding routers
 var serverRouter = require('./routes/server');
 var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/0_index');
+var testRouter = require('./routes/testRoute.js');
+var tourRouter = require('./routes/1_0_tour_route.js'); 
+var addTourRouter = require('./routes/1_1_tour_add_route.js');
 
 
 /* noch nicht ganz klar über Verwendung...
@@ -36,6 +39,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', serverRouter);
 app.use('/home', homeRouter);
 app.use('/users', usersRouter);
+app.use('/test', testRouter); 
+app.use('/touren', tourRouter); 
+app.use('/touren/add', addTourRouter); 
 
 /* s.o.
 app.use('/tour', tourRouter);

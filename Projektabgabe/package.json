@@ -8,7 +8,8 @@
     "express": "^4.17.1",
     "jquery": "^3.6.0",
     "mongodb": "^4.0.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "pug": "^3.0.2"
   },
   "devDependencies": {},
   "scripts": {
