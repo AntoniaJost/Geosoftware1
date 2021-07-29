@@ -36,12 +36,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //adding custom routes
-app.use('/', serverRouter);
+app.use('/', homeRouter); // war vorher serverRoute, habe es zu homeRouter geändert, da man sonst nicht zum Server geleitet würde
 app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter); 
-app.use('/touren', tourRouter); 
-app.use('/touren/add', addTourRouter); 
+app.use('/tour', tourRouter); 
+app.use('/tour/add', addTourRouter); 
 
 /* s.o.
 app.use('/tour', tourRouter);

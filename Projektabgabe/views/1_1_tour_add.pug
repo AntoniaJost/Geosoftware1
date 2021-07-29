@@ -59,7 +59,7 @@ block content
           | eine neue Tour erstellt.
         // UPLOAD BUTTON & INPUT FIELD
         // Button irgendwie schöner machen & Box schmaler
-        form#input-geojson(name='input-geojson' action='1_2_tour_details.pug' method='POST')
+        form#inputGeojson(name='inputGeojson' action='tour/add/newtour' method='POST')
           .form-group
             input#upload-button.form-control-file(type='file')
           br
@@ -70,4 +70,4 @@ block content
 
   block scripts
       // JAVASCIPTS
-      script(src='../public/1_1_tour_add.js', defer)
+      script(src='1_1_tour_add.js', defer)
