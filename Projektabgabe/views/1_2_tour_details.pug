@@ -1,23 +1,22 @@
 extends layout
 block content
-
-// HEADING
-br
-h3.text-center Bitte spezifiziere deine Eingabe.
-br
-// FORM IN FLEX CONTAINER
-#raster
-  .d-flex.justify-content-center
-    form#details(name='details' action='1_2_2_success.pug' method='POST')
-      .form-group
-        label(for='name') Name
-        input#name.form-control(type='text' placeholder='Name')
-      .form-group
-        label(for='url') URL
-        input#url.form-control(type='url' placeholder='URL')
-      .form-group
-        label(for='desciption') Beschreibung
-        input#description.form-control(type='text' placeholder='Beschreibung')
-      br
-      a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('details').submit();") Absenden
-br
+  // HEADING
+  br
+  h3.text-center Bitte spezifiziere deine Eingabe.
+  br
+  // FORM IN FLEX CONTAINER
+  #raster
+    .d-flex.justify-content-center
+      form#details(name='details' action='1_2_2_success.pug' method='POST')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text' placeholder='Name')
+        .form-group
+          label(for='url') URL
+          input#url.form-control(type='url' placeholder='URL')
+        .form-group
+          label(for='desciption') Beschreibung
+          input#description.form-control(type='text' placeholder='Beschreibung')
+        br
+        a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('details').submit();") Absenden
+  br
