@@ -41,7 +41,8 @@ app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter); 
 app.use('/tour', tourRouter); 
-app.use('/tour/add', addTourRouter); 
+app.use('/tour/add', addTourRouter);
+//app.use('/server', serverRouter);  
 
 /* s.o.
 app.use('/tour', tourRouter);
