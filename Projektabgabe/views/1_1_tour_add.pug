@@ -1,5 +1,6 @@
 extends layout 
 block content 
+ 
   // HEADING
   br
   h3.text-center Tour oder Sehensw&uuml;rdigkeit hinzuf&uuml;gen
@@ -66,8 +67,8 @@ block content
           .form-group
             textarea#upload-form.form-control(rows='5' placeholder='Hier Geojson eingeben')
             br
-            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-geojson').submit();") Absenden
-
+            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('inputGeojson').submit();") Absenden
+  script.
   block scripts
-      // JAVASCIPTS
-      script(src='1_1_tour_add.js', defer)
+      // JAVASCRIPTS
+      script(src=' ../public/javascripts/1_1_tour_add.js', defer='')
