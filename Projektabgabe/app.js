@@ -34,6 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser()); sorgt ebenfalls für Fehler, weil cookieParser nicht vorhanden (oben vorher schon entfernt)
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //adding custom routes
 app.use('/', homeRouter); // war vorher serverRoute, habe es zu homeRouter geändert, da man sonst nicht zum Server geleitet würde
