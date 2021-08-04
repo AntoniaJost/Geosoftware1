@@ -1,42 +1,42 @@
 extends layout
 block content
-  // HEADING
+  //- HEADING
   br
   h3.text-center Interaktive, digitale Stadtf&uuml;hrungen in M&uuml;nster
   br
-  // MAP DISPLAY (in einem Flex Container mit Text & Drowpdown)
-  // irgendwie nicht in einer row und flex-wrap klappt nicht??
+  //- MAP DISPLAY (in einem Flex Container mit Text & Drowpdown)
+  //- irgendwie nicht in einer row und flex-wrap klappt nicht??
   .row
     .col-md
       #map
-    // "CHOOSE TOUR" TEXT AREA
+    //- "CHOOSE TOUR" TEXT AREA
     #column.col-md
       #textfeld
         p.text-left W&auml;hle eine Tour!
-        // DROWPDOWN BAR
+        //- DROWPDOWN BAR
         .dropdown
           button#dropdownMenuButton1.btn.btn-outline-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false' style='background-color:black;')
             | Tour w&auml;hlen
           ul.dropdown-menu(aria-labelledby='dropdownMenuButton1')
-            // hier Links zu MongoDB mit Touren ergänzen
+            //- hier Links zu MongoDB mit Touren ergänzen
             li
               a.dropdown-item(href='#') Hier Touren anzeigen
             li
               a.dropdown-item(href='#') durch MongoDB Abfrage
             li
               a.dropdown-item(href='#') ...
-      // ÖPNV TEXT AREA
+      //- ÖPNV TEXT AREA
       #textfeld
         p.text-left Umweltbewusst unterwegs?
-        // ÖPNV ANZEIGEN BUTTON
-        // irgendwie ist der Button ein paar cm weiter rechts?!
+        //- ÖPNV ANZEIGEN BUTTON
+        //- irgendwie ist der Button ein paar cm weiter rechts?!
         input.btn.btn-outline-success(type='button' value='ÖPNV anzeigen' onclick='oepnv()' style='background-color:black; margin: 10px;')
-      // "ADD SOMETHING?" TEXT AREA
+      //- "ADD SOMETHING?" TEXT AREA
       #textfeld
         p.text-left Deinen Lieblingsspot erg&auml;nzen?
-        // SECOND BUTTON
-        a.btn.btn-outline-success(href='1_1_tour_add.pug' style='background-color:black;') Erg&auml;nzen
-  // INFORMATIONSTEXT
+        //- SECOND BUTTON
+        a.btn.btn-outline-success(href='http://localhost:3000/tour/add' style='background-color:black;') Erg&auml;nzen
+  //- INFORMATIONSTEXT
   .row
     .col-md-auto
       h4.text-left(style='margin-left: 10px;') Informationen zur gew&auml;hlten Tour
@@ -48,10 +48,10 @@ block content
       br
       |         ... 
       br
-      // hier irgendie ermöglich, dass passender Text zur Route displayed wird
+      //- hier irgendie ermöglich, dass passender Text zur Route displayed wird
 
 
   block scripts
-  // JAVASCIPTS
+  //- JAVASCIPTS
   script(src='/javascripts/1_tour.js', defer)
   script(src='/javascripts/oepnv.js', defer)

@@ -11,17 +11,8 @@ var homeRouter = require('./routes/0_index');
 var testRouter = require('./routes/testRoute.js');
 var tourRouter = require('./routes/1_0_tour_route.js'); 
 var addTourRouter = require('./routes/1_1_tour_add_route.js');
+var contactRouter = require('./routes/2_kontakt_route.js');
 
-
-/* noch nicht ganz klar über Verwendung...
-var tourRouter = require('./public/1_tour.js');
-var addTourRouter = require('./public/1_1_tour_add.js');
-var successRouter = require('./public/1_2_2_success.js');
-var deleteRouter = require('./public/1_2_3_delete.js');
-var detailsRouter = require('./public/1_2_tour_details.js');
-var editRouter = require('./public/1_3_tour_edit.js');
-var kontaktRouter = require('./public/2_kontakt.js');
-var searchRouter = require('./public/3_search'); */
 
 var app = express();
 
@@ -43,17 +34,9 @@ app.use('/users', usersRouter);
 app.use('/test', testRouter); 
 app.use('/tour', tourRouter); 
 app.use('/tour/add', addTourRouter);
+app.use('/contact', contactRouter);
 //app.use('/server', serverRouter);  
 
-/* s.o.
-app.use('/tour', tourRouter);
-app.use('/tour/add', addTourRouter);  
-app.use('/tour/add/details', detailsRouter);
-app.use('/tour/add/details/success', successRouter);
-app.use('/tour/edit', editRouter);
-app.use('/tour/edit/delete', deleteRouter);
-app.use('/contact', kontaktRouter);
-app.use('/search', searchRouter); */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
