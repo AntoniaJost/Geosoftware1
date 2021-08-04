@@ -1,5 +1,4 @@
 To-Do:
-- routes vervollständigen
 - javascripts ergänzen
 - MongoDB verknüpfen
 - Dockerimage korrekt erstellen (Problem node-Teil)

@@ -1,11 +1,3 @@
-/* nur für Test*/
-.title {
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Layout für Startseite*/
 .images {
     display: flex;
@@ -64,17 +56,9 @@ body {
     flex-direction: column;
 }
 
-#header-wrapper {
-    align-content: flex-start;
-}
-
-#content-wrapper {
+main {
     align-content: center;
     flex:1;
-}
-
-#footer-wrapper {
-    align-content: flex-end;
 }
 
 /*Map Layout - Seite 1_tour*/
