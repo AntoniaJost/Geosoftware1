@@ -1,49 +1,49 @@
 extends layout
 block content
 
-// HEADING
-br
-h3.text-center Touren und Sehensw&uuml;rdigkeiten bearbeiten
-br
-// TEXTAREA
-#textfeld
-  p.text-center
-    | Dir ist ein Fehler in einer Tour oder bei einer Sehensw&uuml;rdigkeit aufgefallen oder du m&ouml;chtest
-    | eine alte Information l&ouml;schen? 
-    br
-    |  Dann hilf uns gerne weiter, das Angebot so aktuell wie m&ouml;glich zu halten.
-// TOUR & SIGHT DISPLAY (LIST)
-// methode DELETE evtl.??
-.container
-  form#edit(name='edit' action='edit.js' method='POST')
-    .row
-      .col-sm
-        #textfeld
-          h5.text-left TOUREN
-          // LIST
-          // Alle Elemente der Datenbank abbilden!!
-          div(role='tabpanel')
-            #myList.list-group(role='tablist')
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab') Abruf von MongoDB erg&auml;nzen
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#profile' role='tab') Tour 2
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#messages' role='tab') Tour 3
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#settings' role='tab') Tour 4
-            br
-          // TOOL BUTTONS
-          // irgendwas mit Submit ergänzen, um selected zu verwenden
-          a.btn.btn-outline-success(style='background-color:black;' href='1_2_tour_details.pug' role='button') Bearbeiten
-          a.btn.btn-outline-success(style='background-color:black;' href='1_2_3_delete.pug' role='button') L&ouml;schen
-      .col-sm
-        #textfeld
-          h5.text-left SEHENSW&Uuml;RDIGKEITEN
-          // LIST
-          div(role='tabpanel')
-            #myList.list-group(role='tablist')
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab') Sight 1
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#profile' role='tab') Sight 2
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#messages' role='tab') Sight 3
-              a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#settings' role='tab') Sight 4
-            br
-          // TOOL BUTTONS
-          a.btn.btn-outline-success(style='background-color:black;' href='1_2_tour_details.pug' role='button') Bearbeiten
-          a.btn.btn-outline-success(style='background-color:black;' href='1_2_3_delete.pug' role='button') L&ouml;schen
+  //- HEADING
+  br
+  h3.text-center Touren und Sehensw&uuml;rdigkeiten bearbeiten
+  br
+  //- TEXTAREA
+  #textfeld
+    p.text-center
+      | Dir ist ein Fehler in einer Tour oder bei einer Sehensw&uuml;rdigkeit aufgefallen oder du m&ouml;chtest
+      | eine alte Information l&ouml;schen? 
+      br
+      |  Dann hilf uns gerne weiter, das Angebot so aktuell wie m&ouml;glich zu halten.
+  //- TOUR & SIGHT DISPLAY (LIST)
+  //- methode DELETE evtl.??
+  .container
+    form#edit(name='edit' action='edit.js' method='POST')
+      .row
+        .col-sm
+          #textfeld
+            h5.text-left TOUREN
+            //- LIST
+            //- Alle Elemente der Datenbank abbilden!!
+            div(role='tabpanel')
+              #myList.list-group(role='tablist')
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab') Abruf von MongoDB erg&auml;nzen
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#profile' role='tab') Tour 2
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#messages' role='tab') Tour 3
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#settings' role='tab') Tour 4
+              br
+            //- TOOL BUTTONS
+            //- irgendwas mit Submit ergänzen, um selected zu verwenden
+            a.btn.btn-outline-success(style='background-color:black;' href='http://localhost:3000/tour/add/details' role='button') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' href='http://localhost:3000/tour/edit/delete' role='button') L&ouml;schen
+        .col-sm
+          #textfeld
+            h5.text-left SEHENSW&Uuml;RDIGKEITEN
+            //- LIST
+            div(role='tabpanel')
+              #myList.list-group(role='tablist')
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab') Sight 1
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#profile' role='tab') Sight 2
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#messages' role='tab') Sight 3
+                a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#settings' role='tab') Sight 4
+              br
+            //- TOOL BUTTONS
+            a.btn.btn-outline-success(style='background-color:black;' href='http://localhost:3000/tour/add/details' role='button') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' href='http://localhost:3000/tour/edit/delete' role='button') L&ouml;schen

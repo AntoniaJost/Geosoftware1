@@ -11,8 +11,12 @@ var homeRouter = require('./routes/0_index');
 var testRouter = require('./routes/testRoute.js');
 var tourRouter = require('./routes/1_0_tour_route.js'); 
 var addTourRouter = require('./routes/1_1_tour_add_route.js');
+var detailsRouter = require('./routes/1_2_tour_details_route.js');
+var successRouter = require('./routes/1_2_2_success_route.js');
+var editRouter = require('./routes/1_3_tour_edit_route.js');
+var deleteRouter = require('./routes/1_2_3_delete_route.js');
 var contactRouter = require('./routes/2_kontakt_route.js');
-
+var searchRouter = require('./routes/3_search_route.js');
 
 var app = express();
 
@@ -34,7 +38,13 @@ app.use('/users', usersRouter);
 app.use('/test', testRouter); 
 app.use('/tour', tourRouter); 
 app.use('/tour/add', addTourRouter);
+app.use('/tour/add/details', detailsRouter);
+app.use('/tour/add/details/success', successRouter);
+app.use('/tour/edit', editRouter);
+app.use('/tour/edit/delete', deleteRouter);
 app.use('/contact', contactRouter);
+app.use('/search', searchRouter);
+
 //app.use('/server', serverRouter);  
 
 

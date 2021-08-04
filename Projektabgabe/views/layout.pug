@@ -35,20 +35,19 @@ header
           li.nav-item.dropdown
             a#Touren.nav-link.dropdown-toggle(role='button' data-bs-toggle='dropdown' aria-expanded='false')
               | Touren
-              // href tours klappt nicht
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
               li
                 a.dropdown-item(href='http://localhost:3000/tour') Touren
               li
                 a.dropdown-item(href='http://localhost:3000/tour/add') Hinzuf&uuml;gen
               li
-                a.dropdown-item(href='1_3_tour_edit.pug') Bearbeiten
+                a.dropdown-item(href='http://localhost:3000/tour/edit') Bearbeiten
           li.nav-item
             a.nav-link(href='https://de.wikipedia.org/wiki/Geschichte_der_Stadt_M%C3%BCnster') Geschichte
           li.nav-item
             a.nav-link(href='http://localhost:3000/contact') Kontakt
-        form.d-flex(action='3_search.pug' method='POST')
-          // bisher nur hier geändert
+        form.d-flex(action='http://localhost:3000/search')
+
           input.form-control.me-2(type='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);')
           button.btn.btn-outline-success(type='submit' style='background-color:black;') Suchen
 //- MAIN PART

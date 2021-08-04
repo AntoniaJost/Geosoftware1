@@ -1,13 +1,13 @@
 extends layout
 block content
-  // HEADING
+  //- HEADING
   br
   h3.text-center Bitte spezifiziere deine Eingabe.
   br
-  // FORM IN FLEX CONTAINER
+  //- FORM IN FLEX CONTAINER
   #raster
     .d-flex.justify-content-center
-      form#details(name='details' action='1_2_2_success.pug' method='POST')
+      form#details(name='details' action='http://localhost:3000/tour/add/details/success')
         .form-group
           label(for='name') Name
           input#name.form-control(type='text' placeholder='Name')

@@ -19,7 +19,7 @@ block content
           option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
           option(value='Neue Tour erstellen') Neue Tour erstellen
         //- MAP DISPLAY
-        form#input-map(name='input-map' action='1_2_tour_details.pug' method='POST')
+        form#input-map(name='input-map' action='http://localhost:3000/tour/add/details')
           .p2.flex-fill.bd-highlight
             #karte
             a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-map').submit();") Absenden
@@ -36,7 +36,7 @@ block content
           option(value='Neue Tour erstellen') Neue Tour erstellen
         //- UPLOAD FORM
         //- evtl. auch Input Group von Bootstrap verwenden?
-        form#input-form(name='input-form' action='1_2_tour_details.pug' method='POST')
+        form#input-form(name='input-form' action='http://localhost:3000/tour/add/details')
           .mb-3
             label.form-label(for='input1') Input1
             input#input1.form-control(type='email' aria-describedby='note')
@@ -59,8 +59,8 @@ block content
           | Hier kannst du deine neue Route ins Textfeld eingeben oder per Upload hochladen. Es wird
           | eine neue Tour erstellt.
         //- UPLOAD BUTTON & INPUT FIELD
-        //- Button irgendwie schöner machen & Box schmaler
-        form#inputGeojson(name='inputGeojson' action='tour/add/newtour' method='POST')
+        //- warum verwenden wir hier nicht auch action='http://localhost:3000/tour/add/details' ?
+        form#inputGeojson(name='inputGeojson' action='tour/add/newtour') 
           .form-group
             input#upload-button.form-control-file(type='file')
           br
