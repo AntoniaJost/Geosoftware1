@@ -60,15 +60,18 @@ block content
           | eine neue Tour erstellt.
         //- UPLOAD BUTTON & INPUT FIELD
         //- warum verwenden wir hier nicht auch action='http://localhost:3000/tour/add/details' ?
-        form#inputGeojson(name='inputGeojson' action='tour/add/newtour') 
+        form#inputGeojson(name='inputGeojson' action='tour/add/newtour' method='post') 
           .form-group
             input#upload-button.form-control-file(type='file')
           br
           .form-group
-            textarea#upload-form.form-control(rows='5' placeholder='Hier Geojson eingeben')
+            textarea#upload-form.form-control(name = 'rgeojson' form='inputGeojson' rows='5' placeholder='Hier Geojson eingeben')
             br
-            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('inputGeojson').submit();") Absenden
+            a.btn.btn-outline-success(style='background-color: black;' onclick="submit") Absenden
+            
   script.
   block scripts
       //- JAVASCRIPTS
       script(src=' /javascripts/1_1_tour_add.js', defer='')
+
+  //document.getElementById('inputGeojson').submit();

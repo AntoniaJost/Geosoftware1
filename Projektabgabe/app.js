@@ -1,11 +1,14 @@
 //APP.JS IST DER MAIN ENTRY POINT ZU EINER APP
 var createError = require('http-errors');
-var express = require('express');
+const express = require('express');
 var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
 
 
 // adding routers
-var serverRouter = require('./routes/server');
+//var serverRouter = require('./routes/server');
 var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/0_index');
 var testRouter = require('./routes/testRoute.js');
@@ -18,7 +21,9 @@ var deleteRouter = require('./routes/1_2_3_delete_route.js');
 var contactRouter = require('./routes/2_kontakt_route.js');
 var searchRouter = require('./routes/3_search_route.js');
 
+
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

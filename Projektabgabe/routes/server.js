@@ -1,3 +1,5 @@
+/**
+
 // SERVER.JS (orientiert an Github von Auriol 09/express+mongo+docker/serveranddb.js)
 const express = require('express')
 var router = express.Router()
@@ -9,8 +11,8 @@ const assert = require('assert')
 const app = express() // create express app
 const port = 5000
 */
-
-const url = 'mongodb://mongodbservice:27017' // connection URL
+/**
+const url = 'mongodb://localhost:27017' // connection URL
 const client = new MongoClient(url) // create mongodb client
 const dbName = 'Routes' // database name
 const collectionName = 'NewRoutes' // collection name
@@ -375,4 +377,4 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router; //evtl. vor client.close()?
-
+*/
