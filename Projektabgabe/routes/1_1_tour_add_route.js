@@ -23,7 +23,7 @@ router.post('/', function(req, res, next)
     //let route = JSON.parse(req.body.inputGeojson); 
 }),
 
-client.connect(function(err)
+MongoClient.connect(function(err) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
   {
     assert.equal(null, err)
 
