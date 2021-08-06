@@ -8,6 +8,7 @@ const client = new MongoClient(url) // create mongodb client
 const dbName = 'Touren' // database name
 const collectionName = 'neueTouren' // collection name
 
+
 router.get('/', function(req, res, next)
 {
     res.render('1_1_tour_add', {title: 'Touren'})
@@ -15,12 +16,9 @@ router.get('/', function(req, res, next)
 
 router.post('/', function(req, res, next)
 {
-
-  res.send("TEST");
-    //console.log("A new tour has been added!");
-    //console.log(req.body);
-    //res.render("1_2_2_success");
-    //let route = JSON.parse(req.body.inputGeojson); 
+    console.log("Post kommt an");
+    res.render("1_2_tour_details");
+    let route = JSON.parse(req.body.inputGeojson); 
 }),
 
 MongoClient.connect(function(err) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
@@ -36,7 +34,7 @@ MongoClient.connect(function(err) //hier habe ich client.connect zu MongoClient 
     {
       assert.equal(err, null)
       assert.equal(1, result.result.ok)
-      //console.log(result)
+      console.log(result)
       console.log(`Inserted ${result.insertedCount} document into the databse`)
       res.render('1_2_2_success', {title: 'Addition completed', data: route})
     })
