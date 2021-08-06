@@ -15,11 +15,29 @@ var drawnItems = new L.FeatureGroup();
 karte.addLayer(drawnItems);
 var drawControl = new L.Control.Draw ({
     edit: {
-        featureGroup: drawnItems
+        featureGroup: drawnItems,
     }
 });
 karte.addControl(drawControl);
     
+
+// Draw Events (noch zuende anpassen)
+karte.on(L.Draw.Event.CREATED, function (e) {
+    var type = e.layerType,
+        layer = e.layer;
+    if (type === 'marker') {
+        // Do marker specific actions
+    }
+    // Do whatever else you need to. (save to db; add to map etc)
+    drawnItems.addLayer(layer);
+ });
+ 
+karte.on('draw:edited', function (e) {
+    var layers = e.layers;
+    layers.eachLayer(function (layer) {
+        //do whatever you want; most likely save back to db
+    });
+});
 
 
 
