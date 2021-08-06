@@ -60,7 +60,7 @@ block content
           | eine neue Tour erstellt.
         //- UPLOAD BUTTON & INPUT FIELD
         //- warum verwenden wir hier nicht auch action='http://localhost:3000/tour/add/details' ?
-        form#inputGeojson(name='inputGeojson' action='http://localhost:3000/tour/add/details' method='post') 
+        form#inputGeojson(name='inputGeojson' action='/add/details' method='post') 
           .form-group
             input#upload-button.form-control-file(type='file')
           br

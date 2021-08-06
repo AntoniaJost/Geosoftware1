@@ -14,7 +14,7 @@ router.get('/', function(req, res, next)
     res.render('1_1_tour_add', {title: 'Touren'})
 }); 
 
-router.post('/', function(req, res, next)
+router.post('/details', function(req, res, next)
 {
     console.log("Post kommt an");
     res.render("1_2_tour_details");
