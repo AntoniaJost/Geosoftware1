@@ -59,15 +59,15 @@ block content
           | Hier kannst du deine neue Route ins Textfeld eingeben oder per Upload hochladen. Es wird
           | eine neue Tour erstellt.
         //- UPLOAD BUTTON & INPUT FIELD
-        //- warum verwenden wir hier nicht auch action='http://localhost:3000/tour/add/details' ?
-        form#inputGeojson(name='inputGeojson' action='/add/details' method='post') 
+        form#inputGeojson(action='/tour/add/details' method='post')
           .form-group
             input#upload-button.form-control-file(type='file')
           br
           .form-group
-            textarea#upload-form.form-control(name = 'rgeojson' form='inputGeojson' rows='5' placeholder='Hier Geojson eingeben')
-            br
-            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('inputGeojson').submit();") Absenden
+            textarea#upload-form.form-control(form='inputGeojson' name='inputGeojson' rows='5' placeholder='Hier Geojson eingeben')
+            br 
+            button.btn.btn-outline-success( style='background-color: black;' type='submit') Absenden
+            //- onclick="document.getElementById('inputGeojson').submit();"
 
 
             

@@ -3,25 +3,29 @@ var router = express.Router();
 const MongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 
+
 const url = 'mongodb://localhost:27017' // connection URL
 const client = new MongoClient(url) // create mongodb client
 const dbName = 'Touren' // database name
 const collectionName = 'neueTouren' // collection name
+let route;
 
 
 router.get('/', function(req, res, next)
 {
     res.render('1_1_tour_add', {title: 'Touren'})
+    res.send("Test")
 }); 
 
 router.post('/details', function(req, res, next)
 {
-    console.log("Post kommt an");
+
     res.render("1_2_tour_details");
-    let route = JSON.parse(req.body.inputGeojson); 
+    route = JSON.parse(req.body.inputGeojson); 
+    console.log(route);
 }),
 
-MongoClient.connect(function(err) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
+client.connect(function(err, client) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
   {
     assert.equal(null, err)
 
@@ -36,7 +40,7 @@ MongoClient.connect(function(err) //hier habe ich client.connect zu MongoClient 
       assert.equal(1, result.result.ok)
       console.log(result)
       console.log(`Inserted ${result.insertedCount} document into the databse`)
-      res.render('1_2_2_success', {title: 'Addition completed', data: route})
+      res.render('1_2_tour_details', {title: 'Addition completed', data: route})
     })
 
   })
