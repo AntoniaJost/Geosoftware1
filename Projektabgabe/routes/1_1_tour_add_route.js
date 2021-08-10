@@ -14,7 +14,6 @@ let route;
 router.get('/', function(req, res, next)
 {
     res.render('1_1_tour_add', {title: 'Touren'})
-    res.send("Test")
 }); 
 
 router.post('/details', function(req, res, next)
@@ -23,9 +22,8 @@ router.post('/details', function(req, res, next)
     res.render("1_2_tour_details");
     route = JSON.parse(req.body.inputGeojson); 
     console.log(route);
-}),
 
-client.connect(function(err, client) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
+    client.connect(function(err, client) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
   {
     assert.equal(null, err)
 
@@ -44,8 +42,7 @@ client.connect(function(err, client) //hier habe ich client.connect zu MongoClie
     })
 
   })
-
-
+}),
 
 
 module.exports = router; 

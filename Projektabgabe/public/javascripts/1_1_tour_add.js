@@ -1,3 +1,4 @@
+
 // Mitte der Karte
 var center = [51.961237, 7.625187];
 
@@ -26,7 +27,12 @@ karte.on(L.Draw.Event.CREATED, function (e) {
     var type = e.layerType,
         layer = e.layer;
     if (type === 'marker') {
-        // Do marker specific actions
+        var marker = e;
+        console.log(marker.layer._latlng);
+    } 
+    if (type == 'rectangle') {
+        var rectangle = e; 
+        console.log(rectangle.layer._latlngs);
     }
     // Do whatever else you need to. (save to db; add to map etc)
     drawnItems.addLayer(layer);
@@ -38,6 +44,4 @@ karte.on('draw:edited', function (e) {
         //do whatever you want; most likely save back to db
     });
 });
-
-
 
