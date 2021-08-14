@@ -19,10 +19,10 @@ block content
           option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
           option(value='Neue Tour erstellen') Neue Tour erstellen
         //- MAP DISPLAY
-        form#input-map(name='input-map' action='http://localhost:3000/tour/add/details')
+        form#input-map(name='input-map' action='/tour/add/details')
           .p2.flex-fill.bd-highlight
             #karte
-            a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-map').submit();") Absenden
+            a.btn.btn-outline-success(style='background-color: black;' type="submit") Absenden
     .col-sm
       //- TEXTAREA ADD VIA FORM
       #textfeld

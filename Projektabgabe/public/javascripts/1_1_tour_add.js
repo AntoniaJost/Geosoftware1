@@ -5,6 +5,15 @@ var center = [51.961237, 7.625187];
 // Erstellung einer Variablen, die die Karte enthält, initial settings
 var karte = L.map('karte',).setView(center, 15); 
 
+//initialiation of the attributes
+let marker = ""; 
+let rectangle = ""; 
+let polygon = ""; 
+let polyline = ""; 
+let circle = ""; 
+let drawEvent = false; 
+var route2 = null; 
+
 // MapTiler hinuzfügen
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=86IucIQ0W7mo5uspiDDB', 
     {
@@ -26,14 +35,31 @@ karte.addControl(drawControl);
 karte.on(L.Draw.Event.CREATED, function (e) {
     var type = e.layerType,
         layer = e.layer;
+    var element = document.getElementById('input-map'); 
+    console.log(element); 
+    drawEvent = true; 
     if (type === 'marker') {
-        var marker = e;
+        marker = e;
         console.log(marker.layer._latlng);
     } 
     if (type == 'rectangle') {
-        var rectangle = e; 
+        rectangle = e; 
         console.log(rectangle.layer._latlngs);
     }
+    if (type == 'polygon') {
+        polygon = e; 
+        console.log(polygon.layer._latlngs);
+    }
+    if(type == 'polyline') {
+        polyline = e; 
+        console.log(polyline.layer._latlngs);
+    }
+    if(type == 'circle') {
+        circle = e; 
+        console.log(circle.layer._latlngs);
+    }
+    
+
     // Do whatever else you need to. (save to db; add to map etc)
     drawnItems.addLayer(layer);
  });
@@ -45,3 +71,26 @@ karte.on('draw:edited', function (e) {
     });
 });
 
+// Wird vom Absenden Button aufgerufen
+function submitFunction() {
+    console.log(drawEvent);
+    if(marker.layerType == "marker") {
+        route2 = marker; 
+        alert("Kommt an1"); 
+    } else if (polygon.layerType == "polygon") {
+        router2 = polygon; 
+        alert("Kommt an2"); 
+    } else if (polyline.layerType == "polyline") {
+        router2 = polyline; 
+        alert("Kommt an3"); 
+    } else if (rectangle.layerType == "rectangle") {
+        router2 = rectangle; 
+        alert("Kommt an4"); 
+    } else if (polygon.layerType == "circle") {
+        router2 = circle; 
+        alert("Kommt an5"); 
+    }
+
+    drawEvent = false; 
+
+}
