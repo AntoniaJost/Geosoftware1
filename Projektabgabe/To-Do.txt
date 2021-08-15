@@ -2,12 +2,9 @@ To-Do:
 - done: 2 separate Datenbanken: eine für Touren, eine für Sehenswürdigkeiten
 
 - 2. Post Router bei 1_1_tour_add_route für Weiterleitung von form-input zu success (statt details)
+- Daten von form-input müssen noch in MongoDB
 
-- Search muss funktionieren & soll beide Datenbanken durchsuchen (autocomplete)
-
-- auf touren alle Touren anzeigen/auswählen -> MongoDB Abruf
-
-- bei add funktionstüchtig ausbauen
+- MongoDB Abruf: Search & 1_tour (Tour auswählen) muss funktionieren & soll beide Datenbanken durchsuchen (autocomplete)
 
 - APIs für: 
 	*ÖPNV
