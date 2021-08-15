@@ -2,10 +2,11 @@ const MongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 const url = 'mongodb://localhost:27017'
 const client = new MongoClient(url); 
-const dbName = 'Touren'
+const dbName = 'Stadttour'
 const collectionName = 'neueTouren'
+const collection2Name = 'neueSehenswürdigkeiten'
 
-client.connect(function(err) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
+client.connect(function(err) 
 {
     assert.equal(null, err)
 
@@ -13,6 +14,7 @@ client.connect(function(err) //hier habe ich client.connect zu MongoClient geän
 
     const db = client.db(dbName)
 
+    //Touren Collection
     db.createCollection(collectionName, function(err, res)
     {
         if (err) throw err
@@ -968,6 +970,48 @@ client.connect(function(err) //hier habe ich client.connect zu MongoClient geän
     countRows(collection)
 
     findDocuments(db, collection, function () {
+      console.log("Closing the client...")
+      client.close()
+    })
+
+    // Sehenswürdigkeiten Collection
+    db.createCollection(collection2Name, function(err, res)
+    {
+        if (err) throw err
+        console.log("Collection created!")
+    })
+
+    const collection2 = db.collection(collection2Name)
+
+    const data2 = [
+      {
+        "name": "Schloss Münster",
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                7.613243758678437,
+                51.96361030560367
+              ]
+            }
+          }
+        ]
+      }
+    ]
+
+    insertDocuments(db, collection2, data2, function()
+    {
+      console.log("Insertion operation done")
+      //client.close()
+    })
+
+    countRows(collection2)
+
+    findDocuments(db, collection2, function () {
       console.log("Closing the client...")
       client.close()
     })

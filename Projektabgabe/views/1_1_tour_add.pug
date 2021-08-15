@@ -19,10 +19,10 @@ block content
           option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
           option(value='Neue Tour erstellen') Neue Tour erstellen
         //- MAP DISPLAY
-        form#input-map(name='input-map' action='/tour/add/details')
+        form#input-map(name='input-map' action='/tour/add/details' method='post')
           .p2.flex-fill.bd-highlight
             #karte
-            a.btn.btn-outline-success(style='background-color: black;' type="submit") Absenden
+            a.btn.btn-outline-success(style='background-color: black;' type='submit') Absenden
     .col-sm
       //- TEXTAREA ADD VIA FORM
       #textfeld
@@ -30,27 +30,34 @@ block content
         p.text-left
           | Eine Sehensw&uuml;rdigkeit zu einer bestehenden Tour hinzuf&uuml;gen oder eine neue Tour erstellen
         //- FORM SELECT TO CHOOSE OPTION
-        select#choose2.form-select.form-select-lg.mb-3(aria-label='form-select1' style='background-color: black; color: mediumseagreen; font-size: 16px;')
+        select#choose2.form-select.form-select-lg.mb-3(name='choose' aria-label='form-select1' style='background-color: black; color: mediumseagreen; font-size: 16px;')
           option(selected='') Bitte w&auml;hlen
-          option(value='Sehenswürdigkeit zu Tour ergänzen') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
-          option(value='Neue Tour erstellen') Neue Tour erstellen
+          option(value='0') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
+          option(value='1') Neue Tour erstellen
         //- UPLOAD FORM
         //- evtl. auch Input Group von Bootstrap verwenden?
-        form#input-form(name='input-form' action='http://localhost:3000/tour/add/details')
+        form#input-form(name='input-form' action='/tour/add/details/success ' method='post')
           .mb-3
-            label.form-label(for='input1') Input1
-            input#input1.form-control(type='email' aria-describedby='note')
-            #note.form-text Hier muss ich mir noch &uuml;berlegen, wie das Formular genau aussehen soll.
+            label.form-label(for='name') Name
+            input#input1.form-control(type='text' name='name' class='input-box')
           .mb-3
-            label.form-label(for='input2') Input2
-            input#input2.form-control(type='password')
+            label.form-label(for='geojson') Geojson
+            input#input2.form-control(type='text' name='geojson' class='input-box' disabled='')
           .mb-3
-            label.form-label(for='input3') Input3
-            input#input3.form-control(type='password')
+            label.form-label(for='coordinates') Koordinaten
+            input#input3.form-control(type='text' name='coordinates' class='input-box' disabled='')
+          .mb-3
+            label.form-label(for='url') URL*
+            input#input3.form-control(type='text' name='url' class='input-box' placeholder='Wikipedia URL einfügen')
+          .mb-3
+            label.form-label(for='description') Beschreibung*
+            input#input3.form-control(type='text' name='description' class='input-box' placeholder='Ergänze nützliche Details')
+            #note.form-text *optional
           .mb-3.form-check
             input#exampleCheck1.form-check-input(type='checkbox')
-            label.form-check-label(for='exampleCheck1') Checkbox
+            label.form-check-label(for='checkbox') Alles richtig eingegeben?
           a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-form').submit();") Absenden
+          
     .col-sm
       //- TEXTAREA ADD VIA GEOJSON
       #textfeld
@@ -75,4 +82,5 @@ block content
   block scripts
       //- JAVASCRIPTS
       script(src=' /javascripts/1_1_tour_add.js', defer='')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', defer='')
 

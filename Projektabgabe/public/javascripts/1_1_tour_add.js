@@ -6,6 +6,7 @@ var center = [51.961237, 7.625187];
 var karte = L.map('karte',).setView(center, 15); 
 
 //initialiation of the attributes
+//Wir brauchen laut Aufgabe sogar nur Punkt und Polygon
 let marker = ""; 
 let rectangle = ""; 
 let polygon = ""; 
@@ -94,3 +95,24 @@ function submitFunction() {
     drawEvent = false; 
 
 }
+
+// Event Handler -> disabel/ enable form field depending on selected option
+$(document).ready(function(){
+    $("select[name='choose']").on('change',function(){
+      if($(this).val()==1){
+        $("input[name='geojson']").prop("disabled",false);
+      }else{
+        $("input[name='geojson']").prop("disabled",true);
+      }
+    });
+  });
+
+$(document).ready(function(){
+    $("select[name='choose']").on('change',function(){
+      if($(this).val()==0){
+        $("input[name='coordinates']").prop("disabled",false);
+      }else{
+        $("input[name='coordinates']").prop("disabled",true);
+      }
+    });
+  });

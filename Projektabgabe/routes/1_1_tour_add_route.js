@@ -1,12 +1,11 @@
-const express = require('express')
+var express = require('express')
 var router = express.Router(); 
 const MongoClient = require('mongodb').MongoClient
 const assert = require('assert')
 
-
 const url = 'mongodb://localhost:27017' // connection URL
 const client = new MongoClient(url) // create mongodb client
-const dbName = 'Touren' // database name
+const dbName = 'Stadttour' // database name
 const collectionName = 'neueTouren' // collection name
 let route = null;
 
@@ -24,7 +23,7 @@ router.post('/details', function(req, res, next)
     console.log(route);
     console.log(route2)
 
-    client.connect(function(err, client) //hier habe ich client.connect zu MongoClient geändert (falls Fehler verursachen sollte)
+    client.connect(function(err, client) 
   {
     assert.equal(null, err)
 
@@ -58,6 +57,5 @@ router.post('/details', function(req, res, next)
 
   })
 }),
-
 
 module.exports = router; 

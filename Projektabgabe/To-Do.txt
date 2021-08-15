@@ -1,5 +1,18 @@
 To-Do:
-- javascripts ergänzen
-- MongoDB verknüpfen
+- done: 2 separate Datenbanken: eine für Touren, eine für Sehenswürdigkeiten
+
+- 2. Post Router bei 1_1_tour_add_route für Weiterleitung von form-input zu success (statt details)
+
+- Search muss funktionieren & soll beide Datenbanken durchsuchen (autocomplete)
+
+- auf touren alle Touren anzeigen/auswählen -> MongoDB Abruf
+
+- bei add funktionstüchtig ausbauen
+
+- APIs für: 
+	*ÖPNV
+	*Wetter
+	*Wikipedia
+    
 - Dockerimage korrekt erstellen (Problem node-Teil)
 

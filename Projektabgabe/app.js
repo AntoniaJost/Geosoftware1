@@ -2,6 +2,7 @@
 var createError = require('http-errors');
 const express = require('express');
 var path = require('path');
+const bodyParses = require('body-parser');
 
 
 // adding routers
@@ -24,6 +25,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+// Body Parser
+app.use(express.urlencoded({ extended: false }));
 
 //app.use(logger('dev')); sorgt für Fehler, weil Logger nicht vorhanden
 app.use(express.json());
