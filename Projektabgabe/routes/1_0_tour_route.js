@@ -8,6 +8,9 @@ const client = new MongoClient(url) // create mongodb client
 
 
 
+//Connect in die get Anfrage
+// res.render(..) als callback der find-Methode
+
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("Stadttour");

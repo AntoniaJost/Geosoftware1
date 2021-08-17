@@ -15,6 +15,9 @@ let circle = "";
 let drawEvent = false; 
 var route2 = null; 
 
+
+
+
 // MapTiler hinuzfügen
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=86IucIQ0W7mo5uspiDDB', 
     {
@@ -59,6 +62,9 @@ karte.on(L.Draw.Event.CREATED, function (e) {
         circle = e; 
         console.log(circle.layer._latlngs);
     }
+
+    fetch('/tour/add')
+        .then(res => drawEvent)
     
 
     // Do whatever else you need to. (save to db; add to map etc)

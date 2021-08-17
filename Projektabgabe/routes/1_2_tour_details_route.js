@@ -3,7 +3,10 @@ var router = express.Router();
 
 router.get('/', function(req, res, next)
 {
-    res.render('1_2_tour_details', {title: 'Details'})
+    res.render("1_tour");
+    res.json(result);
+    res.send(result);
+    res.render(result);
 }); 
 
 module.exports = router; 
