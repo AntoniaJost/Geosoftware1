@@ -22,7 +22,6 @@ block content
               a.dropdown-item(href="routes/1_0_tour_route" + tour._id)
                 li= tour.features[0].properties.Name
 
-
       //- ÖPNV TEXT AREA
       #textfeld
         p.text-left Umweltbewusst unterwegs?
@@ -35,18 +34,16 @@ block content
         //- SECOND BUTTON
         a.btn.btn-outline-success(href='http://localhost:3000/tour/add' style='background-color:black;') Erg&auml;nzen
   //- INFORMATIONSTEXT
+  br
   .row
     .col-md-auto
       h4.text-left(style='margin-left: 10px;') Informationen zur gew&auml;hlten Tour
-      |         hier stehen ganz viele spannende Infos 
-      br
-      |         ...
-      br
-      |         ...
-      br
-      |         ... 
-      br
-      //- hier irgendie ermöglich, dass passender Text zur Route displayed wird
+
+    #text    
+      p.
+      each tour in tours 
+        li= tour.features[0].properties.Beschreibung
+  //- ändern, dass nur Beschreibung für selected angezeigt wird
 
 
   block scripts

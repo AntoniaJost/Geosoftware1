@@ -1806,7 +1806,7 @@ client.connect(function(err)
                 "properties": {
                   "Name": "Spritwoch",
                   "URL": "",
-                  "Beschreibung": "Ein Besuch einiger der schönsten Kneipen und Clubs Münsters. Für das Gesamtfeeling am besten mittwochs besuchen, Freitag oder Samstag sollten sich aber ebenfalls eigenen."
+                  "Beschreibung": "Ein Besuch einiger der schönsten Kneipen und Clubs Münsters."
                 },
                 "geometry": {
                   "type": "Polygon",

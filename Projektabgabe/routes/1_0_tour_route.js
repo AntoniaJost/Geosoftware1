@@ -21,7 +21,12 @@ router.get('/', async function(req, res, next)
 });
 
 router.get("/:routeID", (req,res,next) => {
-  routeID = req.params.routeID;
+  const routeID = req.params.routeID;
+  if (routeID) {
+    res.send(routeID)
+  } else{
+    res.status(404).send();
+  }
 })
 
 module.exports = router; 
