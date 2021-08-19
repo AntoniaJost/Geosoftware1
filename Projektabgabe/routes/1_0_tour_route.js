@@ -6,44 +6,22 @@ const assert = require('assert')
 const url = 'mongodb://localhost:27017' // connection URL
 const client = new MongoClient(url) // create mongodb client
 
-
-// res.render(..) als callback der find-Methode
-// get Endpunkt??
-// asyn/ await??
-// nur einmal res.render/send verwenden, sonst Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to
-// -> aber wie dann 1_tour & und result senden??
-
-router.get('/', function(req, res, next)
+router.get('/', async function(req, res, next)
 {
+  await client.connect();
 
-    res.render("1_tour");
-    /*res.json(result);
-    res.send(result);
-    res.render(result);*/
-});       
+  var touren = client.db("Stadttour");
 
-  router.get('/', function(req, res, next)
-{
+  let documents = await touren.collection("neueTouren").find({}).toArray();
 
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var touren = db.db("Stadttour");
-    //Find all documents in the customers collection:
-    touren.collection("Stadttour").find({}.toArray(function(err, result) {
-      if (err) {
-        throw err;
-      } else if (result.length) {
-          console.log(result);
-          res.send(result);
-      } else {
-          res.send('No documents found');
-      }
-      //console.log(result);
-      db.close();
-    }));
-  });
+  console.log(documents);
+
+  res.render("1_tour", {tours: documents});
 
 });
 
+router.get("/:routeID", (req,res,next) => {
+  routeID = req.params.routeID;
+})
 
 module.exports = router; 

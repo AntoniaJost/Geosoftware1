@@ -18,14 +18,9 @@ block content
           button#dropdownMenuButton1.btn.btn-outline-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false' style='background-color:black;')
             | Tour w&auml;hlen
           ul.dropdown-menu(aria-labelledby='dropdownMenuButton1')
-            //- hier Links zu MongoDB mit Touren ergänzen --> PROBLEEEEEEEEEEEEEEEEEEEEEEM!!!!!!!!!!!
-            li 
-              a.dropdown-item(href="routes/1_0_tour_route") Hier Touren anzeigen
-            li
-              a.dropdown-item(href='#') durch MongoDB Abfrage
-            li
-              a.dropdown-item(href='#') ...
-            li 
+            each tour in tours 
+              a.dropdown-item(href="routes/1_0_tour_route" + tour._id)
+                li= tour.features[0].properties.Name
 
 
       //- ÖPNV TEXT AREA
