@@ -19,7 +19,7 @@ block content
             | Tour w&auml;hlen
           ul.dropdown-menu(aria-labelledby='dropdownMenuButton1')
             each tour in tours 
-              a.dropdown-item(href="routes/1_0_tour_route" + tour._id)
+              a.dropdown-item(href="#") 
                 li= tour.features[0].properties.Name
 
       //- ÖPNV TEXT AREA

@@ -10,4 +10,17 @@ L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=86IucIQ0W
      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
     }).addTo(map); 
 
-//L.geoJSON(routeID).addTo(map);
+let response = fetch('/:routeID')
+    .then(response => {
+        if (response.ok) {
+            response.json().then(data => console.log(data));
+        } else {
+            console.log('Es gibt einen Fehler');
+        }
+    });
+//alert (routeLayer);
+
+$('#dropdown-demo li').on('click', function(){
+    $('#dropdownMenuButton1').val($(this).text());
+}); 
+//var routeLayer = L.geoJSON(routeID).addTo(map);
