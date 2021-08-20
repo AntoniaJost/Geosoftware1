@@ -33,8 +33,8 @@ router.get('/:routeID', async (req,res,next) => {
 
   console.log(documents);
 
-  res.send(documents); 
-  //res.render("1_tour", {tours: documents}) //-> error cannot read property of undefinded
+  //res.send(documents); 
+  res.render("1_tour", {tours: documents}) //-> error cannot read property of undefinded
   
 })
 
