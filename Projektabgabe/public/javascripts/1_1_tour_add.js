@@ -63,8 +63,8 @@ karte.on(L.Draw.Event.CREATED, function (e) {
         console.log(circle.layer._latlngs);
     }
 
-    fetch('/tour/add')
-        .then(res => drawEvent)
+    //fetch('/tour/add')
+    //    .then(res => drawEvent)
     
 
     // Do whatever else you need to. (save to db; add to map etc)
@@ -101,7 +101,7 @@ function submitFunction() {
     drawEvent = false; 
 
 }
-
+/** 
 // Event Handler -> disabel/ enable form field depending on selected option
 $(document).ready(function(){
     $("select[name='choose']").on('change',function(){
@@ -122,3 +122,4 @@ $(document).ready(function(){
       }
     });
   });
+*/
