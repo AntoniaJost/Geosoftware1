@@ -19,6 +19,8 @@ console.log(fetch ('/tour') //ursprünglich let ausgangssituation = fetch ('/tou
 
 
 // warum auch immer, geht er hier nicht rein... klappt auch nicht, wenn statt :routeID die konkrete ID verwendet wird
+
+//function testfunction(){
 console.log(fetch('/tour/:routeID') // ursprünglich let response =(fetch('/tour/:routeID') ... s.o.
     .then(response => response.json())
     .then(response => {
@@ -29,7 +31,9 @@ console.log(fetch('/tour/:routeID') // ursprünglich let response =(fetch('/tour
         L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=86IucIQ0W7mo5uspiDDB', 
             {
             attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-            }).addTo(map); 
+            }).addTo(map);
         L.geoJson(response).addTo(map);
     }));
+//}
+
 

@@ -22,20 +22,24 @@ router.get('/', async function(req, res, next)
 });
 
 router.get('/:routeID', async (req,res,next) => {
-  
   await client.connect();
-
   routeID = req.params.routeID;
 
-  var touren = client.db("Stadttour");
+  try{
 
-  let documents = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)});
+    var touren = client.db("Stadttour");
+    let documents = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)});
+    console.log(documents);
 
-  console.log(documents);
+    //testfunction(documents);
 
-  //res.send(documents); 
-  res.render("1_tour", {tours: documents}) //-> error cannot read property of undefinded
-  
+    res.send(documents);
+    //res.render("1_tour", {tours: documents}) //-> error cannot read property of undefinded
+
+  } catch(e){
+    res.status(500);
+    res.send(e)
+  }
 })
 
 module.exports = router; 

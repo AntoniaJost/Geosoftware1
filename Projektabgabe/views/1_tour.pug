@@ -19,11 +19,13 @@ block content
             | Tour w&auml;hlen
           ul.dropdown-menu(aria-labelledby='dropdownMenuButton1')
             each tour in tours
-              a.dropdown-item(href='/tour/' + tour._id) 
-                li= JSON.stringify(tour.features)
+              a.dropdown-item(href='/tour/' + tour._id)
+                li= tour.features[0].properties.Name
+                
+      //-li= JSON.stringify(tour.features) 
 
 
-      //- ÖPNV TEXT AREA //features[0].properties.Name
+      //- ÖPNV TEXT AREA //
       #textfeld
         p.text-left Umweltbewusst unterwegs?
         //- ÖPNV ANZEIGEN BUTTON
@@ -45,6 +47,7 @@ block content
       each tour in tours 
         li= tour.features 
   //- ändern, dass nur Beschreibung für selected angezeigt wird [0].properties.Beschreibung
+  //-  li= tour.features[0].properties.Beschreibung
 
 
   block scripts
