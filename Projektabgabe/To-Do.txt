@@ -1,4 +1,8 @@
 To-Do:
+
+- aktuell: über tours/touren? Array iterieren -> in Variable speichern, sonst pug Problem
+- add/ edit wieder herstellen
+
 - 2. Post Router bei 1_1_tour_add_route für Weiterleitung von form-input zu success (statt details)
 
 - MongoDB Abruf: Search & 1_tour (Tour auswählen) muss funktionieren & soll beide Datenbanken durchsuchen (autocomplete)

@@ -23,6 +23,8 @@ function oepnv() {
 
 //function showBusStops(stops) {}
 
+
+//ab hier Wetter aus WeatherPopUp.js -> Übung7
 var popup = L.popup();
 
 //popup function
