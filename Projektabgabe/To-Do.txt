@@ -1,15 +1,18 @@
 To-Do:
-- done: 2 separate Datenbanken: eine für Touren, eine für Sehenswürdigkeiten
-
 - 2. Post Router bei 1_1_tour_add_route für Weiterleitung von form-input zu success (statt details)
-- Daten von form-input müssen noch in MongoDB
 
 - MongoDB Abruf: Search & 1_tour (Tour auswählen) muss funktionieren & soll beide Datenbanken durchsuchen (autocomplete)
+
+- Fehlerüberprüfung beim Einlesen der geojson-Datei (bei Textfeld & Upload Button)
+
+- Suche nach Touren & Sehenswürdigkeiten
 
 - APIs für: 
 	*ÖPNV
 	*Wetter
-	*Wikipedia
+	*Wikipedia-API
     
+- 5 Unit Tests Client und/oder Server
+
 - Dockerimage korrekt erstellen (Problem node-Teil)
 
