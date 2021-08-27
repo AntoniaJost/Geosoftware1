@@ -37,6 +37,7 @@ console.log(fetch('/tour/:routeID') // ursprünglich let response =(fetch('/tour
 //}
 
 
+
 //Wetter Pop-up Test (eig. in ÖPNV)
 var popup = L.popup();
 

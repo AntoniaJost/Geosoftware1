@@ -33,8 +33,12 @@ router.get('/:routeID', async (req,res,next) => {
 
     //testfunction(documents);
 
+    //res.sendFile(path.join(__dirname, 'views/1_tour.pug', { root: __dirname}))
     res.send(documents);
+    //res.status(200).send({tours: documents})
+    //res.redirect("/tour")
     //res.render("1_tour", {tours: documents}) //-> error cannot read property of undefinded
+    //res.jsonp(documents);
 
   } catch(e){
     res.status(500);
