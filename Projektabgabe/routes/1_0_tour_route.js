@@ -25,7 +25,7 @@ router.get('/:routeID', async (req,res,next) => {
   await client.connect();
   routeID = req.params.routeID;
 
-  try{
+  try{  //verursacht, dass /add nicht mehr geladen wird
 
     var touren = client.db("Stadttour");
     let documents = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)});
@@ -45,5 +45,6 @@ router.get('/:routeID', async (req,res,next) => {
     res.send(e)
   }
 })
+
 
 module.exports = router; 

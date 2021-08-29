@@ -28,7 +28,7 @@ block content
         p.text-left Umweltbewusst unterwegs?
         //- ÖPNV ANZEIGEN BUTTON
         //- irgendwie ist der Button ein paar cm weiter rechts?!
-        input.btn.btn-outline-success(type='button' value='ÖPNV anzeigen' onclick='onLoad()' style='background-color:black; margin: 10px;')
+        input.btn.btn-outline-success(type='button' value='ÖPNV anzeigen' onclick='oepnv()' style='background-color:black; margin: 10px;')
       //- "ADD SOMETHING?" TEXT AREA
       #textfeld
         p.text-left Deinen Lieblingsspot erg&auml;nzen?
@@ -45,6 +45,17 @@ block content
       each tour in tours 
         li= tour.features[0].properties.Beschreibung 
   //- ändern, dass nur Beschreibung für selected angezeigt wird [0].properties.Beschreibung
+
+  br
+  .row
+    .col-md-auto
+      h4.text-left(style='margin-left: 10px;') Wikipedia Test
+
+    #textarea    
+      p.
+    #search
+      input#searchid.input-lg(name='gsrsearch' type='text' placeholder='enter Wikipedia URL' autocomplete='off')
+      button#searchWiki.btn-lg.btn-info WikiTest
 
 
   block scripts
