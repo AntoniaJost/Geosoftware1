@@ -131,4 +131,4 @@ $(document).ready(function(){
 }
 
 //popup
-map.on('click', onMapClick);
+map.on('click', onMapClick); //-> warum auch immer "not a function"?!?!
