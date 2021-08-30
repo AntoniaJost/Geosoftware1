@@ -28,17 +28,12 @@ router.get('/:routeID', async (req,res,next) => {
   try{  //verursacht, dass /add nicht mehr geladen wird
 
     var touren = client.db("Stadttour");
-    let documents = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)});
-    console.log(documents);
-
-    //testfunction(documents);
-
-    //res.sendFile(path.join(__dirname, 'views/1_tour.pug', { root: __dirname}))
-    res.send(documents);
-    //res.status(200).send({tours: documents})
-    //res.redirect("/tour")
-    //res.render("1_tour", {tours: documents}) //-> error cannot read property of undefinded
-    //res.jsonp(documents);
+    let tour = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)});
+    console.log(tour);
+    let tours = await touren.collection("neueTouren").find({}).toArray();
+  
+    res.render("1_tour", {meineTour: tour, tours: tours}) 
+  
 
   } catch(e){
     res.status(500);

@@ -5,7 +5,6 @@ block content
   h3.text-center Interaktive, digitale Stadtf&uuml;hrungen in M&uuml;nster
   br
   //- MAP DISPLAY (in einem Flex Container mit Text & Drowpdown)
-  //- irgendwie nicht in einer row und flex-wrap klappt nicht??
   .row
     .col-md
       #map
@@ -22,7 +21,6 @@ block content
               a.dropdown-item(href='/tour/' + tour._id)
                 li= tour.features[0].properties.Name
 
-
       //- ÖPNV TEXT AREA //
       #textfeld
         p.text-left Umweltbewusst unterwegs?
@@ -33,7 +31,7 @@ block content
       #textfeld
         p.text-left Deinen Lieblingsspot erg&auml;nzen?
         //- SECOND BUTTON
-        a.btn.btn-outline-success(href='http://localhost:3000/tour/add' style='background-color:black;') Erg&auml;nzen
+        a.btn.btn-outline-success(href='/tour/add' style='background-color:black;') Erg&auml;nzen
   //- INFORMATIONSTEXT
   br
   .row
@@ -57,9 +55,14 @@ block content
       input#searchid.input-lg(name='gsrsearch' type='text' placeholder='enter Wikipedia URL' autocomplete='off')
       button#searchWiki.btn-lg.btn-info WikiTest
 
+  script.     
+    var geojson = !{JSON.stringify(meineTour)}
+    console.log(geojson)
 
   block scripts
   //- JAVASCIPTS
+  //- script(src='/javascripts/data.js', defer)
   script(src='/javascripts/1_tour.js', defer)
+  script(src='/javascripts/openWeatherAPIKey.js', defer)
   script(src='/javascripts/1_4_oepnv.js', defer)
-  script(src='/database_mongoservice.js', defer)
+

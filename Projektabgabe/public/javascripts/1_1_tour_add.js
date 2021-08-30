@@ -3,7 +3,7 @@
 var center = [51.961237, 7.625187];
 
 // Erstellung einer Variablen, die die Karte enthält, initial settings
-var karte = L.map('karte',).setView(center, 15); 
+var karte = L.map('karte').setView(center, 15); 
 
 //initialiation of the attributes
 //Wir brauchen laut Aufgabe sogar nur Punkt und Polygon

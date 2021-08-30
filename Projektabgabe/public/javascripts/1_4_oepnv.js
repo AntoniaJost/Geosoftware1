@@ -6,7 +6,8 @@ function oepnv() {
     .done(function (response) {
         alert("success")
         console.dir(response)
-        showBusStops(response.results.items)
+        showBusStops(response)
+        map.on('click', onMapClick)
     })
     .fail(function (xhr, status, errorThrown) {
         alert( "error" )
@@ -18,10 +19,15 @@ function oepnv() {
         alert( "after success or fail" )
         console.dir(xhr)
         console.log(status)
+        //map.on('click', function(e) {     alert(e.latlng); } );
       })
 }
 
-//function showBusStops(stops) {}
+function showBusStops(stops) {
+    L.geoJSON(stops).addTo(map);
+}
+
+//L.map.on('click', function(e) {     alert(e.latlng); } );
 
 
 //ab hier Wetter aus WeatherPopUp.js -> Übung7
@@ -131,4 +137,4 @@ $(document).ready(function(){
 }
 
 //popup
-map.on('click', onMapClick); //-> warum auch immer "not a function"?!?!
+//map.on('click', onMapClick); //-> warum auch immer "not a function"?!?!
