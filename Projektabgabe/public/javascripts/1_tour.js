@@ -29,6 +29,13 @@ console.log(fetch ('/tour') //ursprünglich let ausgangssituation = fetch ('/tou
                 .setContent("TEST DATA " + test)
                 .openOn(map);*/
 
+            var popUpLayer = L.geoJSON(data, {
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopUp('<h1>' +feature.properties.Name+'</h1><p>URL: ' +feature.properties.URL+ '</p><p>Beschreibung: ' +feature.properties.Beschreibung+ '</p>');
+                }
+            }).addTo(map);
+            console.log(popUpLayer);
+            
         } else {
             console.log('Fehler 1.Art');
         }

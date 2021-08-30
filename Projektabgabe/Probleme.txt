@@ -7,6 +7,7 @@ Probleme:
 	>Entweder Error "Map container is already initialized" oder unbewegliche Karte
 	>PopUps an Routen anbinden (wie setLatLng -> nimmt keinen String entgegen & 
 				    wie Name, Beschreibung und URL anzeigen?)
+		>Laden fehlgeschlagen für das <script> mit der Quelle "http://localhost:3000/database_mongoservice.js".
 	>Wikipedia Abfrage auch für schon in Datenbank gespeicherte URLs 
 	>Haltestellen auch auf Karte bekommen
 
