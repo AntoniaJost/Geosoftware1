@@ -37,7 +37,7 @@ function showBusStops(stops) {
        }
      });
         my_json.addTo(map);
-        alert(my_json.getLatLng());
+        
 }
 
 

@@ -3,8 +3,11 @@ Probleme:
 -bei 1_tour.js: 
 	>/add und /edit und /add/details laden
 
--bei 1_4_oepnv.js:
-	>Wetter nur an Station im PopUp
+-bei 3_search(_route).js:
+	>Suche klappt nicht wie gedacht
+
+-(bei 1_4_oepnv.js:
+	>Wetter nur an Station im PopUp)
 
 -bei docker-compose.yml:
 	>geo-node läuft nicht -> warum?
