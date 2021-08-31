@@ -5,10 +5,6 @@ console.log(fetch ('/tour') //ursprünglich let ausgangssituation = fetch ('/tou
     .then (ausgangssituation => {
         if (ausgangssituation.ok) {
 
-            //!!!!!!!!!!!!!!!!!!!!!! Problem
-            // Gegen Error "Map container is already initialized" ABER verhindert Karte bewegen
-            var container = L.DomUtil.get('map'); if(container != null){ container._leaflet_id = null; }
-
             // Mitte der Karte
             var center = [51.961237, 7.625187];
 
@@ -25,34 +21,48 @@ console.log(fetch ('/tour') //ursprünglich let ausgangssituation = fetch ('/tou
                 L.geoJson(polygons).addTo(map);
             }  
             
-
-            //Marker gehören eig. in /:routeID -> funktioniert aber nicht, daher noch hier zum Testen
-            var test = 2;
-            // klappt nicht var testJSON = {"type": "Feature", "properties": {"Name": "Aasee", "URL": "https://de.wikipedia.org/wiki/Aasee_(M%C3%BCnster)", "Beschreibung": ""}, "geometry": { "type": "Point", "coordinates": [7.618723511695862, 51.95711151714148] } };
-            //var testMarkerJSON = L.marker(testJSON.geometry.coordinates).addTo(map)
-            var testMarker = L.marker([51.95711151714148, 7.618723511695862]).addTo(map);
-            testMarker.bindPopup("<b>Test Marker!</b><br>I am a working popup. " + test)
-            /*var popup = L.popup()
-                .setLatLng([51.95711151714148, 7.618723511695862]) //darf kein String sein
-                .setContent("TEST DATA " + test)
-                .openOn(map);*/
-//console.log(data)
             var popUpLayer = L.geoJSON(polygons, {
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup('<h1>' +feature.properties.Name+'</h1><p>URL: ' +feature.properties.URL+ '</p><p>Beschreibung: ' +feature.properties.Beschreibung+ '</p>');
+                    //Wikipedia API
+                    var pathUrl = feature.properties.URL;
+                    if (pathUrl != 0){
+                        var finalUrl = pathUrl.substr(pathUrl.lastIndexOf('/')).replace('/','')
+                        console.log(finalUrl)
+
+                        //JSON-P function due to CORS -> nicht notwendig, wenn man an &origin=* denkt...
+                        /*window.onload = function() {
+                            
+                            var num = Math.round(10000 * Math.random());
+                            var callbackMethodName = "cb_" + num;
+
+                            window[callbackMethodName] = function(data){
+                                console.log(data)
+                            }
+
+                            var sc = document.createElement("script");
+                            sc.id = "script_" + callbackMethodName;
+                            sc.src = "https://de.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=" + finalUrl + "&callback=" + callbackMethodName;
+
+                            document.body.appendChild(sc);
+                            //document.getElementById(sc.id).remove();
+                        }*/
+
+                        $.getJSON("https://de.wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&format=json&exintro=&titles=" + finalUrl, function(data){
+                            Object.keys(data.query.pages).forEach(key => {
+                                layer.bindPopup('<h3>' +feature.properties.Name+'</h3>' + data.query.pages[key].extract + feature.properties.Beschreibung + "Quelle: Wikipedia.org");
+                            });
+                    })} else {
+                    layer.bindPopup('<h3>' +feature.properties.Name+'</h3>' + feature.properties.Beschreibung );
+                    }
                 }
             }).addTo(map);
 
-            //console.log(popUpLayer);
-
         } else {
-            console.log('Fehler 1.Art');
+            console.log('Fehler');
         }
     }));
 
-// warum auch immer, geht er hier nicht rein... klappt auch nicht, wenn statt :routeID die konkrete ID verwendet wird
-
-//Wikipedia API 
+/*Wikipedia API 
 
 $(document).ready(function(){              
     $("#searchWiki").click(function(){
@@ -66,4 +76,4 @@ $(document).ready(function(){
     console.log(data) //.query.pages[0].extract -> is undefined
     });
   });
-});
+});*/
