@@ -4,10 +4,9 @@ function oepnv() {
         method: "GET",
     })
     .done(function (response) {
-        alert("success")
         console.dir(response)
-        showBusStops(response)
-        map.on('click', onMapClick)
+        showBusStops(response) //Bushaltestellen von conterra
+        map.on('click', onMapClick) //OpenWeatherMap 
     })
     .fail(function (xhr, status, errorThrown) {
         alert( "error" )
@@ -15,16 +14,28 @@ function oepnv() {
         console.log(status)
         console.log(errorThrown)        
     })
-    .always(function(xhr, status) {
-        alert( "after success or fail" )
+    /*.always(function(xhr, status) {
         console.dir(xhr)
         console.log(status)
         //map.on('click', function(e) {     alert(e.latlng); } );
-      })
+      })*/
 }
 
 function showBusStops(stops) {
-    L.geoJSON(stops).addTo(map);
+    
+    var my_json = L.geoJson(stops, {
+        pointToLayer: function(feature, latlng) {
+            var busIcon = L.icon({
+                iconSize: [12, 12],
+                iconUrl: '/stylesheets/myIcon.png'
+            });
+            return L.marker(latlng, {icon: busIcon});
+        },
+       onEachFeature: function (feature, layer) {
+               layer.bindPopup("hier müssten jetzt nur noch Wetterdaten stehen...");
+       }
+     });
+        my_json.addTo(map);
 }
 
 //L.map.on('click', function(e) {     alert(e.latlng); } );
@@ -136,5 +147,3 @@ $(document).ready(function(){
 //popupfunction ends here
 }
 
-//popup
-//map.on('click', onMapClick); //-> warum auch immer "not a function"?!?!
