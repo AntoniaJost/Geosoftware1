@@ -32,28 +32,7 @@ block content
         p.text-left Deinen Lieblingsspot erg&auml;nzen?
         //- SECOND BUTTON
         a.btn.btn-outline-success(href='/tour/add' style='background-color:black;') Erg&auml;nzen
-  //- INFORMATIONSTEXT
-  br
-  .row
-    .col-md-auto
-      h4.text-left(style='margin-left: 10px;') Informationen zur gew&auml;hlten Tour
 
-    #text    
-      p.
-      each tour in tours 
-        li= tour.features[0].properties.Beschreibung 
-  //- ändern, dass nur Beschreibung für selected angezeigt wird [0].properties.Beschreibung
-
-  br
-  .row
-    .col-md-auto
-      h4.text-left(style='margin-left: 10px;') Wikipedia Test
-
-    #textarea    
-      p.
-    #search
-      input#searchid.input-lg(name='gsrsearch' type='text' placeholder='enter Wikipedia URL' autocomplete='off')
-      button#searchWiki.btn-lg.btn-info WikiTest
 
   script.     
     var geojson = !{JSON.stringify(meineTour)}
@@ -61,7 +40,6 @@ block content
 
   block scripts
   //- JAVASCIPTS
-  //- script(src='/javascripts/data.js', defer)
   script(src='/javascripts/1_tour.js', defer)
   script(src='/javascripts/openWeatherAPIKey.js', defer)
   script(src='/javascripts/1_4_oepnv.js', defer)

@@ -1,19 +1,10 @@
 Probleme:
 
 -bei 1_tour.js: 
-	>XHR GET /:routeID -> Tour auswählen und dann auf Karte, nicht als JSON darstellen
-	>Uncaught (in promise) Error: Invalid GeoJSON object (tour.js 52 & 43)
-	>fetch /:routeID verhindert Laden von /add und /edit
-	>Entweder Error "Map container is already initialized" oder unbewegliche Karte
-	>PopUps an Routen anbinden (wie setLatLng -> nimmt keinen String entgegen & 
-				    wie Name, Beschreibung und URL anzeigen?)
-		>Laden fehlgeschlagen für das <script> mit der Quelle "http://localhost:3000/database_mongoservice.js".
-	>Wikipedia Abfrage auch für schon in Datenbank gespeicherte URLs 
-	>Haltestellen auch auf Karte bekommen
+	>/add und /edit und /add/details laden
 
 -bei 1_4_oepnv.js:
-	>map.on is not a function -> warum? hat bei letzter Übung geklappt
-	>(wie nur nächst gelegene?)
+	>Wetter nur an Station im PopUp
 
 -bei docker-compose.yml:
 	>geo-node läuft nicht -> warum?

@@ -24,21 +24,21 @@ function oepnv() {
 function showBusStops(stops) {
     
     var my_json = L.geoJson(stops, {
-        pointToLayer: function(feature, latlng) {
+        pointToLayer: function(feature, latlng) {            
             var busIcon = L.icon({
                 iconSize: [12, 12],
                 iconUrl: '/stylesheets/myIcon.png'
             });
             return L.marker(latlng, {icon: busIcon});
+
         },
        onEachFeature: function (feature, layer) {
                layer.bindPopup("hier müssten jetzt nur noch Wetterdaten stehen...");
        }
      });
         my_json.addTo(map);
+        alert(my_json.getLatLng());
 }
-
-//L.map.on('click', function(e) {     alert(e.latlng); } );
 
 
 //ab hier Wetter aus WeatherPopUp.js -> Übung7

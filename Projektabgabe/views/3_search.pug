@@ -8,10 +8,23 @@ block content
     #search
         .input-group
         .form-outline
-        input.form-control.me-2(type='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);') 
+        input#searchid.form-control.me-2(type='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);') 
         br
-        button.btn.btn-outline-success(type='submit' style='background-color:black;') Suchen
+        button#searchDB.btn.btn-outline-success(type='submit' style='background-color:black;') Suchen
         i.fas.fa-search
 
+        //- SUCHAUSGABE
+        br 
+        br
+        #result
+        .row
+            .col-md-auto
+                h4.text-left Results
 
+    script.     
+        var searchOutput = !{JSON.stringify(findOne)}
+        console.log(searchOutput)
 
+    block scripts
+     //- JAVASCIPTS
+    script(src='/javascripts/3_search_route.js', defer)

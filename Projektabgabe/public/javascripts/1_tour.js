@@ -52,7 +52,7 @@ console.log(fetch ('/tour') //ursprünglich let ausgangssituation = fetch ('/tou
                                 layer.bindPopup('<h3>' +feature.properties.Name+'</h3>' + data.query.pages[key].extract + feature.properties.Beschreibung + "Quelle: Wikipedia.org");
                             });
                     })} else {
-                    layer.bindPopup('<h3>' +feature.properties.Name+'</h3>' + feature.properties.Beschreibung );
+                    layer.bindPopup('<h3>' +feature.properties.Name+'</h3>' + feature.properties.Beschreibung + "<p> Kein Wikipedia Artikel vorhanden </p>");
                     }
                 }
             }).addTo(map);
