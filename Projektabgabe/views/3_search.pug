@@ -10,7 +10,7 @@ block content
         .form-outline
         input#searchid.form-control.me-2(type='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);') 
         br
-        button#searchDB.btn.btn-outline-success(type='submit' style='background-color:black;') Suchen
+        button#searchDB.btn.btn-outline-success(method='POST' type='submit' value='submit' onclick='returnResult()' href='/search/' + searchid style='background-color:black;') Suchen
         i.fas.fa-search
 
         //- SUCHAUSGABE

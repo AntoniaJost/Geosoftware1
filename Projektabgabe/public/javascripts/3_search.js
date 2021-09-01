@@ -1,4 +1,11 @@
-$(document).ready(function(){              
+var ergebnis = searchOutput;
+
+
+function returnResult(){
+    console.log(ergebnis);
+}
+
+/*$(document).ready(function(){              
     $("#searchDB").click(function(){
         $(document).ready(function(){
             //console.log(data) 
@@ -13,4 +20,4 @@ $('.save_form').on('click', '[type=submit]', function(event) {
     var formID = formDetails.attr('id');
     var fileurl = formDetails.attr('action');
     console.log(submitbutton);
-  });
+  });*/

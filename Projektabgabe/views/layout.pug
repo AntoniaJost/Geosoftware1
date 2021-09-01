@@ -31,25 +31,25 @@ header
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.me-auto.mb-2.mb-lg-0
           li.nav-item
-            a.nav-link.active(aria-current='page' href='http://localhost:3000/home') Home
+            a.nav-link.active(aria-current='page' href='/home') Home
           li.nav-item.dropdown
             a#Touren.nav-link.dropdown-toggle(role='button' data-bs-toggle='dropdown' aria-expanded='false')
               | Touren
             ul.dropdown-menu(aria-labelledby='navbarDropdown')
               li
-                a.dropdown-item(href='http://localhost:3000/tour') Touren
+                a.dropdown-item(href='/tour') Touren
               li
                 a.dropdown-item(href='/tour/add') Hinzuf&uuml;gen
               li
-                a.dropdown-item(href='http://localhost:3000/tour/edit') Bearbeiten
+                a.dropdown-item(href='/tour/edit') Bearbeiten
           li.nav-item
             a.nav-link(href='https://de.wikipedia.org/wiki/Geschichte_der_Stadt_M%C3%BCnster') Geschichte
           li.nav-item
-            a.nav-link(href='http://localhost:3000/contact') Kontakt
-        form.d-flex(action='http://localhost:3000/search')
+            a.nav-link(href='/contact') Kontakt
+        form.d-flex(action='/search')
 
           input.form-control.me-2(type='search' name='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);')
-          button.btn.btn-outline-success(type='submit' style='background-color:black;') Suchen
+          button.btn.btn-outline-success(type='submit' onclick='returnResult()' style='background-color:black;') Suchen
 //- MAIN PART
 main
   block content

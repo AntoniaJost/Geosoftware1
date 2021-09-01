@@ -5,6 +5,7 @@ Probleme:
 
 -bei 3_search(_route).js:
 	>Suche klappt nicht wie gedacht
+	>Warum verhält sich "Suchen" Button unterschiedlich bei Header und search page?
 
 -(bei 1_4_oepnv.js:
 	>Wetter nur an Station im PopUp)

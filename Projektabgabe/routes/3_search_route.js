@@ -16,7 +16,7 @@ router.get('/', function (req,res,next)
 })
 
 
-router.get('/search/:searchid', async (req,res,next) =>{
+router.post('/search/:searchid', async (req,res,next) =>{
 
   await client.connect();
   searchid = req.params.id;
