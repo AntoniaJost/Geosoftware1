@@ -12,6 +12,7 @@ const collectionName = 'neueTouren' // collection name
 
 router.get('/', function(req, res, next)
 {
+    console.log("Test.....")
     res.render('1_1_tour_add', {title: 'Touren'})
 }); 
 

@@ -1,8 +1,16 @@
 var ergebnis = searchOutput;
-
+console.log(ergebnis)
 
 function returnResult(){
-    console.log(ergebnis);
+    var input = document.getElementById("search").value;
+    alert (input);
+    console.log(input);
+}
+
+function returnResult2(){
+    var inputHeader = document.getElementById("search2").value;
+    alert (inputHeader);
+    console.log(inputHeader);
 }
 
 /*$(document).ready(function(){              

@@ -46,10 +46,9 @@ header
             a.nav-link(href='https://de.wikipedia.org/wiki/Geschichte_der_Stadt_M%C3%BCnster') Geschichte
           li.nav-item
             a.nav-link(href='/contact') Kontakt
-        form.d-flex(action='/search')
-
-          input.form-control.me-2(type='search' name='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);')
-          button.btn.btn-outline-success(type='submit' onclick='returnResult()' style='background-color:black;') Suchen
+        form.d-flex(action='/search' method='post')
+          input#search2.form-control.me-2(type='search' name='search2' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);')
+          button#searchDB2.btn.btn-outline-success(type='submit' onclick='returnResult2()' style='background-color:black;') Suchen
 //- MAIN PART
 main
   block content
@@ -85,3 +84,11 @@ footer.bg-light.text-center.text-lg-start
           |              antonia.jost@uni-muenster.de
   .text-center.p-3(style='background-color: mediumseagreen;')
     | &copy; 2021 Copyright: Henning Sander &amp; Antonia Jost
+
+  script.     
+      var searchOutput = !{JSON.stringify(findOne)}
+      console.log(searchOutput)
+
+  block scripts
+  //- JAVASCIPTS
+  script(src='/javascripts/3_search.js', defer)

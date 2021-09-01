@@ -31,6 +31,7 @@ router.get('/:routeID', async (req,res,next) => {
     let tour = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)});
     console.log(tour);
     let tours = await touren.collection("neueTouren").find({}).toArray();
+    console.log("TOURS" + tours);
   
     res.render("1_tour", {meineTour: tour, tours: tours}) 
   
@@ -41,5 +42,16 @@ router.get('/:routeID', async (req,res,next) => {
   }
 })
 
+router.get('/add', function(req, res, next)
+{
+    console.log("Test.....")
+    res.render('1_1_tour_add', {title: 'Touren'})
+}); 
+
+
+/*router.get('/add', function(req, res, next) {
+       console.log("This is another test")     
+       //res.render('1_1_tour_add', {title: 'Touren'})  
+      });*/
 
 module.exports = router; 

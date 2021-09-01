@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //app.use(logger('dev')); sorgt für Fehler, weil Logger nicht vorhanden
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser()); sorgt ebenfalls für Fehler, weil cookieParser nicht vorhanden (oben vorher schon entfernt)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -42,7 +42,7 @@ app.use('/home', homeRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter); 
 app.use('/tour', tourRouter); 
-app.use('/tour/add', addTourRouter);
+//app.use('/tour/add', addTourRouter);
 app.use('/tour/add/details', detailsRouter);
 app.use('/tour/add/details/success', successRouter);
 app.use('/tour/edit', editRouter);
@@ -53,10 +53,10 @@ app.use('/search', searchRouter);
 //app.use('/server', serverRouter);  
 
 
-// catch 404 and forward to error handler
+/*// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
-});
+});*/
 
 // error handler
 app.use(function(err, req, res, next) {
