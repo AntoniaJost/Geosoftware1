@@ -1,11 +1,10 @@
 Probleme:
 
 -bei 1_tour.js: 
-	>/add und /edit und /add/details laden
+	>/add und /edit und /details und /success und /delete anständig laden
 
 -bei 3_search(_route).js:
-	>Suche klappt nicht wie gedacht
-	>Warum verhält sich "Suchen" Button unterschiedlich bei Header und search page?
+	>Ergebnis anders als [object, Object] darstellen
 
 -(bei 1_4_oepnv.js:
 	>Wetter nur an Station im PopUp)

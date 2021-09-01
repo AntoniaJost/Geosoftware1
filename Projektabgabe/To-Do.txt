@@ -1,10 +1,8 @@
 To-Do:
 
-- add/ edit wieder herstellen
+- add/edit/delete/success/details wieder herstellen/ funktionieren
 
-- Fehlerüberprüfung beim Einlesen der geojson-Datei (bei Textfeld & Upload Button)
-
-- Suche nach Touren & Sehenswürdigkeiten
+- Fehlerüberprüfung beim Einlesen der geojson-Datei (bei Textfeld & Upload Button) -> Upload klappt
     
 - 5 Unit Tests Client und/oder Server
 

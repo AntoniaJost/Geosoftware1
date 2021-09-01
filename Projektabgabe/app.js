@@ -43,10 +43,10 @@ app.use('/users', usersRouter);
 app.use('/test', testRouter); 
 app.use('/tour', tourRouter); 
 //app.use('/tour/add', addTourRouter);
-app.use('/tour/add/details', detailsRouter);
-app.use('/tour/add/details/success', successRouter);
-app.use('/tour/edit', editRouter);
-app.use('/tour/edit/delete', deleteRouter);
+//app.use('/tour/add/details', detailsRouter);
+//app.use('/tour/add/details/success', successRouter);
+//app.use('/tour/edit', editRouter);
+//app.use('/tour/edit/delete', deleteRouter);
 app.use('/contact', contactRouter);
 app.use('/search', searchRouter);
 

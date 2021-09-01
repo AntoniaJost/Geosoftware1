@@ -6,12 +6,6 @@ block content
     h3.text-center Suche
     br
     #searchBar
-        .input-group
-        input#search.form-control.me-2(type='search' name='search' placeholder='Tour oder Sehenswürdigkeit' aria-label='Search' style='background-color:rgb(255, 255, 255);') 
-        br
-        button#searchDB.btn.btn-outline-success(type='submit' value='submit' onclick='returnResult()' style='background-color:black;') Suchen
-        i.fas.fa-search
-
         //- SUCHAUSGABE 
         br 
         br
@@ -19,6 +13,11 @@ block content
         .row
             .col-md-auto
                 h4.text-left Results
+                each test in output
+                    li= output
+
+
+    //- evtl. noch notwendig???? (eher nicht)
 
     script.     
         var searchOutput = !{JSON.stringify(findOne)}
