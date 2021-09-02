@@ -1,3 +1,4 @@
+//das ist bisher alles nur aus dem Internet kopiert
 // https://getbootstrap.com/docs/5.0/components/list-group/
 var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
 triggerTabList.forEach(function (triggerEl) {

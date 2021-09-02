@@ -2329,19 +2329,15 @@ client.connect(function(err)
       }
     ]
 
+//AB HIER LÖSCHEN?!
 
-
-
-
- 
-const insertDocuments = function(db, collection, data, callback) 
+/*const insertDocuments = function(db, collection, data, callback) 
 {
     // Insert some documents
     collection.insertMany(data, function(err, result) 
     {
       assert.equal(err, null)
       assert.equal(1, result.result.ok)
-      //console.log(result)
       console.log(`Inserted ${result.insertedCount} documents into the collection`)
       callback(result)
     })
@@ -2349,7 +2345,6 @@ const insertDocuments = function(db, collection, data, callback)
 insertDocuments(db, collection, data, function()
 {
   console.log("Insertion operation done")
-  //client.close()
 })
 
 
@@ -2378,6 +2373,6 @@ const countRows = function(collection)
 }
 
 countRows(collection)
-
+*/
 
 })

@@ -22,7 +22,7 @@ block content
         form#input-map(name='input-map' action='/tour/add/add/details' method='post')
           .p2.flex-fill.bd-highlight
             #karte
-            a.btn.btn-outline-success(style='background-color: black;' type='submit') Absenden
+            a.btn.btn-outline-success(style='background-color: black;' type='submit' onclick="document.getElementById('input-map').submit();") Absenden
     .col-sm
       //- TEXTAREA ADD VIA FORM
       #textfeld
@@ -35,7 +35,6 @@ block content
           option(value='0') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
           option(value='1') Neue Tour erstellen
         //- UPLOAD FORM
-        //- evtl. auch Input Group von Bootstrap verwenden?
         form#input-form(name='input-form' action='/tour/add/add/details' method='post')
           .mb-3
             label.form-label(for='name') Name

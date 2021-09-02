@@ -1,3 +1,9 @@
+/**
+ * @function oepnv
+ * @description Wird durch Button "ÖPNV anzeigen" aufgerufen und greift mit Conterra API auf alle
+ *              Bushaltestellen in Münster zu, zudem ermöglicht sie Weiterleitung zu Wetter Funktion
+ */
+
 function oepnv() {
     $.ajax({
         url: "https://rest.busradar.conterra.de/prod/haltestellen",
@@ -14,13 +20,13 @@ function oepnv() {
         console.log(status)
         console.log(errorThrown)        
     })
-    /*.always(function(xhr, status) {
-        console.dir(xhr)
-        console.log(status)
-        //map.on('click', function(e) {     alert(e.latlng); } );
-      })*/
 }
 
+/**
+ * @function showBusStops
+ * @description zeigt die von der API erhaltenen Stationen visuell mit individuellem Icon auf Karte an
+ * @param stops Haltestelle, die von API erhalten wurden
+ */
 function showBusStops(stops) {
     
     var my_json = L.geoJson(stops, {
@@ -33,7 +39,7 @@ function showBusStops(stops) {
 
         },
        onEachFeature: function (feature, layer) {
-               layer.bindPopup("hier müssten jetzt nur noch Wetterdaten stehen...");
+               layer.bindPopup("hier müssten jetzt nur noch Wetterdaten stehen..."); //ZEILE ANPASSEN ODER ENTFERNEN
        }
      });
         my_json.addTo(map);
@@ -41,10 +47,17 @@ function showBusStops(stops) {
 }
 
 
-//ab hier Wetter aus WeatherPopUp.js -> Übung7
+//----- ab hier Wetter aus WeatherPopUp.js -> Übung7 ------
+
+// PopUp Initialisierung
 var popup = L.popup();
 
-//popup function
+/**
+ * @function onMapClick
+ * @description ruft Wetterdaten der angeklickten Stelle über OpenWeatherMap API ab und zeigt sie im PopUp
+ * @param e Klick-Event
+ * Diese Funktion orientiert sich an: https://gis.stackexchange.com/questions/313430/calling-openweathermap-api-in-leaflet-js-map 
+ */
 function onMapClick(e) {
     popup
         .setLatLng(e.latlng)
@@ -92,7 +105,6 @@ $(document).ready(function(){
     var weathercondtioniconhtml = "http://openweathermap.org/img/w/" + weatherconditionicon + ".png";
     var weathertimenormal = time; // reallocate time var....
     var temperaturecelsius = Math.round((temperature - 273) * 100) / 100;  // Converting Kelvin to Celsius
-    var windspeedknots = Math.round((windspeed * 1.94) * 100) / 100; // Windspeed from m/s in Knots; Round to 2 decimals
     var windspeedkmh = Math.round((windspeed * 3.6) * 100) / 100; // Windspeed from m/s in km/h; Round to 2 decimals
     var winddirectionstring = "Im the wind from direction"; // Wind from direction x as text
     if (winddirection > 348.75 &&  winddirection <= 11.25) {
@@ -142,8 +154,5 @@ $(document).ready(function(){
     }
   });        
 });
-//getting json function ends here
-
-//popupfunction ends here
 }
 

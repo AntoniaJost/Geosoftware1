@@ -3,7 +3,10 @@ block content
 
     //- HEADING
     br
-    h3.text-center Suche
+    h3.text-center Suchergebnis für:
+       br 
+       br
+       ul= query
     br
     #searchBar
         //- SUCHAUSGABE 
@@ -12,16 +15,8 @@ block content
         #result
         .row
             .col-md-auto
-                h4.text-left Results
                 each test in output
                     li= output
-
-
-    //- evtl. noch notwendig???? (eher nicht)
-
-    script.     
-        var searchOutput = !{JSON.stringify(findOne)}
-        console.log(searchOutput)
 
     block scripts
     //- JAVASCIPTS

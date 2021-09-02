@@ -1,0 +1,37 @@
+To-Do:
+
+- add/edit/delete/success/details wieder herstellen/ funktionieren
+    >bei edit/edit mal schauen, ob Unterteilung in Tour und Sehenswürdigkeiten wirklich so möglich ist 
+    oder ob es einfacher ist, das zusammen darzustellen
+
+- Fehlerüberprüfung beim Einlesen der geojson-Datei (bei Textfeld & Upload Button) -> Upload klappt
+    
+- 5 Unit Tests Client und/oder Server
+
+- Dockerimage korrekt erstellen (Problem node-Teil)
+
+- Ich habe bei database_mongoservice.js unten einiges auskommentiert, weil ich denke, wir brauchen das nicht.
+	Ich wollte es aber trotzdem noch nicht löschen, falls du das für add oder edit brauchst. Falls dem nicht so
+	ist: bitte weg damit :)
+
+**************************************************************************
+
+Probleme:
+
+-bei 1_tour.js: 
+	>/add und /edit und /details und /success und /delete anständig laden
+
+-bei 3_search(_route).js:
+	>Ergebnis anders als [object, Object] darstellen
+
+-(bei 1_4_oepnv.js:
+	>Wetter nur an Station im PopUp) --> falls du das auch nicht mehr hinbekommst, entferne bitte das Popup an den Haltestellen selbst
+
+-bei 1_1_tour_add.js:
+	>nur Polygon und Point erlauben
+
+-bei docker-compose.yml:
+	>geo-node läuft nicht -> warum?
+
+**********************************************************************
+GANZ AM ENDE BITTE DIESE DATEI LÖSCHEN :)

@@ -49,7 +49,7 @@
     opacity: 0.5;
 }
 
-/* Aligning content along the page with header fixed at top & footer fixed at bottom*/
+/* Inhalt entlang der Seite anordnen mit festem Header und Bottom*/
 body {
     display:flex;
     min-height: 100vh;
@@ -100,9 +100,9 @@ main {
     margin-top: 20px;
 }
 
-/*Search Bar*/
+/*Search Bar - Layout*/
 #searchBar {
-    margin-right:auto;
-    margin-left:auto;
-    width:50%;
+    display: flex;
+    justify-content: center;
 }
+

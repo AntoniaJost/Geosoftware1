@@ -13,7 +13,6 @@ block content
       br
       |  Dann hilf uns gerne weiter, das Angebot so aktuell wie m&ouml;glich zu halten.
   //- TOUR & SIGHT DISPLAY (LIST)
-  //- methode DELETE evtl.??
   .container
     form#edit(name='edit' action='edit.js' method='POST')
       .row
@@ -31,8 +30,8 @@ block content
               br
             //- TOOL BUTTONS
             //- irgendwas mit Submit ergänzen, um selected zu verwenden
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='http://localhost:3000/tour/add/details' role='button') Bearbeiten
-            a.btn.btn-outline-success(style='background-color:black;' href='http://localhost:3000/tour/edit/delete' role='button') L&ouml;schen
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='/tour/add/add/details' role='button') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button') L&ouml;schen
         .col-sm
           #textfeld
             h5.text-left SEHENSW&Uuml;RDIGKEITEN
@@ -45,5 +44,5 @@ block content
                 a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#settings' role='tab') Sight 4
               br
             //- TOOL BUTTONS
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='http://localhost:3000/tour/add/details' role='button') Bearbeiten
-            a.btn.btn-outline-success(style='background-color:black;' href='http://localhost:3000/tour/edit/delete' role='button') L&ouml;schen
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='/tour/add/add/details' role='button') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button') L&ouml;schen
