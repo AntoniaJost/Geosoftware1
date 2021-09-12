@@ -2329,15 +2329,15 @@ client.connect(function(err)
       }
     ]
 
-//AB HIER LÖSCHEN?!
-
-/*const insertDocuments = function(db, collection, data, callback) 
+//AB HIER LÖSCHEN?! --> zum einfügen der Daten muss const insertDocuments auskommentiert werden 
+/**
+const insertDocuments = function(db, collection, data, callback) 
 {
     // Insert some documents
     collection.insertMany(data, function(err, result) 
     {
-      assert.equal(err, null)
-      assert.equal(1, result.result.ok)
+      //assert.equal(err, null)
+      //assert.equal(1, result.result.ok)
       console.log(`Inserted ${result.insertedCount} documents into the collection`)
       callback(result)
     })
@@ -2347,7 +2347,7 @@ insertDocuments(db, collection, data, function()
   console.log("Insertion operation done")
 })
 
-
+ 
 const findDocuments = function (db, collection, callback) {
   collection.find({}).toArray(function(err, docs)
   {

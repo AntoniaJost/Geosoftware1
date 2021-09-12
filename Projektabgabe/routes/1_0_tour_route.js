@@ -114,9 +114,21 @@ router.get('/add/add/details/success', function(req, res, next)
  * GET Router für tour/edit/edit
  * Anmerkung siehe add/add
  */
-router.get('/edit/edit', function(req, res, next)
+router.get('/edit/edit', async function(req, res, next)
 {
-    res.render('1_3_tour_edit', {title: 'Edit'})
+  await client.connect();
+
+  var touren = client.db("Stadttour");
+    //var allElements = db.getCollection()
+    //let tour = await touren.collection("neueTouren").findOne({"_id" : new mongo.ObjectId(routeID)})
+
+    //Gibt alles aus der Datenbank aus 
+   let data = await touren.collection("neueTouren").find({}).toArray();
+
+   console.log(data)
+
+
+    res.render('1_3_tour_edit', {touren: data}) //{touren: data},
 }); 
 
 /**
@@ -127,6 +139,8 @@ router.post('/edit/edit', function(req, res, next)
 {
     var data1 = req.body.id1; //Tour die geändert werden soll (ID muss noch in der pug hinzugefügt werden)
     var data2 = req.body.id2; //Neue Tour (ID muss noch in der pug hinzugefügt werden)
+
+    
 
     client.connect(function(err, client) {
         assert.equal(null, err)
