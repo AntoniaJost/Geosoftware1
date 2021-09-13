@@ -1,3 +1,22 @@
+function test() {
+  var test2 = document.getElementById("data1")
+  console.log(test2)
+}
+
+  function test3() {
+    var testtest = document.getElementById("id1")
+    testtest.addEventListener("click", function() {
+      console.log(testtest)
+    })
+}
+
+function test4() {
+  var test = document.getElementById("id1"); 
+  console.log(test)
+}
+
+
+/** 
 //das ist bisher alles nur aus dem Internet kopiert
 // https://getbootstrap.com/docs/5.0/components/list-group/
 var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
@@ -10,7 +29,7 @@ triggerTabList.forEach(function (triggerEl) {
   })
 })
 
-//*************************** */
+
 
 //You can activate individual list item in several ways:
 
@@ -24,3 +43,4 @@ bootstrap.Tab.getInstance(triggerFirstTabEl).show() // Select first tab
 function show() {
   alert("Test")
 }
+*/

@@ -127,7 +127,6 @@ router.get('/edit/edit', async function(req, res, next)
 
    console.log(data)
 
-
     res.render('1_3_tour_edit', {touren: data}) //{touren: data},
 }); 
 

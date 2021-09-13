@@ -24,7 +24,7 @@ block content
             div(role='tabpanel')
               #myList.list-group(role='tablist')
                 each tour in touren 
-                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' id='data1')
+                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab')
                     list=tour.features[0].properties.Name
               br
             //- TOOL BUTTONS
@@ -38,10 +38,14 @@ block content
               #myList.list-group(role='tablist')
                 each tour in touren 
                   each element in tour.features
-                    a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab')
+                    a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' id='id1' onclick='test4()')
                       list=element.properties.Name
+  
               br
             //- TOOL BUTTONS
             //- irgendwas mit Submit ergänzen, um selected zu verwenden
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' role='button' id='data1' action='1_3_tour_edit.js' onclick='show()') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' role='button' onclick='test()') Bearbeiten
             a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button' id='data2') L&ouml;schen
+
+  //- JAVASCIPTS
+  script(src='/javascripts/1_3_tour_edit.js', defer)
