@@ -140,7 +140,8 @@ router.post('/edit/edit', function(req, res, next)
     var data1 = req.body.id1; //Tour die geändert werden soll (ID muss noch in der pug hinzugefügt werden)
     var data2 = req.body.id2; //Neue Tour (ID muss noch in der pug hinzugefügt werden)
 
-    
+    console.log(data1)
+    console.log(data2)
 
     client.connect(function(err, client) {
         assert.equal(null, err)

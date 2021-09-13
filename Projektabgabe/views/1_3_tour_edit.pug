@@ -24,8 +24,8 @@ block content
             div(role='tabpanel')
               #myList.list-group(role='tablist')
                 each tour in touren 
-                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab')
-                    a=tour.features[0].properties.Name
+                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' id='data1')
+                    list=tour.features[0].properties.Name
               br
             //- TOOL BUTTONS
             //- irgendwas mit Submit ergänzen, um selected zu verwenden
@@ -39,21 +39,9 @@ block content
                 each tour in touren 
                   each element in tour.features
                     a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab')
-                      a=element.properties.Name
+                      list=element.properties.Name
               br
             //- TOOL BUTTONS
             //- irgendwas mit Submit ergänzen, um selected zu verwenden
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='/tour/add/add/details' role='button') Bearbeiten
-            a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button') L&ouml;schen
-
-
-//-  p.text-left W&auml;hle eine Sehenwürdigkeit!
-            //- DROWPDOWN BAR
-            .dropdown
-              button#dropdownMenuButton1.btn.btn-outline-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false' style='background-color:black;')
-                | Sehenswürdigkeit w&auml;hlen
-              ul.dropdown-menu(aria-labelledby='dropdownMenuButton1')
-                each tour in touren
-                  each element in tour.features
-                    a.dropdown-item(href='/edit/' + tour._i) 
-                      li= element.properties.Name
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' role='button' id='data1' action='1_3_tour_edit.js' onclick='show()') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button' id='data2') L&ouml;schen
