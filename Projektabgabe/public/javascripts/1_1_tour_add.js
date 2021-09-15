@@ -9,6 +9,7 @@ let marker = "";
 let polygon = ""; 
 let drawEvent = false; 
 var route2 = null; 
+var drawnGeojson; 
 
 // MapTiler hinuzfügen
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=86IucIQ0W7mo5uspiDDB', 
@@ -38,6 +39,7 @@ karte.on(L.Draw.Event.CREATED, function (e) {
         layer = e.layer;
     var element = document.getElementById('input-map'); 
     console.log(element); 
+    console.log(e.layer) //--> toGeoJson  --> drawnIten
     drawEvent = true; 
     if (type === 'marker') {
         marker = e;
@@ -49,7 +51,7 @@ karte.on(L.Draw.Event.CREATED, function (e) {
     }
     //fetch('/tour/add')
     //    .then(res => drawEvent)
-    
+    drawnGeojson = drawnItems.toGeoJSON(); 
     drawnItems.addLayer(layer);
  });
  
@@ -59,6 +61,9 @@ karte.on('draw:edited', function (e) {
     });
 });
 
+
+
+//conervt to GeoJson --> e.layer
 
 /**
  * @function submitFunction

@@ -14,6 +14,8 @@ To-Do:
 	Ich wollte es aber trotzdem noch nicht löschen, falls du das für add oder edit brauchst. Falls dem nicht so
 	ist: bitte weg damit :)
 
+- To do: Issues
+
 **************************************************************************
 
 Probleme:

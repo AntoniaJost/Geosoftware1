@@ -8,6 +8,8 @@ const assert = require('assert')
 const url = 'mongodb://localhost:27017' // connection URL
 const client = new MongoClient(url) // create mongodb client
 
+var objectID; 
+
 /**
  * GET Router für tour page
  */
@@ -16,6 +18,7 @@ router.get('/', async function(req, res, next)
   await client.connect();
 
   var touren = client.db("Stadttour");
+
 
   //Findet alle "großen" Elemente der Datenbank
   let documents = await touren.collection("neueTouren").find({}).toArray(); 
@@ -71,7 +74,7 @@ router.post('/add/add/details', function(req, res, next)
 {
     var route1 = req.body.inputGeojson;
     var route = JSON.parse(route1); 
-    console.log("Test1"+route); 
+    console.log("Test1: ", route); 
  
     client.connect(function(err, client) 
   {
@@ -87,6 +90,10 @@ router.post('/add/add/details', function(req, res, next)
       assert.equal(err, null)
       console.log(result)
       console.log(`Inserted ${result.insertedCount} document into the databse`)
+      console.log("result: ", JSON.stringify(result.insertedId))
+      objectID = JSON.stringify(result.insertedId); 
+      console.log("routenID: ", objectID)
+
       res.render('1_2_tour_details')      
     })
   })
@@ -97,6 +104,9 @@ router.post('/add/add/details', function(req, res, next)
  */
 router.get('/add/add/details', function(req, res, next)
 {
+    var route = req.body.inputGeojson; 
+    var routeNew = JSON.parse(route)
+
     res.render("1_2_tour_details");
 }); 
 
@@ -104,9 +114,52 @@ router.get('/add/add/details', function(req, res, next)
 /**
  * GET Router für tour/add/add/details/success
  */
-router.get('/add/add/details/success', function(req, res, next)
+router.put('/add/add/details/success/:objectID', function(req, res, next)
 {
-    res.render('1_2_2_success', {title: 'Success'})
+  var neuerName = req.body.name; 
+  var neueUrl = req.body.url; 
+  var neueBeschreibung = req.body.beschreibung; 
+
+  var name = null; 
+  var url = null; 
+  var beschreibung = null; 
+
+  client.connect(function (err, client) {
+
+    assert.equal(null, err)
+    console.log('Connected successfully to server')
+    const db = client.db("Stadttour")
+    const collection = db.collection("neueTouren")
+    var routeID = req.params.objectID; //routenID muss noch irgendwoher geholt werden
+
+    collection.find({"_id": new mongo.ObjectId(routeID)}).toArray(function(err, docs) 
+    {
+      collection.updateOne({Name: name}, {$set:{Name: neuerName}}, function(err, result)
+        {
+          assert.strictEqual(err, null)
+          assert.strictEqual(1, result.result.ok)
+          //console.log(result);
+        })
+      collection.updateOne({URL: url}, {$set:{URL: neueUrl}}, function(err, result)
+        {
+          assert.strictEqual(err, null)
+          assert.strictEqual(1, result.result.ok)
+          //console.log(result);
+        })
+
+      collection.updateOne({Beschreibung: beschreibung}, {$set:{Beschreibung: neueBeschreibung}}, function(err, result)
+        {
+          assert.strictEqual(err, null)
+          assert.strictEqual(1, result.result.ok)
+          //console.log(result);
+        })
+
+    })
+    
+  })
+
+
+  res.render('1_2_2_success', {title: 'Success'})
 }); 
 
 
@@ -131,17 +184,79 @@ router.get('/edit/edit', async function(req, res, next)
 }); 
 
 /**
+ * Get Router für das ausgewählte Element zu bearbeiten
+ * Ermöglicht die Detaeilansicht zur Bearbeitung des in der Datenbank gespeicherten Elements
+ */
+router.get("/edit/edit/:toEdit", function(req, res, next)
+{
+  var data = req.params
+  console.log(data)
+    res.render('1_3_1_edit_details')
+}); 
+
+
+router.put("/edit/edit/succed/:toEdit", function(req, res, next) 
+{
+  var neuerName = req.body.name; 
+  var neueUrl = req.body.url; 
+  var neueBeschreibung = req.body.beschreibung; 
+
+  var name = null; 
+  var url = null; 
+  var beschreibung = null; 
+
+  client.connect(function (err, client) {
+
+    assert.equal(null, err)
+    console.log('Connected successfully to server')
+    const db = client.db("Stadttour")
+    const collection = db.collection("neueTouren")
+    var routeID = req.params.objectID; //routenID muss noch irgendwoher geholt werden
+
+    collection.find({"_id": new mongo.ObjectId(routeID)}).toArray(function(err, docs) 
+    {
+      collection.updateOne({Name: name}, {$set:{Name: neuerName}}, function(err, result)
+        {
+          assert.strictEqual(err, null)
+          assert.strictEqual(1, result.result.ok)
+          //console.log(result);
+        })
+      collection.updateOne({URL: url}, {$set:{URL: neueUrl}}, function(err, result)
+        {
+          assert.strictEqual(err, null)
+          assert.strictEqual(1, result.result.ok)
+          //console.log(result);
+        })
+
+      collection.updateOne({Beschreibung: beschreibung}, {$set:{Beschreibung: neueBeschreibung}}, function(err, result)
+        {
+          assert.strictEqual(err, null)
+          assert.strictEqual(1, result.result.ok)
+          //console.log(result);
+        })
+
+    })  
+  })
+
+  res.render('1_2_2_success', {title: 'Success'})
+
+})
+
+/**
  * POST Router für edit/edit
  * Ermöglicht das Bearbeiten der in der Datenbank gespeicherten Daten
  */
-router.post('/edit/edit', function(req, res, next) 
+router.post('/edit/edit/', function(req, res, next) 
 {
-    var data1 = req.body.id1; //Tour die geändert werden soll (ID muss noch in der pug hinzugefügt werden)
-    var data2 = req.body.id2; //Neue Tour (ID muss noch in der pug hinzugefügt werden)
+    //var data1 = req.body.id1; //Tour die geändert werden soll (ID muss noch in der pug hinzugefügt werden)
+    //var data2 = req.body.id2; //Neue Tour (ID muss noch in der pug hinzugefügt werden)
 
-    console.log(data1)
-    console.log(data2)
+    //let data = req.params.toEdit;
 
+    //console.log(data1)
+    //console.log(data2)
+
+    /** 
     client.connect(function(err, client) {
         assert.equal(null, err)
         console.log('Connected successfully to server')
@@ -153,9 +268,9 @@ router.post('/edit/edit', function(req, res, next)
             assert.equal(err, null)
             assert.equal(1, result.result.ok)
         })
-
+*/
         res.render('1_3_tour_edit')
-    })
+   // })
 })
 
 /**
@@ -170,22 +285,27 @@ router.get('/edit/edit/delete', function(req, res, next)
  * POST Router für tour/edit/edit/delete
  * Ermöglicht das Löschen einer Tour/Sehenswürdigkeit
  */
-router.post('/edit/edit/delete', function (req, res, next) {
+router.post('/edit/edit/delete/:toEdit', function (req, res, next) {
 
-    var data = req.body.ID; //Fehlt noch bzw. noch nicht definiert
+    //var data = req.body.ID; //Fehlt noch bzw. noch nicht definiert
+    let data = req.params.toEdit;
 
-    client.connect(function(err, client) {
+    client.connect(async function(err, client) {
         assert.equal(null, err)
         console.log('Connected successfully to server')
         const db = client.db("Stadttour")
         const collection = db.collection("neueTouren")
 
+        //Findet die eine ausgewählte Tour
+        let zuLoeschendeTour = await db.collection("neueTouren").findOne({"Name" : data});
+        console.log("zuLoeschendeTour: ", zuLoeschendeTour)
 
+      /** 
         collection.deleteOne({nummer: data}, function(err, results) {
                 assert.equal(err, null); 
         })
-
-        res.render('1_2_tour_details');
+        */
+        res.render('1_2_3_1_delete_completed');
     })
 })
 

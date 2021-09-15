@@ -7,7 +7,7 @@ block content
   //- FORM IN FLEX CONTAINER
   #raster
     .d-flex.justify-content-center
-      form#details(name='details' action='/tour/add/add/details/success')
+      form#details(name='details')
         .form-group
           label(for='name') Name
           input#name.form-control(type='text' placeholder='Name' value="name")
@@ -18,7 +18,8 @@ block content
           label(for='desciption') Beschreibung
           input#description.form-control(type='text' placeholder='Beschreibung' value="beschreibung")
         br
-        a.btn.btn-outline-success(style='background-color: black;' href='/tour/add/add/details/success/'+objectID) Absenden
+        a.btn.btn-outline-success(style='background-color: black;' href='/tour/edit/edit/succed/'+objectID) Absenden
   br
 
 //- onclick="document.getElementById('details').submit();"  method='PUT'
+//- action='/tour/add/add/details/success'

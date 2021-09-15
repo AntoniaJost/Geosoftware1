@@ -24,12 +24,12 @@ block content
             div(role='tabpanel')
               #myList.list-group(role='tablist')
                 each tour in touren 
-                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab')
+                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='getElement("'+ tour.features[0].properties.Name + '")')
                     list=tour.features[0].properties.Name
               br
             //- TOOL BUTTONS
             //- irgendwas mit Submit ergänzen, um selected zu verwenden
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='/tour/add/add/details' role='button') Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='/tour/edit/edit/'+toEdit role='button') Bearbeiten
             a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button') L&ouml;schen
         .col-sm
           #textfeld
@@ -38,14 +38,13 @@ block content
               #myList.list-group(role='tablist')
                 each tour in touren 
                   each element in tour.features
-                    a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' id='id1' onclick='test4()')
+                    a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='getElement("'+ element.properties.Name + '")')
                       list=element.properties.Name
   
               br
             //- TOOL BUTTONS
-            //- irgendwas mit Submit ergänzen, um selected zu verwenden
             a.btn.btn-outline-success(style='background-color:black; margin-right:10px' role='button' onclick='test()') Bearbeiten
-            a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button' id='data2') L&ouml;schen
+            a.btn.btn-outline-success(style='background-color:black;' role='button' action='/edit/edit/delete/'+toEdit method='POST' type='submit') L&ouml;schen
 
   //- JAVASCIPTS
   script(src='/javascripts/1_3_tour_edit.js', defer)

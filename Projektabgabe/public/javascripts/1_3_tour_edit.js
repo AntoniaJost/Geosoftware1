@@ -1,19 +1,10 @@
-function test() {
-  var test2 = document.getElementById("data1")
-  console.log(test2)
+let toEdit; 
+
+
+function getElement(arg) {
+  toEdit = arg; 
 }
 
-  function test3() {
-    var testtest = document.getElementById("id1")
-    testtest.addEventListener("click", function() {
-      console.log(testtest)
-    })
-}
-
-function test4() {
-  var test = document.getElementById("id1"); 
-  console.log(test)
-}
 
 
 /** 
