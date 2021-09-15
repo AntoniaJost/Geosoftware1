@@ -91,10 +91,11 @@ router.post('/add/add/details', function(req, res, next)
       console.log(result)
       console.log(`Inserted ${result.insertedCount} document into the databse`)
       console.log("result: ", JSON.stringify(result.insertedId))
-      objectID = JSON.stringify(result.insertedId); 
-      console.log("routenID: ", objectID)
+      objectID = JSON.stringify(result.insertedId)
+      var newObjectID = objectID.slice(1, -1) 
+      console.log("objectID: ", objectID)
 
-      res.render('1_2_tour_details')      
+      res.render('1_2_tour_details', {data: newObjectID})      
     })
   })
 })
@@ -112,17 +113,17 @@ router.get('/add/add/details', function(req, res, next)
 
 
 /**
- * GET Router für tour/add/add/details/success
+ * POST Router für tour/add/add/details/success/:objectID
+ * Fuegt der neu erstellten Tour einen Namen, eine URL und eine Beschreibung hinzu.
  */
-router.put('/add/add/details/success/:objectID', function(req, res, next)
+router.post('/add/add/details/success/:objectID', function(req, res, next)
 {
+  console.log(req.body)
+
   var neuerName = req.body.name; 
   var neueUrl = req.body.url; 
   var neueBeschreibung = req.body.beschreibung; 
 
-  var name = null; 
-  var url = null; 
-  var beschreibung = null; 
 
   client.connect(function (err, client) {
 
@@ -132,30 +133,21 @@ router.put('/add/add/details/success/:objectID', function(req, res, next)
     const collection = db.collection("neueTouren")
     var routeID = req.params.objectID; //routenID muss noch irgendwoher geholt werden
 
-    collection.find({"_id": new mongo.ObjectId(routeID)}).toArray(function(err, docs) 
-    {
-      collection.updateOne({Name: name}, {$set:{Name: neuerName}}, function(err, result)
+
+      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.Name": neuerName}}, function(err, result)
         {
-          assert.strictEqual(err, null)
-          assert.strictEqual(1, result.result.ok)
-          //console.log(result);
+          console.log("result: ", result);
         })
-      collection.updateOne({URL: url}, {$set:{URL: neueUrl}}, function(err, result)
+       
+      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.URL": neueUrl}}, function(err, result)
         {
-          assert.strictEqual(err, null)
-          assert.strictEqual(1, result.result.ok)
-          //console.log(result);
+          console.log(result);
         })
 
-      collection.updateOne({Beschreibung: beschreibung}, {$set:{Beschreibung: neueBeschreibung}}, function(err, result)
+      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.Beschreibung": neueBeschreibung}}, function(err, result)
         {
-          assert.strictEqual(err, null)
-          assert.strictEqual(1, result.result.ok)
-          //console.log(result);
-        })
-
-    })
-    
+          console.log(result);
+        })   
   })
 
 
@@ -201,9 +193,6 @@ router.put("/edit/edit/succed/:toEdit", function(req, res, next)
   var neueUrl = req.body.url; 
   var neueBeschreibung = req.body.beschreibung; 
 
-  var name = null; 
-  var url = null; 
-  var beschreibung = null; 
 
   client.connect(function (err, client) {
 
@@ -213,29 +202,21 @@ router.put("/edit/edit/succed/:toEdit", function(req, res, next)
     const collection = db.collection("neueTouren")
     var routeID = req.params.objectID; //routenID muss noch irgendwoher geholt werden
 
-    collection.find({"_id": new mongo.ObjectId(routeID)}).toArray(function(err, docs) 
-    {
-      collection.updateOne({Name: name}, {$set:{Name: neuerName}}, function(err, result)
+
+      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.Name": neuerName}}, function(err, result)
         {
-          assert.strictEqual(err, null)
-          assert.strictEqual(1, result.result.ok)
-          //console.log(result);
+          console.log("result: ", result);
         })
-      collection.updateOne({URL: url}, {$set:{URL: neueUrl}}, function(err, result)
+       
+      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.URL": neueUrl}}, function(err, result)
         {
-          assert.strictEqual(err, null)
-          assert.strictEqual(1, result.result.ok)
-          //console.log(result);
+          console.log(result);
         })
 
-      collection.updateOne({Beschreibung: beschreibung}, {$set:{Beschreibung: neueBeschreibung}}, function(err, result)
+      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.Beschreibung": neueBeschreibung}}, function(err, result)
         {
-          assert.strictEqual(err, null)
-          assert.strictEqual(1, result.result.ok)
-          //console.log(result);
-        })
-
-    })  
+          console.log(result);
+        })   
   })
 
   res.render('1_2_2_success', {title: 'Success'})
