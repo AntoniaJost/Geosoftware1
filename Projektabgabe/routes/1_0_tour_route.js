@@ -187,7 +187,7 @@ router.get("/edit/edit/:toEdit", function(req, res, next)
 }); 
 
 
-router.put("/edit/edit/succed/:toEdit", function(req, res, next) 
+router.post("/edit/edit/succed/:toEdit", function(req, res, next) 
 {
   var neuerName = req.body.name; 
   var neueUrl = req.body.url; 
@@ -200,20 +200,20 @@ router.put("/edit/edit/succed/:toEdit", function(req, res, next)
     console.log('Connected successfully to server')
     const db = client.db("Stadttour")
     const collection = db.collection("neueTouren")
-    var routeID = req.params.objectID; //routenID muss noch irgendwoher geholt werden
+    var name = req.params.toEdit; //routenID muss noch irgendwoher geholt werden
 
 
-      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.Name": neuerName}}, function(err, result)
+      collection.updateOne({"features[].properties.Name": name}, {"$set":{"features.$[].properties.Name": neuerName}}, function(err, result)
         {
           console.log("result: ", result);
         })
        
-      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.URL": neueUrl}}, function(err, result)
+      collection.updateOne({"features[].properties.Name": name}, {"$set":{"features.$[].properties.URL": neueUrl}}, function(err, result)
         {
           console.log(result);
         })
 
-      collection.updateOne({"_id": new mongo.ObjectId(routeID)}, {"$set":{"features.$[].properties.Beschreibung": neueBeschreibung}}, function(err, result)
+      collection.updateOne({"features[].properties.Name": name}, {"$set":{"features.$[].properties.Beschreibung": neueBeschreibung}}, function(err, result)
         {
           console.log(result);
         })   
