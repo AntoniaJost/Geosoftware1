@@ -181,6 +181,7 @@ router.get('/edit/edit', async function(req, res, next)
  */
 router.get("/edit/edit/:toEdit", function(req, res, next)
 {
+
   var data = req.params
   console.log(data)
     res.render('1_3_1_edit_details')
@@ -189,9 +190,11 @@ router.get("/edit/edit/:toEdit", function(req, res, next)
 
 router.post("/edit/edit/succed/:toEdit", function(req, res, next) 
 {
+
   var neuerName = req.body.name; 
   var neueUrl = req.body.url; 
   var neueBeschreibung = req.body.beschreibung; 
+
 
 
   client.connect(function (err, client) {
