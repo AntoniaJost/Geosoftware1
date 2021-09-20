@@ -35,16 +35,13 @@ block content
           option(value='0') Sehensw&uuml;rdigkeit zu Tour erg&auml;nzen
           option(value='1') Neue Tour erstellen
         //- UPLOAD FORM
-        form#input-form(name='input-form' action='/tour/add/add/details/success')
+        form#input-form(name='input-form' action='/tour/add/add/success/formular' method="post")
           .mb-3
             label.form-label(for='name') Name
-            input#input1.form-control(type='text' name='name' class='input-box')
-          .mb-3
-            label.form-label(for='geojson') Geojson
-            input#input2.form-control(type='text' name='geojson' class='input-box' disabled='')
+            input#input1.form-control(type='text' name='name' class='input-box')          
           .mb-3
             label.form-label(for='coordinates') Koordinaten
-            input#input3.form-control(type='text' name='coordinates' class='input-box' disabled='')
+            input#input3.form-control(type='text' name='coordinates' class='input-box')
           .mb-3
             label.form-label(for='url') URL*
             input#input3.form-control(type='text' name='url' class='input-box' placeholder='Wikipedia URL einfügen')
@@ -55,7 +52,7 @@ block content
           .mb-3.form-check
             input#exampleCheck1.form-check-input(type='checkbox')
             label.form-check-label(for='checkbox') Alles richtig eingegeben?
-          a.btn.btn-outline-success(style='background-color: black;' onclick="document.getElementById('input-form').submit();") Absenden
+          a.btn.btn-outline-success(style='background-color: black;' type='submit' form='input-form' onclick="document.getElementById('input-form').submit()") Absenden
           
     .col-sm
       //- TEXTAREA ADD VIA GEOJSON
@@ -65,7 +62,7 @@ block content
           | Hier kannst du deine neue Route ins Textfeld eingeben oder per Upload hochladen. Es wird
           | eine neue Tour erstellt.
         //- UPLOAD BUTTON & INPUT FIELD
-        form#inputGeojson(action='/tour/add/add/details' method='post')
+        form#inputGeojson(action='/tour/add/add/details' method='get')
           .form-group
             input#upload-button.form-control-file(type='file')
           br
@@ -83,3 +80,7 @@ block content
       script(src=' /javascripts/1_1_tour_add.js', defer='')
       script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', defer='')
 
+//- 
+          .mb-3
+            label.form-label(for='geojson') Geojson
+            input#input2.form-control(type='text' name='geojson' class='input-box' disabled='')

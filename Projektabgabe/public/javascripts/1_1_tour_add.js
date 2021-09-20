@@ -92,13 +92,13 @@ $(document).ready(function(){
       }
     });
   });
-
+/** 
 $(document).ready(function(){
-    $("select[name='choose']").on('change',function(){
+    $("select[name='choose']"
+        $("input[name='coordinates']").prop("disabled",false);).on('change',function(){
       if($(this).val()==0){
-        $("input[name='coordinates']").prop("disabled",false);
       }else{
         $("input[name='coordinates']").prop("disabled",true);
       }
     });
-  });
+  });*/

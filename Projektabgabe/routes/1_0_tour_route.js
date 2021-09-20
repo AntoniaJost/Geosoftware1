@@ -111,6 +111,101 @@ router.get('/add/add/details', function(req, res, next)
     res.render("1_2_tour_details");
 }); 
 
+/**
+ * Router für das Hinzufügen von Objekten über das Formular 
+ */
+router.post('/add/add/success/formular', function(req, res, next)
+{
+  //res.send("TEST")
+  console.log("Test!!!")
+
+  var name = req.body.name; 
+  //var geojson = req.body.geojson; 
+  //var coordinates = req.body.coordinates; 
+  var url = req.body.url; 
+  var beschreibung = req.body.description; 
+  var coordinates2 = 
+  [
+    [
+      7.614351511001586,
+      51.96711218674612
+    ],
+    [
+      7.6143890619277945,
+      51.967251000369984
+    ],
+    [
+      7.615075707435608,
+      51.96729727148237
+    ],
+    [
+      7.6153600215911865,
+      51.96712871220007
+    ],
+    [
+      7.615118622779846,
+      51.966930406350436
+    ],
+    [
+      7.615376114845275,
+      51.96710557656284
+    ],
+    [
+      7.617065906524659,
+      51.9663619247184
+    ]]
+  
+  var coordinates = [req.body.coordinates] //Auriol fragen, wie die Koordinaten als Objekt dargestellt werden
+  console.log("coordinates: ", coordinates)
+  //JSON.parse(coordinates)
+  
+  //console.log("Geparste Koordinaten: ", JSON.stringify(coordinates))
+  
+  console.log("Koordinaten: ", coordinates)
+
+  let geoJson = 
+    {
+      "type": "FeatureCollection", 
+      "features": [
+        {
+          "type": "Feature", 
+          "properties": {
+            "Name": name, 
+            "URL": url, 
+            "Beschreibung": beschreibung
+          }, 
+          "geometry" : {
+            "type": "Polygon", 
+            "coordinates": coordinates
+          }
+        }
+      ]
+    }
+
+  //JSON.parse(geoJson)
+
+  console.log("Geojson: ", geoJson.features[0].properties)
+  console.log("ganzes GeoJSON: ", geoJson)
+
+  
+  client.connect(function (err, client) {
+
+    assert.equal(null, err)
+    console.log('Connected successfully to server')
+    const db = client.db("Stadttour")
+    const collection = db.collection("neueTouren")
+    
+    collection.insertOne(geoJson, function(err, result)
+    {
+      console.log("Result: ",result);
+      assert.equal(err, null)
+    })
+
+  })
+
+  res.render("1_2_2_success"); 
+})
+
 
 /**
  * POST Router für tour/add/add/details/success/:objectID
