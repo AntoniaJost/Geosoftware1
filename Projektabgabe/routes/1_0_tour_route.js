@@ -113,6 +113,7 @@ router.get('/add/add/details', function(req, res, next)
 
 /**
  * Router für das Hinzufügen von Objekten über das Formular 
+ * Problem: Koordinaten werden nicht als Objekt sondern String erkannt.
  */
 router.post('/add/add/success/formular', function(req, res, next)
 {
@@ -158,12 +159,12 @@ router.post('/add/add/success/formular', function(req, res, next)
   var coordinates = req.body.coordinates //Auriol fragen, wie die Koordinaten als Objekt dargestellt werden
   var a = JSON.stringify(coordinates)
   console.log("coordinates: ", typeof a)
-  var b = JSON.parse("["+a+"]"); 
+  var coordinatesParsed = JSON.parse("["+a+"]"); 
   //JSON.parse(coordinates)
   
   console.log("Geparste Koordinaten: ", JSON.stringify(coordinates))
   
-  console.log("Koordinaten var b: ", b)
+  console.log("Koordinaten var b: ", coordinatesParsed)
 
   let geoJson = 
     {
@@ -178,7 +179,7 @@ router.post('/add/add/success/formular', function(req, res, next)
           }, 
           "geometry" : {
             "type": "Polygon", 
-            "coordinates": b
+            "coordinates": coordinatesParsed
           }
         }
       ]
