@@ -155,13 +155,15 @@ router.post('/add/add/success/formular', function(req, res, next)
       51.9663619247184
     ]]
   
-  var coordinates = [req.body.coordinates] //Auriol fragen, wie die Koordinaten als Objekt dargestellt werden
-  console.log("coordinates: ", coordinates)
+  var coordinates = req.body.coordinates //Auriol fragen, wie die Koordinaten als Objekt dargestellt werden
+  var a = JSON.stringify(coordinates)
+  console.log("coordinates: ", typeof a)
+  var b = JSON.parse("["+a+"]"); 
   //JSON.parse(coordinates)
   
-  //console.log("Geparste Koordinaten: ", JSON.stringify(coordinates))
+  console.log("Geparste Koordinaten: ", JSON.stringify(coordinates))
   
-  console.log("Koordinaten: ", coordinates)
+  console.log("Koordinaten var b: ", b)
 
   let geoJson = 
     {
@@ -176,7 +178,7 @@ router.post('/add/add/success/formular', function(req, res, next)
           }, 
           "geometry" : {
             "type": "Polygon", 
-            "coordinates": coordinates
+            "coordinates": b
           }
         }
       ]
@@ -271,92 +273,65 @@ router.get('/edit/edit', async function(req, res, next)
 }); 
 
 /**
- * Get Router für das ausgewählte Element zu bearbeiten
+ * Get Router um das ausgewählte Element zu bearbeiten
  * Ermöglicht die Detaeilansicht zur Bearbeitung des in der Datenbank gespeicherten Elements
  */
-router.get("/edit/edit/:toEdit", function(req, res, next)
+router.post("/edit/edit/", function(req, res, next)
 {
-
-  var data = req.params
-  console.log(data)
-    res.render('1_3_1_edit_details')
+  console.log("Test ausgeführt!")
+  var data = req.body.valueToEdit; 
+  console.log(req.body.valueToEdit)
+  console.log("data: " , data)
+  res.render('1_3_1_edit_details', {inputData: data})
 }); 
 
 
-router.post("/edit/edit/succed/:toEdit", function(req, res, next) 
+/**
+ * POST Router um das ausgewählte Element in der Datenbank zu updaten
+ */
+router.post("/edit/edit/succed/:inputData", function(req, res, next) 
 {
+  console.log("inpuData Router")
 
   var neuerName = req.body.name; 
   var neueUrl = req.body.url; 
   var neueBeschreibung = req.body.beschreibung; 
+  var data = req.params.inputData; 
+  console.log("data: ", data)
 
 
-
-  client.connect(function (err, client) {
+  client.connect(async function (err, client) {
 
     assert.equal(null, err)
     console.log('Connected successfully to server')
     const db = client.db("Stadttour")
     const collection = db.collection("neueTouren")
-    var name = req.params.toEdit; //routenID muss noch irgendwoher geholt werden
 
-
-      collection.updateOne({"features[].properties.Name": name}, {"$set":{"features.$[].properties.Name": neuerName}}, function(err, result)
+      collection.updateOne({"features[].properties.Name": data}, {"$set":{"features.$[].properties.Name": neuerName}}, function(err, result)
         {
           console.log("result: ", result);
         })
        
-      collection.updateOne({"features[].properties.Name": name}, {"$set":{"features.$[].properties.URL": neueUrl}}, function(err, result)
+      collection.updateOne({"features[].properties.Name": data}, {"$set":{"features.$[].properties.URL": neueUrl}}, function(err, result)
         {
           console.log(result);
         })
 
-      collection.updateOne({"features[].properties.Name": name}, {"$set":{"features.$[].properties.Beschreibung": neueBeschreibung}}, function(err, result)
+      collection.updateOne({"features[].properties.Name": data}, {"$set":{"features.$[].properties.Beschreibung": neueBeschreibung}}, function(err, result)
         {
           console.log(result);
         })   
   })
 
   res.render('1_2_2_success', {title: 'Success'})
-
-})
-
-/**
- * POST Router für edit/edit
- * Ermöglicht das Bearbeiten der in der Datenbank gespeicherten Daten
- */
-router.post('/edit/edit/', function(req, res, next) 
-{
-    //var data1 = req.body.id1; //Tour die geändert werden soll (ID muss noch in der pug hinzugefügt werden)
-    //var data2 = req.body.id2; //Neue Tour (ID muss noch in der pug hinzugefügt werden)
-
-    //let data = req.params.toEdit;
-
-    //console.log(data1)
-    //console.log(data2)
-
-    /** 
-    client.connect(function(err, client) {
-        assert.equal(null, err)
-        console.log('Connected successfully to server')
-        const db = client.db("Stadttour")
-        const collection = db.collection("neueTouren")
-
-        //Ob wir nun nummer,name oder sonst was wählen, müssen wir noch beim Hinzufügen in die DB entscheiden
-        collection.updateOne({nummer: data1}, {$set:{nummer: data2}}, function(err, result) {
-            assert.equal(err, null)
-            assert.equal(1, result.result.ok)
-        })
-*/
-        res.render('1_3_tour_edit')
-   // })
 })
 
 /**
  * GET Router für tour/edit/edit/delete
  */
-router.get('/edit/edit/delete', function(req, res, next)
+router.post('/edit/edit/delete', function(req, res, next)
 {
+  console.log("Test: ", req.body)
     res.render('1_2_3_delete', {title: 'Delete'})
 }); 
 

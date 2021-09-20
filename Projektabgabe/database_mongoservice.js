@@ -2329,7 +2329,7 @@ client.connect(function(err)
       }
     ]
 
-//AB HIER LÖSCHEN?! --> zum einfügen der Daten muss const insertDocuments auskommentiert werden 
+// Zum Einfügen der Daten muss const insertDocuments auskommentiert und einmal ausgeführt werden  
 /**
 const insertDocuments = function(db, collection, data, callback) 
 {

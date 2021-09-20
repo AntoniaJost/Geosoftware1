@@ -7,18 +7,18 @@ block content
   //- FORM IN FLEX CONTAINER
   #raster
     .d-flex.justify-content-center
-      form#details(name='details')
+      form#details(name='details'  action='/tour/edit/edit/succed/'+inputData method='post')
         .form-group
           label(for='name') Name
-          input#name.form-control(type='text' placeholder='Name' value="name")
+          input#name.form-control(type='text' placeholder='Name' name="name")
         .form-group
           label(for='url') URL
-          input#url.form-control(type='url' placeholder='URL' value="url")
+          input#url.form-control(type='url' placeholder='URL' name="url")
         .form-group
           label(for='desciption') Beschreibung
-          input#description.form-control(type='text' placeholder='Beschreibung' value="beschreibung")
+          input#description.form-control(type='text' placeholder='Beschreibung' name="beschreibung")
         br
-        a.btn.btn-outline-success(style='background-color: black;' href='/tour/edit/edit/succed/'+objectID) Absenden
+        a.btn.btn-outline-success(style='background-color: black;' type='submit' form='edit-details' onclick="document.getElementById('details').submit()") Absenden
   br
 
 //- onclick="document.getElementById('details').submit();"  method='PUT'

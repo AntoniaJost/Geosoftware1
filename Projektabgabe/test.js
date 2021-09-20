@@ -7,6 +7,8 @@ describe ("Route testing", () => {
     let urlTouren = `http://localhost:${port}/tour`
     let urlHome = `http://localhost:${port}/home`
     let editTouren = `http://localhost:${port}/tour/edit/edit`
+    let contactUs = `http:localhost:${port}/contact`
+    let addTour = `http://localhost:${port}/tour/add/add`
 
     test("/tour route: returns status 200", async () => 
     {
@@ -72,6 +74,17 @@ describe ("Route testing", () => {
 
     test("/edit/edit route: return status 200", async () => {
         const response = await got(editTouren)
+        expect(response.statusCode).toBe(200)
+    })
+
+    test("/contact route: check content type", async () => {
+        const response = await got(contactUs)
+        expect(response.headers['content-type']).toBe("text/html; charset=utf-8")
+    }) 
+
+    test("/tour/add/add route: returns status 200", async () => 
+    {
+        const response = await got(addTour)
         expect(response.statusCode).toBe(200)
     })
 })

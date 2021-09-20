@@ -1,13 +1,25 @@
 
-let toEdit; 
+var toEdit = "test"; 
 
-
+/** 
 function getElement(arg) {
   toEdit = arg; 
   console.log(arg)
+  console.log("toEdit: ", toEdit)
+}*/
+
+/**
+ * Funktion zum Weiterleiten des click-Events vom Client zum Server
+ * @param {string} argument 
+ */
+function testFunction(argument) {     
+  document.getElementById('edittest').value = argument 
 }
 
 
+
+
+console.log("toEdit: ", toEdit)
 
 
 

@@ -14,7 +14,7 @@ block content
       |  Dann hilf uns gerne weiter, das Angebot so aktuell wie m&ouml;glich zu halten.
   //- TOUR & SIGHT DISPLAY (LIST)
   .container
-    form#edit(name='edit' action='edit.js' method='POST')
+    form#edit(name='edit' action='/tour/edit/edit/' method='POST')
       .row
         .col-sm
           #textfeld
@@ -24,13 +24,14 @@ block content
             div(role='tabpanel')
               #myList.list-group(role='tablist')
                 each tour in touren 
-                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='getElement("'+ tour.features[0].properties.Name + '")')
+                  a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='testFunction("'+ tour.features[0].properties.Name + '")' )
                     list=tour.features[0].properties.Name
               br
+              input(id='edittest' type='hidden' name='valueToEdit' value='test')
             //- TOOL BUTTONS
             //- irgendwas mit Submit ergänzen, um selected zu verwenden
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' href='/tour/edit/edit/'+toEdit role='button') Bearbeiten
-            a.btn.btn-outline-success(style='background-color:black;' href='/tour/edit/edit/delete' role='button') L&ouml;schen
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' id="bearbeitung" value="bearbeitung" type='submit' form='edit' onclick="document.getElementById('edit').submit()") Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' type="submit" form ="edit" formaction="/tour/edit/edit/delete" onclick = "document.getElementById('edit')" action="/tour/edit/edit/delete") L&ouml;schen
         .col-sm
           #textfeld
             h5.text-left Sehenswürdigkeiten
@@ -38,13 +39,14 @@ block content
               #myList.list-group(role='tablist')
                 each tour in touren 
                   each element in tour.features
-                    a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='getElement("'+ element.properties.Name + '")')
+                    a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='testFunction("'+ element.properties.Name + '")')
                       list=element.properties.Name
   
               br
             //- TOOL BUTTONS
-            a.btn.btn-outline-success(style='background-color:black; margin-right:10px' role='button' onclick='test()') Bearbeiten
-            a.btn.btn-outline-success(style='background-color:black;' role='button' action='/edit/edit/delete/'+toEdit method='POST' type='submit') L&ouml;schen
+            a.btn.btn-outline-success(style='background-color:black; margin-right:10px'  type='submit' form='edit' onclick="document.getElementById('edit').submit()") Bearbeiten
+            a.btn.btn-outline-success(style='background-color:black;' type="submit" form ="edit" formaction="/tour/edit/edit/delete" onclick = "document.getElementById('edit')" action="/tour/edit/edit/delete") L&ouml;schen
 
-  //- JAVASCIPTS
-  script(type='module', src='/javascripts/1_3_tour_edit.js', defer)
+  //- JAVASCRIPTS
+//-                   a.list-group-item.list-group-item-action(data-bs-toggle='list' href='#home' role='tab' onclick='getElement("'+ tour.features[0].properties.Name + '")')
+//- href= `/tour/edit/edit/${toEdit}` role='button'
